@@ -106,190 +106,138 @@
 #Part Two: Experience API Data
 
 <a name="documents" />
-## <a name="1.0">1.0</a> Documents
+## <a name="1.0">1.0</a> Documents 文本
 
-The Experience API provides a facility for Learning Record Providers to save arbitrary data in the form of documents.  This data 
-is largely unstructured, which allows for flexibility.  Specifics on document behaviors can be found in [Part 3](./xAPI-Communication.md#doctransfer) 
+xAPI为LRP学习记录提供者提供了能够以文档的形式储存任意数据的功能，这些数据在很大程度上是非结构化的，具有灵活性。关于这方面的细节可以在第三部分中找到。 [Part 3](./xAPI-Communication.md#doctransfer) 
 
 <a name="statements" /> 
 
-## <a name="2.0">2.0</a> Statements  
+## <a name="2.0">2.0</a> Statements  语句
 
 <a name="statement-purpose"/> 
-### <a name="2.1">2.1</a> Purpose
+### <a name="2.1">2.1</a> Purpose 意图
 
-Statements are the evidence for any sort of experience or event which is to be tracked in xAPI. 
-While Statements follow a machine readable JSON format, they can also easily be described
-using natural language. This can be extremely useful for the design process. Statements are 
-meant to be aggregated and analyzed to provide larger meaning for the overall experience than 
-just the sum of its parts.
+语句是被xapi追踪的任何学习活动的证明， 语句不仅能被容易的用自然语言来描述，也能按照JSON 来被计算机识别，这在设计过程中是十分有用的。语句是被用来做分析和整合的，而这在整个xapi中都是很关键的。
 
 <a name="dataconstraints"/>
-### <a name="2.2">2.2</a> Formatting Requirements
+### <a name="2.2">2.2</a> Formatting Requirements 语法要求
 
 ###### <a name="2.2.s1"></a>Details
 
-All of the properties used in Statements are restricted to certain data types. For clarity, key requirements are 
-documented here, emphasizing where xAPI components have a responsibility to act in certain ways to be considered 
-conformant to this specification.
+语句中使用的所有属性限于某些数据类型。 为了清楚起见，这里记录了关键要求，强调xAPI组件以规范的方式采取行动。
 
-###### <a name="2.2.s2"></a>Requirements
+###### <a name="2.2.s2"></a>Requirements 要求
 
-* <a name="2.2.s2.b1"></a>Statements and other objects SHOULD NOT include properties with a value of an empty object. 
-* <a name="2.2.s2.b2"></a>A Statement MUST use each property no more than one time.
-* <a name="2.2.s2.b3"></a>A Statement MUST use "actor", "verb", and "object".
-* <a name="2.2.s2.b4"></a>A Statement MAY use its properties in any order.
-* <a name="2.2.s2.b5"></a>The LRS MUST NOT return a different serialization of any properties except those 
-[listed as exceptions](#statement-immutability-and-exceptions).
+* <a name="2.2.s2.b1"></a>语句和其他对象 不可SHOULD NOT 包括一个空值或者空对象
+* <a name="2.2.s2.b2"></a>一条语句 对于一个属性的使用 必须MUST 不能超过一次
+* <a name="2.2.s2.b3"></a>一条语句 必须MUST 使用主 谓 宾
+* <a name="2.2.s2.b4"></a>一条语句 可能 MAY 以任何顺序使用他的多个属性
+* <a name="2.2.s2.b5"></a>除了被列出来的这些的属性[listed as exceptions](#statement-immutability-and-exceptions) LRS 学习记录存储库  MUST NOT不能返回不同的属性序列 
 
-###### <a name="2.2.s3"></a>Learning Record Provider Requirements
 
-The following requirements reiterate especially important requirements already included elsewhere, to emphasize,
-clarify, and provide implementation guidance.  Some types of validation, such as complete IRI validation and validation 
-that properties appear only once, are extremely difficult, so much of the burden 
-for ensuring data portability is on the Learning Record Provider.
+###### <a name="2.2.s3"></a>Learning Record Provider Requirements 对学习记录提供者的要求
 
-* <a name="2.2.s3.b1"></a>Values requiring IRIs MUST be sent with valid IRIs. 
-* <a name="2.2.s3.b2"></a>Keys of language maps MUST be sent with valid [RFC 5646](http://tools.ietf.org/html/rfc5646) 
-language tags, for similar reasons.
-* <a name="2.2.s3.b3"></a>A library SHOULD be used to construct IRIs, as opposed to string concatenation. 
-* <a name="2.2.s3.b4"></a>Values SHOULD be considered to be case sensitive unless specified otherwise. 
-* <a name="2.2.s3.b5"></a>Lowercase SHOULD be used to send case insensitive data.
-* <a name="2.2.s3.b6"></a>Additional properties SHOULD* NOT be added to Statements unless explicitly allowed by this specification. 
-* <a name="2.2.s3.b7"></a>A property SHOULD not occur multiple times in an object. If properties are used multiple times 
-within an object, the behavior of the LRS is undefined; it is expected that most LRSs will use existing JSON parsing 
-functionality of whichever code languages they use. 
+为了强调和明确，以及提供一个开发指导，下面的要求特别限制了已经在其他地方包含了的重要要求。一些类型的验证，例如IRI的验证和对属性只能使用一次的验证，是非常不一样的。所以许多确保数据可移植性的负担在学习记录提供者（Learning Record Provider）上。
 
-__Note:__ The LRS is recommended to reject Statements containing additional properties. Additional properties in 
-Statements would mean that the Statement would not be interoperable with all LRSs. 
+* <a name="2.2.s3.b1"></a>IRI需要的变量必须与有效IRI一起发送
+* <a name="2.2.s3.b2"></a>由于类似的原因，语言映射的键必须与有效的 [RFC 5646](http://tools.ietf.org/html/rfc5646)语言标签一起发送。 
+* <a name="2.2.s3.b3"></a>构造IRIs  SHOULD 使用库，而不是字符串连接 
+* <a name="2.2.s3.b4"></a>变量SHOULD区分大小写除非特别申明
+* <a name="2.2.s3.b5"></a>使用小写来发送不区分大小写的变量
+* <a name="2.2.s3.b6"></a>除非本规范明确允许，否则SHOULD NOT将其他属性添加到语句中。 
+* <a name="2.2.s3.b7"></a>属性不应在对象中多次出现。 如果属性在对象中多次使用，则LRS的行为是未定义的; 预期大多数LRS将使用他们现有的任何代码语言来完成解析JSON的功能。
 
-###### <a name="2.2.s4"></a>LRS Requirements
+__Note:__ 建议LRS 拒绝包含额外属性的语句，因为包含额外属性的语句可能不是LRS发送的
 
-* <a name="2.2.s4.b1"></a>The LRS MUST reject Statements
-    * <a name="2.2.s4.b1.b1"></a>with any null values (except inside extensions).
-    * <a name="2.2.s4.b1.b2"></a><a name="2.2.s4.b1.b3"></a>where the wrong data type is used, for example: 
-        * with strings where numbers are required, even if those strings contain numbers, or 
-        * with strings where booleans are required, even if those strings contain booleans.
-    * <a name="2.2.s4.b1.b4"></a>with any non-format-following key or value, including the empty string, where a
-      string with a particular format (such as mailto IRI, UUID, or IRI) is required.
-    * <a name="2.2.s4.b1.b5"></a>where the case of a key does not match the case specified in this specification.
-    * <a name="2.2.s4.b1.b6"></a>where the case of a value restricted to enumerated values does not match
-      an enumerated value given in this specification exactly.
-    * <a name="2.2.s4.b1.b7"></a>where a key or value is not allowed by this specification.
-    * <a name="2.2.s4.b1.b8"></a>containing IRL or IRI values without a scheme.
-* <a name="2.2.s4.b2"></a>The LRS MUST at least validate that the sequence of token lengths for language map keys
-matches the [RFC 5646](http://tools.ietf.org/html/rfc5646) standard.
-* <a name="2.2.s4.b3"></a>The LRS MUST process and store numbers with at least the precision of IEEE 754 32-bit
-floating point numbers.
-* <a name="2.2.s4.b4"></a>The LRS MUST validate parameter values to the same standards required for values of the
-same types in Statements. __Note:__ string parameter values are not quoted as they are in JSON.
-* <a name="2.2.s4.b5"></a>The LRS SHOULD treat all values as case sensitive unless specified otherwise.
-* <a name="2.2.s4.b6"></a>The LRS MAY use best-effort validation for IRL and IRI formats to satisfy the
-non-format-following rejection requirement.
-* <a name="2.2.s4.b7"></a>The LRS MAY use best-effort validation for language map keys to satisfy the
-non-format-following rejection requirement.
-* <a name="2.2.s4.b8"></a>Additional properties SHOULD* NOT be added to Statements and other objects unless explicitly 
-allowed by this specification and the LRS SHOULD* reject Statements containing such additional properties.
+###### <a name="2.2.s4"></a>LRS Requirements 对LRS的要求
+
+* <a name="2.2.s4.b1"></a>LRS 必须拒绝的语句
+    * <a name="2.2.s4.b1.b1"></a>有任何空值的语句（在扩展里的除外）
+    * <a name="2.2.s4.b1.b2"></a><a name="2.2.s4.b1.b3"></a>有着错误的数据类型，例如: 
+        * 在数据类型为number的地方使用了string，尽管这个string是一个“number”或者
+        * 在数据类型为booleans的地方使用了string，尽管这个string是一个“booleans”（string的2,string的true）
+    * <a name="2.2.s4.b1.b4"></a>在需要特定格式的地方有任何没有依照格式的值，包括空string，有着特别格式的string（例如 mail-toIRI，UUID，或者IRI）
+    * <a name="2.2.s4.b1.b5"></a>其中键的情况与本说明书中指定的情况不匹配。
+    * <a name="2.2.s4.b1.b6"></a>其中限制枚举值的值的情况与本说明中给出的枚举值不匹配。
+    * <a name="2.2.s4.b1.b7"></a>其中的键或者值在本说明中不被允许的。
+    * <a name="2.2.s4.b1.b8"></a>包含了没有架构的IRL或者IRI。
+* <a name="2.2.s4.b2"></a>LRS必须MUST至少验证语言映射密钥的令牌长度序列与[RFC 5646](http://tools.ietf.org/html/rfc5646)标准匹配.
+* <a name="2.2.s4.b3"></a>LRS务必MUST处理和存储至少具有IEEE 754 32位浮点数精度的数字。
+* <a name="2.2.s4.b4"></a>对于在语句中相同类型的值，LRS必须MUST按照相同的标准验证. __Note:__ 字符串参数值不像JSON中那样引用。
+* <a name="2.2.s4.b5"></a>LRS 应该SHOULD对所有的值区分大小写，除非特别申明。
+* <a name="2.2.s4.b6"></a>LRS 可MAY对IRL和IRI使用尽可能详细的验证，以满足不会被拒绝的要求。
+* <a name="2.2.s4.b7"></a>LRS 可MAY对语言映射密匙使用尽可能详细的验证，以满足不会被拒绝的要求。
+* <a name="2.2.s4.b8"></a>扩展的属性不应该SHOULD* NOT被添加到语句和其他对象中，除非本规范明确允许，并且LRS 应该SHOULD*拒绝包含这些附加属性的语句。
 
 <a name="lifecycle" />
 
-### <a name="2.3">2.3</a> Statement Lifecycle
+### <a name="2.3">2.3</a> Statement Lifecycle 语句的生态
 
-Statements are information about a tracked learning experience. Typically, the information represented in the 
-Statement has already happened. Thus, the natural language used in "display" or in the human-readable portion of 
-the Verb id will usually use the past tense.
+语句是包含了跟踪学习活动的信息。通常这些语句中表示的信息已经发生，因此，在“display”或在“Verb ID”中人类可读部分中使用的自然语言使用过去时态。
 
-Statements are expected to be permanent. The only way to undo a Statement within this specification is to 
-[void it](#voided). Voiding does not destroy a Statement, rather indicates the evidence in the Statement is to be disregarded.
+语句被期望是永久性的，在本规范中撤销一个语句Statement的唯一方法是将他[无效化 void](#voided)，不是销毁该语句，而是表示这个语句被忽略。
+
 
 <a name="statement-immutability-and-exceptions" />
 
-#### <a name="2.3.1">2.3.1</a> Statement Immutability
+#### <a name="2.3.1">2.3.1</a> Statement Immutability 语句不变性
 
-Statements are immutable (they cannot be changed). The following are exceptions or areas not covered by this rule:
+语句是不能改变的，下面的说明是超出这条规则的情况:
 
-* <a name="2.3.1.b1"></a>Potential or required assignments of properties during LRS processing 
-("id", "authority", "stored", "timestamp", "version"). 
+* <a name="2.3.1.b1"></a>在LRS处理过程中，表示潜在和必须任务的属性（"id", "authority", "stored", "timestamp", "version"）。
 
-* <a name="2.3.1.b2"></a>Activity Definitions referenced by a Statement. The content of Activity Definitions that are 
-referenced in Statements is not considered part of the Statement itself. This means a deep serialization of a Statement 
-into JSON will change if the referenced Activity Definition changes (see the [Statement Resource's](./xAPI-Communication.md#stmtres) "format" 
-parameter for details).  
+* <a name="2.3.1.b2"></a>语句中引用的活动Activity定义，语句中引用的活动Activity定义的内容不被视为语句本身的一部分，这就意味着如果被引用的活动Activity定义的更改，则语句到JSON的深度序列化将改变。（详见 语句资源的“format”参数[Statement Resource's](./xAPI-Communication.md#stmtres)） 
 
-* <a name="2.3.1.b3"></a>Verbs referenced by a Statement. The "display" property of the Verb is not considered 
-part of the Statement itself (see the [Statement Resource's](./xAPI-Communication.md#stmtres) "format" parameter for details). 
+* <a name="2.3.1.b3"></a>语句中引用的Verbs，Verb的“display”属性不被视为语句本身的一部分（详见 语句资源的“format”参数 [Statement Resource's](./xAPI-Communication.md#stmtres)）
 
-* <a name="2.3.1.b4"></a>Serialization of Timestamp data. This is not considered part of the immutable Statement itself. 
-For example, the "timestamp" and "stored" properties of a Statement can be returned in a different timezone to the one with 
-which they were stored so long as the point in time referenced is not affected. 
-See [2.4.7 Timestamp](#timestamp) and [2.4.8 Stored](#stored) for details. 
+* <a name="2.3.1.b4"></a>时间戳的序列化数据，这个本身就不被视为语句不变性的一部分。例如，只要参考的时间点本身不受影响，“timestamp”，和“stored”属性可以返回到存储它们的不同的时区的时间。
+详见 [2.4.7 Timestamp](#timestamp) 和[2.4.8 Stored](#stored)。
 
-* <a name="2.3.1.b5"></a>Serialization of un-ordered lists. The list of Agents in a Group is not considered to be an ordered 
-list.  Thus, the LRS can return this list of Agents in any order. See [Groups](#group).
 
-* <a name="2.3.1.b6"></a>Attachments. These are not part of Statements and an LRS will return Statements without 
-Attachments when a Client requests them (see the [Statement Resource's](./xAPI-Communication.md#stmtres) "attachments" parameter for details).
+* <a name="2.3.1.b5"></a>无序列表的序列化数据，组Group中的代理Agents列表不被认为是有序列表。因此，LRS可以以任何顺序返回该代理列表，详见 [Groups](#group)。
 
-* <a name="2.3.1.b7"></a>Case sensitivity. Some properties are case insensitive and changes in case therefore do not affect 
-immutability. For example, the domain portion an e-mail address is case insensitive. It is recommended to use lowercase 
-for any case insensitive text. 
+* <a name="2.3.1.b6"></a>附件，附件不是语句的一部分，当客户端请求它们时，LRS将返回没有附件的语句。
+（详见 语句资源的“attachments”参数 [Statement Resource's](./xAPI-Communication.md#stmtres)）
 
-The following explicitly are **not** exceptions and **are** covered by this rule:
+* <a name="2.3.1.b7"></a>大小写区分，一些不区分大小写属性的大小写改变将不被视为影响不变性。例如，域名部分的电子邮件地址就不区分大小写。对于任何不区分大小写的文本，建议使用小写。
 
-* <a name="2.3.1.b8"></a>Result Duration. Due to variable lengths of months, years and even minutes and the flexible nature of the 
-"timestamp" property as representing either the start, middle or end of the experience, it is not possible for 
-an LRS to accurately deserialize the Result Duration and convert between units of time. For this reason, the 
-Result Duration is considered a string for purposes of Statement comparison. 
+以下明确地不为例外，包含于该规则内。:
+
+* <a name="2.3.1.b8"></a>Result Duration 由于年，月，甚至是分钟本身时间长短的不确定性，再加上代表着Activity开始，中间，结束的“timestamp”属性本身的可变性，让LRS来精确的解析Result Duration并且相互转换是不可能的。所以为了方便Result Duration的比较，采用string来表示。
 
 <a name="statement-comparison-requirements" />
-###### <a name="2.3.1.s9"></a>Statement Comparision Requirements
-There are a number of scenarios outlined in this specification which require Statements to be
-compared to see if they match. In these scenarios, the following rules apply:
+###### <a name="2.3.1.s9"></a>Statement Comparision Requirements 语句对比要求 
+在本规范中概述了许多情况，需要比较语句以查看它们是否匹配。在这些情况下，以下规则适用:
 
-* <a name="2.3.1.s9.b1"></a>Differences which could have been caused by 
-[exceptions to Statement immutability](#statement-immutability-and-exceptions) MUST be ignored.
-* <a name="2.3.1.s9.b2"></a>Differences relating to a different serialization of any properties not
-[listed as exceptions](#statement-immutability-and-exceptions) MUST not be ignored. 
+* <a name="2.3.1.s9.b1"></a>由语句不变性的例外[exceptions to Statement immutability](#statement-immutability-and-exceptions)所引起的不同必须MUST被忽略。
+
+* <a name="2.3.1.s9.b2"></a>对于任何属性序列化数据的不同且没有被列出在不变性例外[listed as exceptions](#statement-immutability-and-exceptions)中的必须不MUST NOT 被忽略。
 
 <a name="voided"/>
 
-#### <a name="2.3.2">2.3.2</a> Voiding
+#### <a name="2.3.2">2.3.2</a> Voiding 无效化，废止
 
-###### <a name="2.3.2.s1"></a>Rationale
+###### <a name="2.3.2.s1"></a>Rationale 缘由
 
-The certainty that an LRS has an accurate and complete collection of data is guaranteed by the fact that Statements 
-cannot be logically changed or deleted. This immutability of Statements is a key factor in enabling the distributed 
-nature of Experience API.
+一个LRS能精确和完整地进行数据的收集是由语句不能被改变或者删除来保证的，语句的不变性是实现Experience API的分布式性质的关键因素。
 
-However, not all Statements are perpetually valid once they have been issued. Mistakes or other factors could dictate 
-that a previously made Statement is marked as invalid. This is called "voiding a Statement" and the reserved 
-Verb `http://adlnet.gov/expapi/verbs/voided` is used for this purpose. Any Statement that voids another
-cannot itself be voided.
+然而，不是所有的语句一经生成，都将永久有效。错误或者其他因素都可能让先前的语句被标记为无效，这称为“无效语句”，内置Verb： `http://adlnet.gov/expapi/verbs/voided` 用于此目的。任何使另一个语句无效化的语句本身不能被无效。
 
-###### <a name="2.3.2.s2"></a>Requirements
+###### <a name="2.3.2.s2"></a>Requirements 要求
 
-* <a name="2.3.2.s2.b1"></a>When issuing a Statement that voids another, the Object of that voiding Statement MUST have 
-the "objectType" property set to `StatementRef`.
-* <a name="2.3.2.s2.b2"></a>When issuing a Statement that voids another, the Object of that voiding Statement MUST specify 
-the id of the Statement-to-be-voided by its "id" property.
-* <a name="2.3.2.s2.b3"></a>An LRS MUST consider a Statement it contains voided if and only if the Statement is not itself 
-a voiding Statement and the LRS also contains a voiding Statement referring to the first Statement.
-* <a name="2.3.2.s2.b4"></a>Upon receiving a Statement that voids another, the LRS SHOULD reject the entire request which 
-includes the voiding Statement with `403 Forbidden` if the request is not from a source authorized to void Statements.
-* <a name="2.3.2.s2.b5"></a>Upon receiving a Statement that voids another, the LRS SHOULD NOT* reject the request on the 
-grounds of the Object of that voiding Statement not being present. 
-* <a name="2.3.2.s2.b6"></a>Upon receiving a Statement that voids another, the LRS MAY roll back any changes to Activity or 
-Agent definitions which were introduced by the Statement that was just voided.
-* <a name="2.3.2.s2.b7"></a>A Learning Record Provider that wants to "unvoid" a previously voided Statement SHOULD issue 
-that Statement again under a new id.
+* <a name="2.3.2.s2.b1"></a>当生成一个语句来无效化另外一个时，这个使无效语句的对象必须MUST包含设置为`StatementRef`的“objectType”属性。
+* <a name="2.3.2.s2.b2"></a>当生成一个语句来无效化另外一个时，这个使无效语句的对象必须MUST申明需要被无效化语句的ID，这个ID就是该被无效化语句的“id”属性。
+* <a name="2.3.2.s2.b3"></a>LRS 只能MUST在当且仅当这个语句本身不是一个使无效化语句时才能将一个语句考虑为无效的语句。并且LRS也需要把一个使无效化语句指向被无效化的语句。
+* <a name="2.3.2.s2.b4"></a>当收到一个无效另一个语句的语句，如果请求不是从授权的void语句，LRS应该SHOULD拒绝包括无效语句的整个请求，使用403禁止`403 Forbidden`。
+* <a name="2.3.2.s2.b5"></a>当收到一份声明使另一个声明失效时，LRS不应该SHOULD NOT*基于该声明的对象不存在而拒绝该声明。
+* <a name="2.3.2.s2.b6"></a>当收到一个声明使另一个无效时，LRS可能需要MAY撤销对由刚刚失效的语句引入的活动或代理定义的任何更改。
+* <a name="2.3.2.s2.b7"></a>一个学习记录提供者，想要对某个之前被无效化的语句进行“撤销无效化”的，应该SHOULD再次生成一个有着新ID的该语句。
 
-__Note:__ See ["Statement References"](#stmtref) in [When the "Object" is a Statement](#stmtasobj) 
-for details about making references to other Statements.  To see how voided statements behave when queried, 
-See [StatementRef](./xAPI-Communication.md#queryStatementRef) in Part 3).
+__Note:__ 关于如何使一个语句与另一个相引用，参见于“当对象是语句时[When the "Object" is a Statement](#stmtasobj)”中的“语句引用["Statement References"](#stmtref)”， 关于当请求无效的语句，该语句是如何反馈的，详见第三部分的[StatementRef](./xAPI-Communication.md#queryStatementRef)。
 
-###### <a name="2.3.2.s3"></a>Example
+###### <a name="2.3.2.s3"></a>Example 示例
 
-This example Statement voids a previous Statement which it identifies with the Statement id "e05aa883-acaf-40ad-bf54-02c8ce485fb0".
+这是一个展示语句无效化之前ID为"e05aa883-acaf-40ad-bf54-02c8ce485fb0"的语句的例子
 
 ```
 {
@@ -311,60 +259,58 @@ This example Statement voids a previous Statement which it identifies with the S
 }
 ```  
 <a name="statement-properties"/> 
-### <a name="2.4">2.4</a> Statement Properties  
+### <a name="2.4">2.4</a> Statement Properties  语句属性
 
-###### <a name="2.4.s1"></a>Details
-The details of each property of a Statement are described in the table below.  
+###### <a name="2.4.s1"></a>Details 详情
+语句中每个属性的的详情被描述如下：
 
 <table>
 	<tr><th>Property</th><th>Type</th><th>Description</th><th>Required</th></tr>
 	<tr id="2.4.s1.table1.row1"><td>id</td><td>UUID</td>
-	<td>UUID assigned by LRS if not set by the Learning Record Provider.</td>
+	<td>UUID assigned by LRS if not set by the Learning Record Provider.如果学习记录提供者没有设置的化由LRS来设置的UUID</td>
 	<td>Recommended</td></tr>
 	<tr id="2.4.s1.table1.row2"><td><a href="#actor">actor</a></td><td>Object</td>
 	<td>Whom the Statement is about, as an <a href="#agent">Agent</a> or 
-		<a href=#group>Group</a> Object.</td>
+		<a href=#group>Group</a> Object.这个语句的关于对象，可能是一个代理<a href="#agent">Agent</a>对象，或者是一个群体<a href=#group>Group</a>对象。</td>
 	<td>Required</td></tr>
 	<tr id="2.4.s1.table1.row3"><td><a href="#verb">verb</a></td><td>Object</td>
-	<td>Action taken by the Actor.</td>
+	<td>Action taken by the Actor. Actor执行的动作</td>
 	<td>Required</td></tr>
 	<tr id="2.4.s1.table1.row4"><td><a href="#object">object</a></td><td>Object</td>
-	<td>Activity, Agent, or another Statement that is the Object of the Statement. 
+	<td>Activity, Agent, or another Statement that is the Object of the Statement. 作为语句（动作）的对象（宾语），活动，代理或者另一个语句 
 	</td>
 	<td>Required</td></tr>
 	<tr id="2.4.s1.table1.row5"><td><a href="#result">result</a></td><td>Object</td>
-	<td>Result Object, further details representing a measured outcome.</td>
+	<td>Result Object, further details representing a measured outcome. 结果（成绩）对象，对于成绩的详细信息</td>
 	<td>Optional</td></tr>
 	<tr id="2.4.s1.table1.row6"><td><a href="#context">context</a></td><td>Object</td>
 	<td>Context that gives the Statement more meaning. Examples: a team the Actor is 
-	working with, altitude at which a scenario was attempted in a flight simulator.</td>
+	working with, altitude at which a scenario was attempted in a flight simulator. 赋予语句更多意义的上下文。示例：和Actor一起工作的团队，在飞行模拟器场景中尝试的高度。</td>
 	<td>Optional</td></tr>
 	<tr id="2.4.s1.table1.row7"><td><a href="#timestamp">timestamp</a></td><td><a href="#timestamps">Timestamp</a></td>
-	<td>Timestamp of when the events described within this Statement occurred. Set by the LRS if not provided.</td>
+	<td>Timestamp of when the events described within this Statement occurred. Set by the LRS if not provided. 该语句所包含被描述事件发生的时间点，如果未设置的话，由LRS来设置。</td>
 	<td>Optional</td></tr>
 	<tr id="2.4.s1.table1.row8"><td><a href="#stored">stored</a></td><td><a href="#timestamps">Timestamp</a></td>
-	<td>Timestamp of when this Statement was recorded. Set by LRS.</td>
+	<td>Timestamp of when this Statement was recorded. Set by LRS. 语句被记录下来的时间，由LRS来设置</td>
 	<td>Set by LRS</td></tr>
 	<tr id="2.4.s1.table1.row9"><td><a href="#authority">authority</a></td><td>Object</td>
 	<td>Agent or Group who is asserting this Statement is true. Verified by the LRS based on 
 	authentication. Set by LRS if not provided or if a strong trust relationship between the Learning Record Provider 
-	and LRS has not been established.</td>
+	and LRS has not been established. 代理人或集团说明本声明是真实的，LRS基于身份的验证，如果没有提供，或者学习记录提供者和LRS之前没有建立牢固的信任关系，则由LRS设置</td>
 	<td>Optional</td></tr>
 	<tr id="2.4.s1.table1.row10"><td><a href="#version">version</a></td><td>Version</td>
-	<td>The Statement’s associated xAPI version, formatted according to <a href="http://semver.org/spec/v1.0.0.html">Semantic Versioning 1.0.0</a>.</td>
+	<td>The Statement’s associated xAPI version, formatted according to <a href="http://semver.org/spec/v1.0.0.html">Semantic Versioning 1.0.0</a>. 语句所符合的xAPI版本，根据 <a href="http://semver.org/spec/v1.0.0.html">Semantic Versioning 1.0.0</a>来设置</td>
 	<td>Not Recommended</td></tr>
 	<tr id="2.4.s1.table1.row11">
 		<td><a href="#attachments">attachments</a></td>
 		<td>Ordered array of Attachment Objects</td>
-	    <td>Headers for Attachments to the Statement</td>
+	    <td>Headers for Attachments to the Statement 语句附件的标题</td>
 	<td>Optional</td></tr>
 </table>
 
 ###### <a name="2.4.s2"></a>Example
 
-An example of the simplest possible Statement using all properties that MUST or SHOULD be used.
-It is recommended to also populate optional properties where relevant. 
-When this Statement is returned from the LRS it will include some additional properties added by the LRS.  
+最简单的使用了所有必须或应该使用的属性的语句的示例。建议在具体情况下补充可选属性。当本语句从LRS返回时，它将包括由LRS添加的一些附加属性。
 ```
 {
     "id": "12345678-1234-5678-1234-567812345678",
@@ -382,178 +328,162 @@ When this Statement is returned from the LRS it will include some additional pro
     }
 }
 ```  
-See [Appendix A: Example Statements](#Appendix2A) for more examples. 
+See [Appendix A: Example Statements](#Appendix2A) for more examples.更多示例参见附录A 
 
 <a name="stmtid"/> 
 
 #### <a name="2.4.1">2.4.1</a> ID 
 
-###### <a name="2.4.1.s1"></a>Description
+###### <a name="2.4.1.s1"></a>Description 描述
 
-A UUID (all versions of variant 2 in [RFC 4122](http://www.ietf.org/rfc/rfc4122.txt) are valid, and the UUID MUST 
-be in standard string form).
+一个UUID，[RFC 4122](http://www.ietf.org/rfc/rfc4122.txt)中变体2的所有版本都有效，并且UUID必须是标准字符串形式。
 
-###### <a name="2.4.1.s2"></a>Requirements
+###### <a name="2.4.1.s2"></a>Requirements 要求
 
-* <a name="2.4.1.s2.b1"></a>Statement ids MUST be generated by the LRS if a Statement is received without an id.
-* <a name="2.4.1.s2.b2"></a>Statement ids SHOULD be generated by the Learning Record Provider.
+* <a name="2.4.1.s2.b1"></a>如果接受到的语句没有一个ID，那么LRS 必须 MUST 为其生成一个。
+* <a name="2.4.1.s2.b2"></a>语句ID应当SHOULD由LRP来提供。
 
 <a name="actor"/>
 
-#### <a name="2.4.2">2.4.2</a> Actor  
+#### <a name="2.4.2">2.4.2</a> Actor  执行者，当事人
 
-###### <a name="2.4.2.s1"></a>Description
-The Actor defines who performed the action. The Actor of a Statement can be an Agent or a Group. 
+###### <a name="2.4.2.s1"></a>Description 描述
+Actor定义了是谁来执行该动作的，Actor可以是一个代理Acgent或者一个群组Group 
 
 <a name="agent"/>
 
-##### <a name="2.4.2.1">2.4.2.1</a> When the Actor objectType is Agent
-###### <a name="2.4.2.1.s1"></a>Description
-An Agent (an individual) is a persona or system.
+##### <a name="2.4.2.1">2.4.2.1</a> When the Actor objectType is Agent 当Actor是Agent时
+###### <a name="2.4.2.1.s1"></a>Description 描述
+一个Agent是一个（单独的）人或者一个系统。
 
-###### <a name="2.4.2.1.s2"></a>Details
+###### <a name="2.4.2.1.s2"></a>Details 详情
 
-* <a name="2.4.2.1.s2.b1"></a>An Agent MUST be identified by one (1) of the four types of Inverse Functional Identifiers (see
- [4.1.2.3 Inverse Functional Identifier](#inversefunctional));
-* <a name="2.4.2.1.s2.b2"></a>An Agent MUST NOT include more than one (1) Inverse Functional Identifier;
-* <a name="2.4.2.1.s2.b3"></a>An Agent SHOULD NOT use Inverse Functional Identifiers that are also used as a Group identifier.
+* <a name="2.4.2.1.s2.b1"></a>一个Agent 必须MUST是4种反函数标识符中的一个（见 [4.1.2.3 Inverse Functional Identifier 反函数标识符](#inversefunctional)）
+* <a name="2.4.2.1.s2.b2"></a>一个Agent必须不能MUST NOT包括超过一个反函数标识符。
+* <a name="2.4.2.1.s2.b3"></a>一个Agent不应当SHOULD NOT 使用在Group标识中也使用的反函数标识符。
 
-The table below lists the properties of Agent Objects.
+下面这个表格列出了Agent Object的属性。
 
 <table border ="1">
 	<tr><th>Property</th><th>Type</th><th>Description</th><th>Required</th></tr>
-	<tr id="2.4.2.1.s2.table1.row1"><td>objectType</td><td>string</td><td><code>Agent</code>. This property is optional except when the Agent is used as a Statement's object.</td>
+	<tr id="2.4.2.1.s2.table1.row1"><td>objectType</td><td>string</td><td><code>Agent</code>. This property is optional except when the Agent is used as a Statement's object. 这个属性是可选的，除了在Agent Object作为语句的对象（宾语）时。</td>
 	<td>Optional</td></tr>
-	<tr id="2.4.2.1.s2.table1.row2"><td>name</td><td>String</td><td>Full name of the Agent.</td>
+	<tr id="2.4.2.1.s2.table1.row2"><td>name</td><td>String</td><td>Full name of the Agent. 代理的全名</td>
 	<td>Optional</td></tr>
 	<tr id="2.4.2.1.s2.table1.row3"><td colspan="2">see <a href="#inversefunctional"> 4.1.2.3 Inverse Functional Identifier</a></td>
-	    <td>An Inverse Functional Identifier unique to the Agent.</td>
+	    <td>An Inverse Functional Identifier unique to the Agent.一个与代理唯一对应的反函数标识符</td>
 	    <td>Required</td></tr>
 </table>
 
 
 <a name="group"/>
 
-##### <a name="2.4.2.2">2.4.2.2</a> When the Actor ObjectType is Group
-###### <a name="2.4.2.2.s1"></a>Description
+##### <a name="2.4.2.2">2.4.2.2</a> When the Actor ObjectType is Group 当Actor是Group时
+###### <a name="2.4.2.2.s1"></a>Description 描述
 
-A Group represents a collection of Agents and can be used in most of the same situations an Agent 
-can be used.  There are two types of Groups: Anonymous Groups and Identified Groups.
+一个Group代表了多个Agents的集合，并且能在可以使用Agent的大多数的相同情况下使用。由两种类型的group：Anonymous匿名 Groups and Identified已标识 Groups组成.
 
-###### <a name="2.4.2.2.s2"></a>Details
+###### <a name="2.4.2.2.s2"></a>Details 详情
 
-An Anonymous Group is used describe a cluster of people where there is no ready identifier for 
-this cluster, e.g. an ad hoc team.
+一个匿名group是用来描述一组人，而这个group没有预先标识，例如 一个特设小组。
 
-The table below lists all properties of an Anonymous Group.
+下面这个表列出了匿名group的属性。
 
 <table border ="1">
 	<tr><th>Property</th><th>Type</th><th>Description</th><th>Required</th></tr>
 	<tr id="2.4.2.2.s2.table1.row1"><td>objectType</td><td>String</td><td><code>Group</code>. </td><td>Required</td></tr>
-	<tr id="2.4.2.2.s2.table1.row2"><td>name</td><td>String</td><td>Name of the Group.</td><td>Optional</td></tr>
+	<tr id="2.4.2.2.s2.table1.row2"><td>name</td><td>String</td><td>Name of the Group. 群组的名字</td><td>Optional</td></tr>
 	<tr id="2.4.2.2.s2.table1.row3"><td>member</td><td>Array of <a href="#agent">Agent Objects</a></td>
-	<td>The members of this Group. This is an unordered list.</td>
+	<td>The members of this Group. This is an unordered list. Group的成员，无序列表</td>
 	<td>Required</td></tr>
 </table>
 
-An Identified Group is used to uniquely identify a cluster of Agents.
+一个已标识Group是用来表示唯一身份的一组人
 
-The table below lists all properties of an Identified Group.
+下面这个表列出了已标识group的属性
 
 <table border ="1">
 	<tr><th>Property</th><th>Type</th><th>Description</th><th>Required</th></tr>
 	<tr id="2.4.2.2.s2.table2.row1"><td>objectType</td><td>String</td><td><code>Group</code>. </td><td>Required</td></tr>
-	<tr id="2.4.2.2.s2.table2.row2"><td>name</td><td>String</td><td>Name of the Group.</td><td>Optional</td></tr>
+	<tr id="2.4.2.2.s2.table2.row2"><td>name</td><td>String</td><td>Name of the Group.群组的名字</td><td>Optional</td></tr>
 	<tr id="2.4.2.2.s2.table2.row3"><td>member</td><td>Array of <a href="#agent">Agent Objects</a></td>
-	<td>The members of this Group. This is an unordered list.</td>
+	<td>The members of this Group. This is an unordered list. Group的成员，无序列表</td>
 	<td>Optional</td></tr>
 	<tr id="2.4.2.2.s2.table2.row4"><td colspan="2">see <a href="#inversefunctional"> 4.1.2.3 Inverse Functional Identifier</a></td>
-	    <td>An Inverse Functional Identifier unique to the Group.</td><td>Required</td></tr>	
+	    <td>An Inverse Functional Identifier unique to the Group. 一个与群组唯一对应的反函数标识符</td><td>Required</td></tr>	
 </table>
 
-###### <a name="2.4.2.2.s3"></a>Requirements
+###### <a name="2.4.2.2.s3"></a>Requirements 要求
 
-* <a name="2.4.2.2.s3.b1"></a>A Learning Record Consumer MUST consider each Anonymous Group distinct even if it has an 
-identical set of members.
-* <a name="2.4.2.2.s3.b2"></a>Learning Record Providers SHOULD use an Identified Group when they wish to issue multiple 
-Statements, aggregate data or store and retrieve documents relating to a group.
-* <a name="2.4.2.2.s3.b3"></a>A Learning Record Provider MAY include a complete or partial list of Agents in the "member" 
-property of a given Anonymous or Identified Group.
-* <a name="2.4.2.2.s3.b4"></a>An LRS returning a Statement MAY return the list of Group members in any order.
+* <a name="2.4.2.2.s3.b1"></a>一个学习记录消费者必须MUST将每个匿名的group视为一个特别的group，即使他们中可能有一些已标识的组员
+* <a name="2.4.2.2.s3.b2"></a>当对一个group想发出多条语句，汇总数据和检索相关文件，一个学习记录提供者应该SHOULD使用已标识Group。
+* <a name="2.4.2.2.s3.b3"></a>对于任何匿名或者已标识的Group，一个学习记录提供者 可MAY在“member”属性中提供部分或者完整的Agents 列表。
+* <a name="2.4.2.2.s3.b4"></a>对于LRS返回的语句，Group member的列表可以依照任何顺序来排列。
 
-###### <a name="2.4.2.2.s4"></a>Requirements for Anonymous Groups
+###### <a name="2.4.2.2.s4"></a>Requirements for Anonymous Groups 对于匿名Group的要求
 
-* <a name="2.4.2.2.s4.b1"></a>An Anonymous Group MUST include a "member" property listing constituent Agents.
-* <a name="2.4.2.2.s4.b2"></a>An Anonymous Group MUST NOT contain Group Objects in the "member" identifiers.
+* <a name="2.4.2.2.s4.b1"></a>一个匿名的Group 必须MUST 包含一个“member”属性来列出组员Agents。
+* <a name="2.4.2.2.s4.b2"></a>一个匿名的Group在其“member”标示中不能MUST NOT 包含一个Group 对象。
 
-###### <a name="2.4.2.2.s5"></a>Requirements for Identified Groups
+###### <a name="2.4.2.2.s5"></a>Requirements for Identified Groups 对于已标识Group的要求
 
-* <a name="2.4.2.2.s5.b1"></a>An Identified Group MUST include exactly one (1) Inverse Functional Identifier.
-* <a name="2.4.2.2.s5.b2"></a>An Identified Group MUST NOT contain Group Objects in the "member" property.
-* <a name="2.4.2.2.s5.b3"></a>An Identified Group SHOULD NOT use Inverse Functional Identifiers that are also used 
-as Agent identifiers.
-* <a name="2.4.2.2.s5.b4"></a>An Identified Group MAY include a "member" property listing constituent Agents.
+* <a name="2.4.2.2.s5.b1"></a>一个已标识Group只能MUST包含一个反向函数标识符。
+* <a name="2.4.2.2.s5.b2"></a>一个已标识Group在其“member”标示中不能MUST NOT 包含一个Group 对象。
+* <a name="2.4.2.2.s5.b3"></a>一个已标识Group的反向函数标识符不应SHOULD NOT使用一个Agent也使用的身份标识。
+* <a name="2.4.2.2.s5.b4"></a>一个已标识Group 可以MAY 包含一个“member”属性来列出组员Agents。
 
 <a name="inversefunctional">
 
-##### <a name="2.4.2.3">2.4.2.3</a> Inverse Functional Identifier
-###### <a name="2.4.2.3.s1"></a>Description
-An Inverse Functional Identifier (IFI) is a value of an Agent or Identified
-Group that is guaranteed to only ever refer to that Agent or Identified Group.
+##### <a name="2.4.2.3">2.4.2.3</a> Inverse Functional Identifier 反向身份标识符
+###### <a name="2.4.2.3.s1"></a>Description 描述
+一个反向身份标识符 Inverse Functional Identifier (IFI)是用来标识唯一一个Agent 或者一个Group的一个值。
 
-###### <a name="2.4.2.3.s2"></a>Rationale
-Agents and Groups need to be uniquely identifiable in order for data to be stored and retrieved against them. 
-In an xAPI Statement this is accomplished using Inverse Functional Identifiers which are loosely inspired 
-by the widely accepted FOAF principle (see: [Friend Of A Friend](http://xmlns.com/foaf/spec/#term_Agent)).
+###### <a name="2.4.2.3.s2"></a>Rationale 缘由
+为了使对某个Agents或Group进行相关的数据储存和检索，需要对其身份进行唯一标识。在xAPI语句中，我们使用以被广泛接受的FOAF原则推荐的反向身份标识符来完成（详见[Friend Of A Friend](http://xmlns.com/foaf/spec/#term_Agent)
 
-###### <a name="2.4.2.3.s3"></a>Details
+###### <a name="2.4.2.3.s3"></a>Details 详情
 
-The table below lists all possible Inverse Functional Identifier properties.
+下面这个表列出了所有反向身份标识符的可能属性。
 
 <table border ="1">
 	<tr><th>Property</th><th>Type</th><th>Description</th></tr>
-	<tr id="2.4.2.3.s3.table1.row1"><td><a href="http://xmlns.com/foaf/spec/#term_mbox">mbox</a></td><td>mailto IRI</td><td>The required format is "mailto:email address". <br>
+	<tr id="2.4.2.3.s3.table1.row1"><td><a href="http://xmlns.com/foaf/spec/#term_mbox">mbox</a></td><td>mailto IRI</td><td>The required format is "mailto:email address".  格式为“mailto:email address” <br>
 	Only email addresses that have only ever been and will ever be assigned to this Agent, 
-but no others, SHOULD be used for this property and mbox_sha1sum.</td></tr>
-	<tr id="2.4.2.3.s3.table1.row2"><td><a href="http://xmlns.com/foaf/spec/#term_mbox_sha1sum">mbox_sha1sum</a></td><td>String</td><td>The hex-encoded SHA1 hash of a mailto IRI (i.e. the value of an mbox property). An LRS MAY include Agents with a matching hash when a request is based on an mbox.</td></tr>
-	<tr id="2.4.2.3.s3.table1.row3"><td>openid</td><td>URI</td><td>An openID that uniquely identifies the Agent.</td></tr>
-	<tr id="2.4.2.3.s3.table1.row4"><td>account</td><td><a href="#agentaccount">Object</a></td><td>A user account on an existing system e.g. an LMS or intranet.</td></tr>	
+but no others, SHOULD be used for this property and mbox_sha1sum. 对于本属性和“mbox_sha1sum”属性，应当SHOULD使用只有对于某Agent的相关email地址。</td></tr>
+	<tr id="2.4.2.3.s3.table1.row2"><td><a href="http://xmlns.com/foaf/spec/#term_mbox_sha1sum">mbox_sha1sum</a></td><td>String</td><td>The hex-encoded SHA1 hash of a mailto IRI (i.e. the value of an mbox property). An LRS MAY include Agents with a matching hash when a request is based on an mbox. 对于mailto IRI的SHA1加密，一个LRS 可能MAY会包含相应的加密，当查询是以mbox作为基础时。</td></tr>
+	<tr id="2.4.2.3.s3.table1.row3"><td>openid</td><td>URI</td><td>An openID that uniquely identifies the Agent. 一个唯一标识Agent的openID</td></tr>
+	<tr id="2.4.2.3.s3.table1.row4"><td>account</td><td><a href="#agentaccount">Object</a></td><td>A user account on an existing system e.g. an LMS or intranet. 一个存在于系统中的账户，例如一个LMS系统或者一个内网系统</td></tr>	
 </table>
 
-###### <a name="2.4.2.3.s4"></a>Client Requirements
-* <a name="2.4.2.3.s4.b1"></a>The domain portions of email addresses are case insensitive. Clients SHOULD use lowercase 
-for the domain portion of the email address when calculating the SHA1 hash for the "mbox_sha1sum" property. 
+###### <a name="2.4.2.3.s4"></a>Client Requirements 对于客户的要求
+* <a name="2.4.2.3.s4.b1"></a>电子邮件地址的域名部分是不区分大小写的。计算”mbox_sha1sum”属性的加密串时，客户端应该使用小写。
 
 <a name="agentaccount"/>
 
-##### <a name="2.4.2.4">2.4.2.4</a> Account Object
+##### <a name="2.4.2.4">2.4.2.4</a> Account Object 账户对象
 
-###### <a name="2.4.2.4.s1"></a>Description
+###### <a name="2.4.2.4.s1"></a>Description 描述
 
-A user account on an existing system, such as a private system (LMS or intranet) or a public
-system (social networking site).
+一个存在于系统中的账户，例如一个LMS系统，一个内网系统或者一个公网系统
 
-###### <a name="2.4.2.4.s2"></a>Details
+###### <a name="2.4.2.4.s2"></a>Details 详情
 
-* <a name="2.4.2.4.s2.b1"></a>If the system that provides the account Object uses OpenID, the Learning Record Provider
-SHOULD use the openid property instead of an account Object.
-* <a name="2.4.2.4.s2.b2"></a>If the Learning Record Provider is concerned about revealing personally identifiable
-information about an Agent or Group, it SHOULD use an opaque account name (for example an
-account number) to identify all Statements about a person while maintaining anonymity.
+* <a name="2.4.2.4.s2.b1"></a>如果一个系统提供了一个使用了OpenID的account对象，那么学习记录提供者SHOULD 使用opendid属性，而不是一个account对象。
+* <a name="2.4.2.4.s2.b2"></a>如果学习记录服务提供商对Agent或Group的个人身份信息非常需要，也应该用不透明的帐户名（例如帐号）来识别一个人的所有语句，同时保持匿名。
 
-The table below lists all properties of Account Objects.
+下面这个表列出了所有Account对象的可能属性。
 
 <table border ="1">
 	<tr><th>Property</th><th>Type</th><th>Description</th><th>Required</th></tr>
-	<tr id="2.4.2.4.s2.table1.row1"><td>homePage</td><td>IRL</td><td>The canonical home page for the system the account is on. This is based on FOAF's accountServiceHomePage.</td>
+	<tr id="2.4.2.4.s2.table1.row1"><td>homePage</td><td>IRL</td><td>The canonical home page for the system the account is on. This is based on FOAF's accountServiceHomePage. 该账户系统的主页，基于FOAF的accountServiceHomePage</td>
 	<td>Required</td></tr>
-	<tr id="2.4.2.4.s2.table1.row2"><td>name</td><td>String</td><td>The unique id or name used to log in to this account. This is based on FOAF's accountName.</td><td>Required</td></tr>
+	<tr id="2.4.2.4.s2.table1.row2"><td>name</td><td>String</td><td>The unique id or name used to log in to this account. This is based on FOAF's accountName. 唯一的用来登录的用户名，基于FOAF的accountName</td><td>Required</td></tr>
 </table>
 
 
-###### <a name="2.4.2.4.s3"></a>Example
+###### <a name="2.4.2.4.s3"></a>Example 示例
 
-This example shows an Agent identified by an opaque account:
+这示范了一个使用不透明account的Agent例子：
 
 ```
 {
@@ -567,26 +497,20 @@ This example shows an Agent identified by an opaque account:
 
 <a name="verb"/>
 
-#### <a name="2.4.3">2.4.3</a> Verb
+#### <a name="2.4.3">2.4.3</a> Verb 动词
 
-###### <a name="2.4.3.s1"></a>Description
+###### <a name="2.4.3.s1"></a>Description 描述
 
-The Verb defines the action between an Actor and an Activity. 
+Verb定义了Actor与Activity之间的操作
 
-###### <a name="2.4.3.s2"></a>Rationale
+###### <a name="2.4.3.s2"></a>Rationale 缘由
 
-The Verb in an xAPI Statement describes the action performed during the learning experience. The 
-xAPI does not specify any particular Verbs. (With one exception, namely the reserved 
-Verb [http://adlnet.gov/expapi/verbs/voided](#voided)). Instead, it defines how to create Verbs so that 
-communities of practice can establish Verbs meaningful to their members and make them available 
-for use by anyone. A predefined list of Verbs would be limited by definition and might not be able to 
-effectively capture all possible future learning experiences. 
+在xAPI语句中Verb描述了学习过程中执行的操作。xAPI不指定任何特定的动词。（废止Void除外，即[http://adlnet.gov/expapi/verbs/voided](#voided)），相反，它定义了如何创建verb，使得xAPI实践社区可以建立有意义的动词从而可以被任何人使用，即verb的现有定义列表是有限的，可能无法准确的描述和捕捉到一切可能的学习活动。
 
-###### <a name="2.4.3.s3"></a>Details
 
-Verbs appear in Statements as Objects consisting of an IRI and a set of display names 
-corresponding to multiple languages or dialects which provide human-readable meanings of the Verb. 
-The table below lists all properties of the Verb Object.
+###### <a name="2.4.3.s3"></a>Details 详情
+
+出现在语句中的Verbs对象包含了一个IRI和一组包含了多种语言或者方言的显示名，以提供人类可读的的便利。下面这个表列出了所有Verb对象的可能属性。
 
 <table>
 	<tr><th>Property</th><th>Type</th><th>Description</th><th>Required</th></tr>
@@ -594,7 +518,7 @@ The table below lists all properties of the Verb Object.
 		<td>id</td>
 		<td>IRI</td>
 		<td>Corresponds to a Verb definition. Each Verb definition 
-			corresponds to the meaning of a Verb, not the word. 
+			corresponds to the meaning of a Verb, not the word. 与动词相对应的定义。每个动词的定义对应于一个动词，而不是词的含义。 
 		</td>
 		<td>Required</td>
 	</tr>
@@ -604,54 +528,44 @@ The table below lists all properties of the Verb Object.
 		<td>The human readable representation of the 
 			Verb in one or more languages. This does not have any impact on the 
 			meaning of the Statement, but serves to give a human-readable 
-			display of the meaning already determined by the chosen Verb.</td>
+			display of the meaning already determined by the chosen Verb. 一个或多个语言动词的人类可读的表示。这不会对语句的含义的任何影响，但提供给已经被选择的动词确定含义的人类可读显示。</td>
 		<td>Recommended</td>
 	</tr>
 </table>
 
-###### <a name="2.4.3.s4"></a>Verb Id Requirements
+###### <a name="2.4.3.s4"></a>Verb Id Requirements Verb ID 的要求
 
-* <a name="2.4.3.s4.b1"></a>A system reading a Statement MUST use the Verb IRI to infer meaning.
-* <a name="2.4.3.s4.b2"></a>The IRI contained in an id SHOULD contain a human-readable portion which SHOULD provide meaning enough 
-for a person reviewing the raw statement to disambiguate the Verb from other similar (in syntax) Verbs.
-* <a name="2.4.3.s4.b3"></a>A single Verb IRI MUST NOT be used to refer to multiple meanings.
+* <a name="2.4.3.s4.b1"></a>系统读取语句必须MUST使用verb IRI来推断意义。
+* <a name="2.4.3.s4.b2"></a>包含在id中的IRI 应该SHOULD包含人类可识别的部分以方便于他人来回顾原始语句时，能分辨可能有歧义的相似Verb。
+* <a name="2.4.3.s4.b3"></a>单个Verb IRI不能MUST NOT 指代多个含义。
 
-###### <a name="2.4.3.s5"></a>Verb Display Learning Record Provider Requirements
+###### <a name="2.4.3.s5"></a>Verb Display Learning Record Provider Requirements 对于LRP学习记录提供者的要求
 
-* <a name="2.4.3.s5.b1"></a>The "display" property SHOULD be used by all Statements.
-* <a name="2.4.3.s5.b2"></a>The "display" property MUST be used to illustrate the meaning which is already determined 
-by the Verb IRI.
+* <a name="2.4.3.s5.b1"></a>所有的语句应当SHOULD使用“display”属性。
+* <a name="2.4.3.s5.b2"></a>“display”属性必须MUST被申明，当Verb IRI中已经定义了，以用来说明意义。
 
-###### <a name="2.4.3.s6"></a>Verb Display LRS Requirements
+###### <a name="2.4.3.s6"></a>Verb Display LRS Requirements 对于LRS的要求
 
-The requirements below relate to the "display" property as returned by the LRS via the API.  
+下面是对于LRS返回来的“display”属性的要求。
 
-* <a name="2.4.3.s6.b1"></a>When queried for Statements with a Format of `exact`, the LRS MUST return the "display" property 
-exactly as included (or omitted) within the Statement.
-* <a name="2.4.3.s6.b2"></a>When queried for Statements with a Format of `ids`, the LRS SHOULD* NOT include the "display" property.
-* <a name="2.4.3.s6.b3"></a>When queried for Statements with a Format of `canonical`, the LRS SHOULD* return a 
-canonical Display for that Verb. 
-* <a name="2.4.3.s6.b4"></a>The LRS may determine its canonical Display based on the Verb's "display" property included within 
-Statements it receives, the "name" property included in the metadata as described in 
-[3.2 Hosted Metadata](#miscmeta), or the Verb's Display as defined in some other location.
+* <a name="2.4.3.s6.b1"></a>当使用<code>exact</code>格式的查询时，LRS 必须MUST返回“display”属性。
+* <a name="2.4.3.s6.b2"></a>当使用<code>ids</code>格式查询时，LRS不应该SHOULD NOT*返回”display”属性。
+* <a name="2.4.3.s6.b3"></a>当使用<code>canonical</code>格式查询时，LRS应该SHOULD*返回”display”属性。
+* <a name="2.4.3.s6.b4"></a>LRS 可能需要根据查询所得到语句中的“display”属性来定义一个标准显示。“name”属性元数据的描述参见[3.2 Hosted Metadata](#miscmeta)或其他地方的Verb‘Display
 
-###### <a name="2.4.3.s7"></a>Verb Display Learning Record Consumer Requirements
+###### <a name="2.4.3.s7"></a>Verb Display Learning Record Consumer Requirements 关于Verb Display对于学习记录消费者的要求
 
-The requirements below relate to the display property as displayed to a user by a Learning Record Consumer. 
+下面是对学习记录消费者对于”display” 属性使用的要求.
 
-* <a name="2.4.3.s7.b1"></a>The "display" property MUST NOT be used to alter the meaning of a Verb.
-* <a name="2.4.3.s7.b2"></a>A Learning Record Consumer MUST NOT use the "display" property to infer any meaning from the Statement.
-* <a name="2.4.3.s7.b3"></a>A Learning Record Consumer MUST NOT use the "display" property for any purpose other than 
-to display to a human. Using the "display" property for aggregation or categorization of Statements is an example of 
-violating this requirement. 
-* <a name="2.4.3.s7.b4"></a>A Learning Record Consumer displaying a Statement's Verb in a user interface MAY choose to render 
-the Verb's "display" property included within the Statement, the "name" property included in the metadata as described in 
-[3.2 Hosted Metadata](#miscmeta), or the Verb's Display as defined in some other location.
-* <a name="2.4.3.s7.b5"></a>Learning Record Consumers displaying a Statement's Verb MUST NOT display a word that differs 
-from the meaning of the Verb but MAY alter the wording and tense displayed for the purposes of human-readability. 
+* <a name="2.4.3.s7.b1"></a>“display”属性必须不能MUST NOT被用来改变Verb的意思。
+* <a name="2.4.3.s7.b2"></a>LRC不能MUST NOT 使用“display”属性来推测语句的意思。
+* <a name="2.4.3.s7.b3"></a>LRC不能MUST NOT 以除了显示给人看的其他用意来使用“display”属性。
+使用“display”属性来给语句分类就是一个违反要求的例子。
+* <a name="2.4.3.s7.b4"></a>学习记录消费者在用户界面中显示语句动词可以MAY 选择使用语句中“display”属性的值。
+* <a name="2.4.3.s7.b5"></a>学习记录消费者在显示语句中的Ver时，不能MUST NOT选择会导致verb意义改变的词。 
 
-###### <a name="2.4.3.s8"></a>Example
-This example shows a Verb with the recommended properties set and using US English and Spanish languages. 
+###### <a name="2.4.3.s8"></a>Example 示例
+下面示范了一个使用推荐属性的verb，使用了美国英语US English和西班牙语Spanish 
 ```
 {
     "id":"http://example.com/xapi/verbs#defenestrated", 
@@ -661,42 +575,32 @@ This example shows a Verb with the recommended properties set and using US Engli
     } 
 }
 ``` 
-
-The Verb in the example above is included for illustrative purposes only. This is not intended to imply that
-a Verb with this meaning has been defined with this id. This applies to all example verbs given in this 
-specification document, with the exception of the reserved Verb [http://adlnet.gov/expapi/verbs/voided](#voided)).
 			
-##### <a name="2.4.3.1">2.4.3.1</a> Use in Language and Semantics of Verbs
+##### <a name="2.4.3.1">2.4.3.1</a> Use in Language and Semantics of Verbs 语义
 
-###### <a name="2.4.3.1.s1"></a>Details
+###### <a name="2.4.3.1.s1"></a>Details 详细
 
-_Semantics_
+_Semantics语义_
 
-The IRI represented by the Verb id identifies the particular semantics of a word, not the word itself. 
+Verb所代表的IRI是对一个词语义的说明，而不是这个词本身。
 
-For example, the English word "fired" could mean different things depending on context, such as 
-"fired(a weapon)", "fired(a kiln)", or "fired(an employee)". In this case, an IRI identifies one of 
-these specific meanings. 
+例如，英语中的“fired”在不同语境中有不同的意思例如“开火”（对于武器），“烧”（火），“炒了”（员工）,在这个例子中，一个IRI标识着其中一个意义。
 
-The "display" property has some flexibility in tense. While the human-readable portion of the Verb id will 
-usually use the past tense, if conjugating verbs to another tense within the "display" property makes the most
-sense for the Statement as a whole, it is allowed.
+“display”属性在时态上有着的可变性。
 
-_Language_
+_Language语言_
 
-A Verb in the Experience API is an IRI, and denotes a specific meaning not tied to any particular language. 
+xAPI中的Verb IRI并不依赖于某种特定语言。
 
-For example, a particular Verb IRI such as http://example.org/firearms#fire might denote the action of firing a gun, 
-or the Verb IRI http://example.com/فعل/خواندن might denote the action of reading a book. 
+例如， http://example.org/firearms#fire 可能表示游戏中的开枪动作， http://example.com/فعل/خواندن 可能表示读了某本书。
 
 <a name="object"/>
 
-#### <a name="2.4.4">2.4.4</a> Object
+#### <a name="2.4.4">2.4.4</a> Object 对象（宾语）
 
-###### <a name="2.4.4.s1"></a>Description
+###### <a name="2.4.4.s1"></a>Description 描述
 
-The Object defines the thing that was acted on. The Object of a Statement can be an Activity, Agent/Group, 
-SubStatement, or Statement Reference.
+对象用于定义被作用的活动，一个语句的对象可以是一个activity 也可以是一个Agent，一个Group，或者一个语句，或者语句参考。
 
 Some examples:
 
@@ -707,87 +611,81 @@ Some examples:
 * <a name="2.4.4.s1.b3"></a>The Object is a SubStatement or Statement Reference (different implementations, but similar 
 when human-read): "Nellie commented on 'Jeff wrote an essay about hiking.'"
 
-###### <a name="2.4.4.s2"></a>Details
+###### <a name="2.4.4.s2"></a>Details 详情
 
-Objects which are provided as a value for this property SHOULD include an "objectType" property. If not specified, the 
-objectType is assumed to be `Activity`. Other valid values are: `Agent`, `Group`, `SubStatement` or `StatementRef`.
-The properties of an Object change according to the objectType.
+对于作为对象（宾语）的对象，应当SHOULD 包含于一个“objectType”属性，如果没有申明，那么objectType将被视为`Activity`，其他的有效值是：`Agent`，`Group`, `SubStatement` 或者 `StatementRef`。这个属性根据对象而改变。
 
 <a name="activity"/>
 
-##### <a name="2.4.4.1">2.4.4.1</a> When the ObjectType is Activity
+##### <a name="2.4.4.1">2.4.4.1</a> When the ObjectType is Activity 当对象类型为活动时
 
-###### <a name="2.4.4.1.s1"></a>Details
+###### <a name="2.4.4.1.s1"></a>Details 详情
 
-A Statement can represent an Activity as the Object of the Statement. The following table lists the Object 
-properties in this case.
+一个语句能将activity作为对象（宾语），下表给出了这种情况的对象属性。
 
 <table>
 	<tr><th>Property</th><th>Type</th><th>Description</th><th>Required</th></tr>
 	<tr id="2.4.4.1.s1.table1.row1">
 		<td>objectType</td>
 		<td>String</td>
-		<td>MUST be <code>Activity</code> when present</td>
+		<td>MUST be <code>Activity</code> when present 必须为<code>Activity</code></td>
 		<td>Optional</td>
 	</tr>
 	<tr id="2.4.4.1.s1.table1.row2">
 		<td><a href="#acturi">id</a></td><td>IRI</td>
-		<td>An identifier for a single unique Activity</td>
+		<td>An identifier for a single unique Activity 对于一个活动的唯一标识</td>
 		<td>Required</td>
 	</tr>
 	<tr id="2.4.4.1.s1.table1.row3">
 		<td><a href="#actdef">definition</a></td>
 		<td>Object</td>
-		<td>Metadata, <a href="#actdef">See below</a></td>
+		<td>Metadata 元数据, <a href="#actdef">See below 参见下文</a></td>
 		<td>Optional</td>
 	</tr>
 </table>
 
-If it were possible to use the same id for two different Activities, the validity of Statements about 
-these Activities could be questioned. This means an LRS can't ever treat (references to) the same 
-Activity id as belonging to two different Activities, even if it thinks this was intended. Namely, 
-when a conflict with another system occurs, it’s not possible to determine which Activity is intended. 
+如果对于两个不同的Activities可以使用同样的ID，那么就说明对于语句的验证出了问题，这意味着LRS不能将一个相同的ID去解析为两个不同的活动activities，虽然这有可能只是命名上的相同，但系统还是不能将其分别出来。
 
 
-###### <a name="2.4.4.1.s2"></a><a name="actdef" />Activity Definition
-The table below lists the properties of the Activity Definition Object:
+###### <a name="2.4.4.1.s2"></a><a name="actdef" />Activity Definition 定义活动
+下表列出了activity definition object定义活动对象的属性：
 
 <table>
 	<tr><th>Property</th><th>Type</th><th>Description</th><th>Required</th></tr>
 	<tr id="2.4.4.1.s2.table1.row1">
 		<td>name</td>
 		<td><a href="#lang-maps">Language Map</a></td>
-		<td>The human readable/visual name of the Activity</td>
+		<td>The human readable/visual name of the Activity 人类可读的名字</td>
 		<td>Recommended</td>
 	</tr>
 	<tr id="2.4.4.1.s2.table1.row2">
 		<td>description</td>
 		<td><a href="#lang-maps">Language Map</a></td>
-		<td>A description of the Activity</td>
+		<td>A description of the Activity描述</td>
 		<td>Recommended</td>
 	</tr>
 	<tr id="2.4.4.1.s2.table1.row3">
 		<a name="acttype"/>
 		<td>type</td>
 		<td>IRI</td>
-		<td>The type of Activity.</td>
+		<td>The type of Activity. 活动的类型</td>
 		<td>Recommended</td>
 	</tr>
 	<tr id="2.4.4.1.s2.table1.row4">
 		<td>moreInfo</td>
 		<td>IRL</td>
 		<td>Resolves to a document with human-readable information about the Activity, 
-		which could include a way to launch the activity.
+		which could include a way to launch the activity. 有关该活动更多信息的文档
 		</td>
 		<td>Optional</td>
 	</tr>
 	<tr>
-		<td colspan="4">Interaction properties, See: <a href="#interactionacts">Interaction Activities</a></td>
+		<td colspan="4">Interaction properties, See: <a href="#interactionacts">Interaction Activities</a> 交互属性，参见<a href="#interactionacts">Interaction Activities</a></td>
 	</tr>
 	<tr id="2.4.4.1.s2.table1.row5">
 		<td>extensions</td>
 		<td>Object</td>
-		<td>A map of other properties as needed (see: <a href="#miscext">Extensions</a>)</td>
+		<td>A map of other properties as needed (see: <a href="#miscext">Extensions</a>)一系列其他需要的属性，见<a href="#miscext">扩展Extensions</a></td>
 		<td>Optional</td>
 	</tr>
 </table>
