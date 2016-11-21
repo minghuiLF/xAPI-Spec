@@ -690,58 +690,45 @@ when human-read): "Nellie commented on 'Jeff wrote an essay about hiking.'"
 	</tr>
 </table>
 
-__Note:__ IRI fragments (sometimes called relative IRLs) are not valid IRIs. As with Verbs, it is recommended that
-those implementing xAPI look for and use established, widely adopted, Activity types.
+__Note:__ IRI片段（有时称为相对IRL）不是有效的IRI。与Verb一样，建议实现xAPI的人们查找和使用已建立的，广泛采用的活动类型。
+
+ 
+###### <a name="2.4.4.1.s3"></a><a name="acturi" />Activity id Requirements 对 Activity Id的要求
+
+* <a name="2.4.4.1.s3.b1"></a>一个Activity id 必须MUST唯一 
+* <a name="2.4.4.1.s3.b2"></a>一个Activity id 必须MUST 指向同一Activity
+* <a name="2.4.4.1.s3.b3"></a>一个Activity id 应当SHOULD使用被授权的域名.
+* <a name="2.4.4.1.s3.b4"></a>一个Activity id 应当SHOULD根据一个情景方案来创建，并确保其中所以的id都保持唯一
+* <a name="2.4.4.1.s3.b5"></a>一个Activity id 可MAY 指向该活动的元数据或者IRL
+
+###### <a name="2.4.4.1.s4"></a>LRS Requirements 对LRS要求
+
+* <a name="2.4.4.1.s4.b1"></a>LRS在其感知到多个作者和/或组织正在使用活动ID的情况下不得采取行动
+* <a name="2.4.4.1.s4.b2"></a>LRS不得将对相同活动ID的引用视为对不同活动的引用。
+* <a name="2.4.4.1.s4.b3"></a>在收到对某个活动具有不同定义的语句时，LRS应该决定它是否是LRP所授权的，如果是肯定的，那么就应该更新该活动的定义
+* <a name="2.4.4.1.s4.b4"></a>LRS可以对其接收时的活动的规范定义进行小的修正。例如，新定义以固定拼写。
+* <a name="2.4.4.1.s4.b5"></a>LRS不应对活动的规范定义进行重大更改。 例如基于更新的定义。更改正确的响应。
 
 
-###### <a name="2.4.4.1.s3"></a><a name="acturi" />Activity id Requirements
+###### <a name="2.4.4.1.s5"></a>Learning Record Provider Requirements 对LRP的要求
 
-* <a name="2.4.4.1.s3.b1"></a>An Activity id MUST be unique.
-* <a name="2.4.4.1.s3.b2"></a>An Activity id MUST always reference the same Activity.
-* <a name="2.4.4.1.s3.b3"></a>An Activity id SHOULD use a domain that the creator is authorized to use for this purpose.
-* <a name="2.4.4.1.s3.b4"></a>An Activity id SHOULD be created according to a scheme that makes sure all Activity ids within 
-that domain remain unique.
-* <a name="2.4.4.1.s3.b5"></a>An Activity id MAY point to metadata or the IRL for the Activity.
-
-###### <a name="2.4.4.1.s4"></a>LRS Requirements
-
-* <a name="2.4.4.1.s4.b1"></a>An LRS MUST NOT take action in the event it perceives an Activity id is being used by multiple 
-authors and/or organizations.
-* <a name="2.4.4.1.s4.b2"></a>An LRS MUST NOT treat references to the same Activity id as references to different Activities.
-* <a name="2.4.4.1.s4.b3"></a>Upon receiving a Statement with an Activity Definition that differs from the one stored, an LRS
-SHOULD decide whether it considers the Learning Record Provider to have the authority to change the definition and
-SHOULD update the stored Activity Definition accordingly if that decision is positive.
-* <a name="2.4.4.1.s4.b4"></a>An LRS MAY make small corrections to its canonical definition for the Activity when receiving 
-a new definition e.g. to fix a spelling.
-* <a name="2.4.4.1.s4.b5"></a>An LRS SHOULD NOT make significant changes to its canonical definition for the Activity 
-based on an updated definition e.g. changes to correct responses.
-
-###### <a name="2.4.4.1.s5"></a>Learning Record Provider Requirements
-
-* <a name="2.4.4.1.s5.b1"></a>A Learning Record Provider MUST ensure that Activity ids are not used across multiple Activities.
-* <a name="2.4.4.1.s5.b2"></a>A Learning Record Provider MUST only generate states or Statements against a certain Activity id 
-that are compatible and consistent with states or Statements previously stored against the same Activity id.
-* <a name="2.4.4.1.s5.b3"></a>A Learning Record Provider MUST NOT allow new versions (i.e. revisions or other platforms) 
-of the Activity to break compatibility.	
+* <a name="2.4.4.1.s5.b1"></a>一个LRP学习记录提供商必须MUST确保一个ID不能用于多种活动
+* <a name="2.4.4.1.s5.b2"></a>一个LRP针对某一Activity ID 只能去生成与先前存储的同id相符的陈述或语句相同的陈述或语句。
+* <a name="2.4.4.1.s5.b3"></a>一个LRP不能MUST NOT允许任何新版本破坏activity的兼容性
 
 <a name="interactionacts"/>
 
-##### <a name="2.4.4.1.s6"></a>Interaction Activities
+##### <a name="2.4.4.1.s6"></a>Interaction Activities 交互活动
 
-###### <a name="2.4.4.1.s7"></a>Rationale
+###### <a name="2.4.4.1.s7"></a>Rationale 缘由
 
-Traditional e-learning has included structures for interactions or assessments. As a way to allow these practices and
-structures to extend Experience API's utility, this specification includes built-in definitions for interactions, which
-borrows from the SCORM 2004 4th Edition Data Model. These definitions are intended to provide a simple and familiar utility
-for recording interaction data. Since 1.0.3, direct references to the SCORM data model have started to be removed, and any
-associated requirements included directly in this document.
+传统的e-learning有包括互动或者评估的体系，为了使这些方法在xapi中扩展，这个规范借鉴了SCORM 2004的数据模型，从而定义了交互Interaction。对SCORM数据模型的直接引用已经开始废除了，任何相关的要求，都在本说明中直接包含了。
 
-These interaction definitions are simple to use, and consequently limited. It is expected that Communities of Practice
-requiring richer interactions definitions will do so through the use of Activity types and Activity Definition Extensions. 
+这些Interaction的定义是较为简单易用的，但也因此有限，对于实践社区，预期需要使用活动类型和活动定义扩展来达到更丰富的定义。
 
-###### <a name="2.4.4.1.s8"></a>Details
+###### <a name="2.4.4.1.s8"></a>Details 详情
 
-The table below lists the properties for Interaction Activities.
+下表列出了交互活动Interaction Activities的属性
 
 <table>
 	<tr><th>Property</th><th>Type</th><th>Description</th><th>Required</th></tr>
@@ -749,41 +736,42 @@ The table below lists the properties for Interaction Activities.
 		<td>interactionType</td>
 		<td>String</td>
 		<td>The type of interaction. Possible values are: <code>true-false</code>, <code>choice</code>, <code>fill-in</code>, <code>long-fill-in</code>,
-		<code>matching</code>, <code>performance</code>, <code>sequencing</code>, <code>likert</code>, <code>numeric</code> or <code>other</code>. </td>
+		<code>matching</code>, <code>performance</code>, <code>sequencing</code>, <code>likert</code>, <code>numeric</code> or <code>other</code>.<br> 交互的类型，可能的值为：<code>true-false</code>, <code>choice</code>, <code>fill-in</code>, <code>long-fill-in</code>,
+		<code>matching</code>, <code>performance</code>, <code>sequencing</code>, <code>likert</code>, <code>numeric</code> or <code>other</code></td>
 		<td>Required</td>
 	</tr>
 	<tr id="2.4.4.1.s8.table1.row2">
 		<td>correctResponsesPattern</td>
 		<td>Array of Strings</td>
 		<td>A pattern representing the correct response to the interaction. The structure of this pattern varies
-		depending on the interactionType. This is detailed below. </td>
+		depending on the interactionType. This is detailed below.<br>代表着交互活动Interaction Activities正确的响应参数，这个参数的结构取决于interactionType而变化。这将在下面详细说明。 </td>
 		<td>Optional</td>
 	</tr>
 	<tr id="2.4.4.1.s8.table1.row3">
 		<td>choices | scale | source | target | steps</td>
 		<td>Array of interaction components</td>
-		<td>Specific to the given interactionType (see below).</td>
+		<td>Specific to the given interactionType (see below).<br>由给定的interactionType而决定的特性（参考后文）</td>
 		<td>Optional</td>
 	</tr>
 </table>
 
-###### <a name="2.4.4.1.s9"></a>Interaction Types
+###### <a name="2.4.4.1.s9"></a>Interaction Types 交互类型
 
-The table below describes the kinds of interactions represented by each of the interactionTypes. These types of interactions 
-were originally based on the types of interactions allowed for "cmi.interactions.n.type" in the SCORM 2004 4th 
-Edition Run-Time Environment. See [Appendix C](#Appendix2C) for examples definitions for each interaction type. 
+下面的表描述了由每个interactionTypes所表示的各种Interaction。这些类型的相互作用最初用于基于SCORM 2004第4版运行环境的“cmi.interactions.n.type”参阅附录C[Appendix C](#Appendix2C)查看定义实例。 
 
 <table>
 	<tr><th>interactionType</th><th>Description</th></tr>
 	<tr id="2.4.4.1.s9.table1.row1">
 		<td>true-false</td>
-		<td>An interaction with two possible responses: <code>true</code> or <code>false</code>.</td>
+		<td>An interaction with two possible responses: <code>true</code> or <code>false</code>.<br> 由两种响应结果的交互，<code>true</code> or <code>false</code> </td>
 	</tr>
 	<tr id="2.4.4.1.s9.table1.row2">
 		<td>choice</td>
 		<td>An interaction with a number of possible choices from which the learner can select. 
 			This includes interactions in which the learner can select only one answer from the list and
-			those where the learner can select multiple items.</td>
+			those where the learner can select multiple items.
+			<br>学习者可以从许多可能的选择中进行选择的交互，包含了单项选择和多项选择。
+		</td>
 	</tr>
 	<tr id="2.4.4.1.s9.table1.row3">
 		<td>fill-in</td>
