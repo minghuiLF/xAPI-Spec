@@ -44,12 +44,12 @@
    		*	2.4.	[Statement Properties](./xAPI-Data.md#statement-properties)  语句的属性
 	        *	2.4.1.	[ID](./xAPI-Data.md#stmtid)  ID
 	        *	2.4.2.	[Actor](./xAPI-Data.md#actor)  执行者
-	        *	2.4.3.	[Verb](./xAPI-Data.md#verb)  动词
-	        *	2.4.4.	[Object](./xAPI-Data.md#object)  对象（宾语）
+	        *	2.4.3.	[Verb](./xAPI-Data.md#verb)  动词 
+	        *	2.4.4.	[Object](./xAPI-Data.md#object)  对象（宾语）
 	        *	2.4.5.	[Result](./xAPI-Data.md#result)  结果
 	        *	2.4.6.	[Context](./xAPI-Data.md#context)  内容
-	        *	2.4.7.	[Timestamp](./xAPI-Data.md#timestamp)  时间戳
-	        *	2.4.8.	[Stored](./xAPI-Data.md#stored)  储存（时间点）
+	        *	2.4.7.	[Timestamp](./xAPI-Data.md#timestamp)  时间戳 
+	        *	2.4.8.	[Stored](./xAPI-Data.md#stored) 储存（时间点）
 	        *	2.4.9.	[Authority](./xAPI-Data.md#authority)  授权
 	        *	2.4.10.	[Version](./xAPI-Data.md#version)  版本
 	        *	2.4.11.	[Attachments](./xAPI-Data.md#attachments)  附件
@@ -267,39 +267,39 @@ __Note:__ 关于如何使一个语句与另一个相引用，参见于“当对�
 <table>
 	<tr><th>Property</th><th>Type</th><th>Description</th><th>Required</th></tr>
 	<tr id="2.4.s1.table1.row1"><td>id</td><td>UUID</td>
-	<td>UUID assigned by LRS if not set by the Learning Record Provider.如果学习记录提供者没有设置的化由LRS来设置的UUID</td>
+	<td>UUID assigned by LRS if not set by the Learning Record Provider.<br>如果学习记录提供者没有设置的化由LRS来设置的UUID</td>
 	<td>Recommended</td></tr>
 	<tr id="2.4.s1.table1.row2"><td><a href="#actor">actor</a></td><td>Object</td>
 	<td>Whom the Statement is about, as an <a href="#agent">Agent</a> or 
-		<a href=#group>Group</a> Object.这个语句的关于对象，可能是一个代理<a href="#agent">Agent</a>对象，或者是一个群体<a href=#group>Group</a>对象。</td>
+		<a href=#group>Group</a> Object.<br>这个语句的关于对象，可能是一个代理<a href="#agent">Agent</a>对象，或者是一个群体<a href=#group>Group</a>对象。</td>
 	<td>Required</td></tr>
 	<tr id="2.4.s1.table1.row3"><td><a href="#verb">verb</a></td><td>Object</td>
-	<td>Action taken by the Actor. Actor执行的动作</td>
+	<td>Action taken by the Actor. Actor<br>执行的动作</td>
 	<td>Required</td></tr>
 	<tr id="2.4.s1.table1.row4"><td><a href="#object">object</a></td><td>Object</td>
-	<td>Activity, Agent, or another Statement that is the Object of the Statement. 作为语句（动作）的对象（宾语），活动，代理或者另一个语句 
+	<td>Activity, Agent, or another Statement that is the Object of the Statement.<br> 作为语句（动作）的对象（宾语），活动，代理或者另一个语句 
 	</td>
 	<td>Required</td></tr>
 	<tr id="2.4.s1.table1.row5"><td><a href="#result">result</a></td><td>Object</td>
-	<td>Result Object, further details representing a measured outcome. 结果（成绩）对象，对于成绩的详细信息</td>
+	<td>Result Object, further details representing a measured outcome.<br> 结果（成绩）对象，对于成绩的详细信息</td>
 	<td>Optional</td></tr>
 	<tr id="2.4.s1.table1.row6"><td><a href="#context">context</a></td><td>Object</td>
 	<td>Context that gives the Statement more meaning. Examples: a team the Actor is 
-	working with, altitude at which a scenario was attempted in a flight simulator. 赋予语句更多意义的上下文。示例：和Actor一起工作的团队，在飞行模拟器场景中尝试的高度。</td>
+	working with, altitude at which a scenario was attempted in a flight simulator.<br> 赋予语句更多意义的上下文。示例：和Actor一起工作的团队，在飞行模拟器场景中尝试的高度。</td>
 	<td>Optional</td></tr>
 	<tr id="2.4.s1.table1.row7"><td><a href="#timestamp">timestamp</a></td><td><a href="#timestamps">Timestamp</a></td>
-	<td>Timestamp of when the events described within this Statement occurred. Set by the LRS if not provided. 该语句所包含被描述事件发生的时间点，如果未设置的话，由LRS来设置。</td>
+	<td>Timestamp of when the events described within this Statement occurred. Set by the LRS if not provided.<br> 该语句所包含被描述事件发生的时间点，如果未设置的话，由LRS来设置。</td>
 	<td>Optional</td></tr>
 	<tr id="2.4.s1.table1.row8"><td><a href="#stored">stored</a></td><td><a href="#timestamps">Timestamp</a></td>
-	<td>Timestamp of when this Statement was recorded. Set by LRS. 语句被记录下来的时间，由LRS来设置</td>
+	<td>Timestamp of when this Statement was recorded. Set by LRS.<br> 语句被记录下来的时间，由LRS来设置</td>
 	<td>Set by LRS</td></tr>
 	<tr id="2.4.s1.table1.row9"><td><a href="#authority">authority</a></td><td>Object</td>
 	<td>Agent or Group who is asserting this Statement is true. Verified by the LRS based on 
 	authentication. Set by LRS if not provided or if a strong trust relationship between the Learning Record Provider 
-	and LRS has not been established. 代理人或集团说明本声明是真实的，LRS基于身份的验证，如果没有提供，或者学习记录提供者和LRS之前没有建立牢固的信任关系，则由LRS设置</td>
+	and LRS has not been established. <br>代理人或集团说明本声明是真实的，LRS基于身份的验证，如果没有提供，或者学习记录提供者和LRS之前没有建立牢固的信任关系，则由LRS设置</td>
 	<td>Optional</td></tr>
 	<tr id="2.4.s1.table1.row10"><td><a href="#version">version</a></td><td>Version</td>
-	<td>The Statement’s associated xAPI version, formatted according to <a href="http://semver.org/spec/v1.0.0.html">Semantic Versioning 1.0.0</a>. 语句所符合的xAPI版本，根据 <a href="http://semver.org/spec/v1.0.0.html">Semantic Versioning 1.0.0</a>来设置</td>
+	<td>The Statement’s associated xAPI version, formatted according to <a href="http://semver.org/spec/v1.0.0.html">Semantic Versioning 1.0.0</a>.<br> 语句所符合的xAPI版本，根据 <a href="http://semver.org/spec/v1.0.0.html">Semantic Versioning 1.0.0</a>来设置</td>
 	<td>Not Recommended</td></tr>
 	<tr id="2.4.s1.table1.row11">
 		<td><a href="#attachments">attachments</a></td>
@@ -366,12 +366,12 @@ Actor定义了是谁来执行该动作的，Actor可以是一个代理Acgent或�
 
 <table border ="1">
 	<tr><th>Property</th><th>Type</th><th>Description</th><th>Required</th></tr>
-	<tr id="2.4.2.1.s2.table1.row1"><td>objectType</td><td>string</td><td><code>Agent</code>. This property is optional except when the Agent is used as a Statement's object. 这个属性是可选的，除了在Agent Object作为语句的对象（宾语）时。</td>
+	<tr id="2.4.2.1.s2.table1.row1"><td>objectType</td><td>string</td><td><code>Agent</code>. This property is optional except when the Agent is used as a Statement's object.<br> 这个属性是可选的，除了在Agent Object作为语句的对象（宾语）时。</td>
 	<td>Optional</td></tr>
-	<tr id="2.4.2.1.s2.table1.row2"><td>name</td><td>String</td><td>Full name of the Agent. 代理的全名</td>
+	<tr id="2.4.2.1.s2.table1.row2"><td>name</td><td>String</td><td>Full name of the Agent. <br>代理的全名</td>
 	<td>Optional</td></tr>
 	<tr id="2.4.2.1.s2.table1.row3"><td colspan="2">see <a href="#inversefunctional"> 4.1.2.3 Inverse Functional Identifier</a></td>
-	    <td>An Inverse Functional Identifier unique to the Agent.一个与代理唯一对应的反函数标识符</td>
+	    <td>An Inverse Functional Identifier unique to the Agent.<br>一个与代理唯一对应的反函数标识符</td>
 	    <td>Required</td></tr>
 </table>
 
@@ -392,9 +392,9 @@ Actor定义了是谁来执行该动作的，Actor可以是一个代理Acgent或�
 <table border ="1">
 	<tr><th>Property</th><th>Type</th><th>Description</th><th>Required</th></tr>
 	<tr id="2.4.2.2.s2.table1.row1"><td>objectType</td><td>String</td><td><code>Group</code>. </td><td>Required</td></tr>
-	<tr id="2.4.2.2.s2.table1.row2"><td>name</td><td>String</td><td>Name of the Group. 群组的名字</td><td>Optional</td></tr>
+	<tr id="2.4.2.2.s2.table1.row2"><td>name</td><td>String</td><td>Name of the Group.<br> 群组的名字</td><td>Optional</td></tr>
 	<tr id="2.4.2.2.s2.table1.row3"><td>member</td><td>Array of <a href="#agent">Agent Objects</a></td>
-	<td>The members of this Group. This is an unordered list. Group的成员，无序列表</td>
+	<td>The members of this Group. This is an unordered list.<br> Group的成员，无序列表</td>
 	<td>Required</td></tr>
 </table>
 
@@ -405,12 +405,12 @@ Actor定义了是谁来执行该动作的，Actor可以是一个代理Acgent或�
 <table border ="1">
 	<tr><th>Property</th><th>Type</th><th>Description</th><th>Required</th></tr>
 	<tr id="2.4.2.2.s2.table2.row1"><td>objectType</td><td>String</td><td><code>Group</code>. </td><td>Required</td></tr>
-	<tr id="2.4.2.2.s2.table2.row2"><td>name</td><td>String</td><td>Name of the Group.群组的名字</td><td>Optional</td></tr>
+	<tr id="2.4.2.2.s2.table2.row2"><td>name</td><td>String</td><td>Name of the Group.<br>群组的名字</td><td>Optional</td></tr>
 	<tr id="2.4.2.2.s2.table2.row3"><td>member</td><td>Array of <a href="#agent">Agent Objects</a></td>
-	<td>The members of this Group. This is an unordered list. Group的成员，无序列表</td>
+	<td>The members of this Group. This is an unordered list.<br> Group的成员，无序列表</td>
 	<td>Optional</td></tr>
 	<tr id="2.4.2.2.s2.table2.row4"><td colspan="2">see <a href="#inversefunctional"> 4.1.2.3 Inverse Functional Identifier</a></td>
-	    <td>An Inverse Functional Identifier unique to the Group. 一个与群组唯一对应的反函数标识符</td><td>Required</td></tr>	
+	    <td>An Inverse Functional Identifier unique to the Group. <br>一个与群组唯一对应的反函数标识符</td><td>Required</td></tr>	
 </table>
 
 ###### <a name="2.4.2.2.s3"></a>Requirements 要求
@@ -449,10 +449,10 @@ Actor定义了是谁来执行该动作的，Actor可以是一个代理Acgent或�
 	<tr><th>Property</th><th>Type</th><th>Description</th></tr>
 	<tr id="2.4.2.3.s3.table1.row1"><td><a href="http://xmlns.com/foaf/spec/#term_mbox">mbox</a></td><td>mailto IRI</td><td>The required format is "mailto:email address".  格式为“mailto:email address” <br>
 	Only email addresses that have only ever been and will ever be assigned to this Agent, 
-but no others, SHOULD be used for this property and mbox_sha1sum. 对于本属性和“mbox_sha1sum”属性，应当SHOULD使用只有对于某Agent的相关email地址。</td></tr>
-	<tr id="2.4.2.3.s3.table1.row2"><td><a href="http://xmlns.com/foaf/spec/#term_mbox_sha1sum">mbox_sha1sum</a></td><td>String</td><td>The hex-encoded SHA1 hash of a mailto IRI (i.e. the value of an mbox property). An LRS MAY include Agents with a matching hash when a request is based on an mbox. 对于mailto IRI的SHA1加密，一个LRS 可能MAY会包含相应的加密，当查询是以mbox作为基础时。</td></tr>
+but no others, SHOULD be used for this property and mbox_sha1sum.<br> 对于本属性和“mbox_sha1sum”属性，应当SHOULD使用只有对于某Agent的相关email地址。</td></tr>
+	<tr id="2.4.2.3.s3.table1.row2"><td><a href="http://xmlns.com/foaf/spec/#term_mbox_sha1sum">mbox_sha1sum</a></td><td>String</td><td>The hex-encoded SHA1 hash of a mailto IRI (i.e. the value of an mbox property). An LRS MAY include Agents with a matching hash when a request is based on an mbox.<br> 对于mailto IRI的SHA1加密，一个LRS 可能MAY会包含相应的加密，当查询是以mbox作为基础时。</td></tr>
 	<tr id="2.4.2.3.s3.table1.row3"><td>openid</td><td>URI</td><td>An openID that uniquely identifies the Agent. 一个唯一标识Agent的openID</td></tr>
-	<tr id="2.4.2.3.s3.table1.row4"><td>account</td><td><a href="#agentaccount">Object</a></td><td>A user account on an existing system e.g. an LMS or intranet. 一个存在于系统中的账户，例如一个LMS系统或者一个内网系统</td></tr>	
+	<tr id="2.4.2.3.s3.table1.row4"><td>account</td><td><a href="#agentaccount">Object</a></td><td>A user account on an existing system e.g. an LMS or intranet.<br> 一个存在于系统中的账户，例如一个LMS系统或者一个内网系统</td></tr>	
 </table>
 
 ###### <a name="2.4.2.3.s4"></a>Client Requirements 对于客户的要求
@@ -475,9 +475,9 @@ but no others, SHOULD be used for this property and mbox_sha1sum. 对于本属�
 
 <table border ="1">
 	<tr><th>Property</th><th>Type</th><th>Description</th><th>Required</th></tr>
-	<tr id="2.4.2.4.s2.table1.row1"><td>homePage</td><td>IRL</td><td>The canonical home page for the system the account is on. This is based on FOAF's accountServiceHomePage. 该账户系统的主页，基于FOAF的accountServiceHomePage</td>
+	<tr id="2.4.2.4.s2.table1.row1"><td>homePage</td><td>IRL</td><td>The canonical home page for the system the account is on. This is based on FOAF's accountServiceHomePage. <br>该账户系统的主页，基于FOAF的accountServiceHomePage</td>
 	<td>Required</td></tr>
-	<tr id="2.4.2.4.s2.table1.row2"><td>name</td><td>String</td><td>The unique id or name used to log in to this account. This is based on FOAF's accountName. 唯一的用来登录的用户名，基于FOAF的accountName</td><td>Required</td></tr>
+	<tr id="2.4.2.4.s2.table1.row2"><td>name</td><td>String</td><td>The unique id or name used to log in to this account. This is based on FOAF's accountName.<br> 唯一的用来登录的用户名，基于FOAF的accountName</td><td>Required</td></tr>
 </table>
 
 
@@ -518,7 +518,7 @@ Verb定义了Actor与Activity之间的操作
 		<td>id</td>
 		<td>IRI</td>
 		<td>Corresponds to a Verb definition. Each Verb definition 
-			corresponds to the meaning of a Verb, not the word. 与动词相对应的定义。每个动词的定义对应于一个动词，而不是词的含义。 
+			corresponds to the meaning of a Verb, not the word. <br>与动词相对应的定义。每个动词的定义对应于一个动词，而不是词的含义。 
 		</td>
 		<td>Required</td>
 	</tr>
@@ -528,7 +528,7 @@ Verb定义了Actor与Activity之间的操作
 		<td>The human readable representation of the 
 			Verb in one or more languages. This does not have any impact on the 
 			meaning of the Statement, but serves to give a human-readable 
-			display of the meaning already determined by the chosen Verb. 一个或多个语言动词的人类可读的表示。这不会对语句的含义的任何影响，但提供给已经被选择的动词确定含义的人类可读显示。</td>
+			display of the meaning already determined by the chosen Verb. <br>一个或多个语言动词的人类可读的表示。这不会对语句的含义的任何影响，但提供给已经被选择的动词确定含义的人类可读显示。</td>
 		<td>Recommended</td>
 	</tr>
 </table>
@@ -628,18 +628,18 @@ when human-read): "Nellie commented on 'Jeff wrote an essay about hiking.'"
 	<tr id="2.4.4.1.s1.table1.row1">
 		<td>objectType</td>
 		<td>String</td>
-		<td>MUST be <code>Activity</code> when present 必须为<code>Activity</code></td>
+		<td>MUST be <code>Activity</code> when present<br> 必须为<code>Activity</code></td>
 		<td>Optional</td>
 	</tr>
 	<tr id="2.4.4.1.s1.table1.row2">
 		<td><a href="#acturi">id</a></td><td>IRI</td>
-		<td>An identifier for a single unique Activity 对于一个活动的唯一标识</td>
+		<td>An identifier for a single unique Activity <br>对于一个活动的唯一标识</td>
 		<td>Required</td>
 	</tr>
 	<tr id="2.4.4.1.s1.table1.row3">
 		<td><a href="#actdef">definition</a></td>
 		<td>Object</td>
-		<td>Metadata 元数据, <a href="#actdef">See below 参见下文</a></td>
+		<td>Metadata <br>元数据, <a href="#actdef">See below 参见下文</a></td>
 		<td>Optional</td>
 	</tr>
 </table>
@@ -655,37 +655,37 @@ when human-read): "Nellie commented on 'Jeff wrote an essay about hiking.'"
 	<tr id="2.4.4.1.s2.table1.row1">
 		<td>name</td>
 		<td><a href="#lang-maps">Language Map</a></td>
-		<td>The human readable/visual name of the Activity 人类可读的名字</td>
+		<td>The human readable/visual name of the Activity<br> 人类可读的名字</td>
 		<td>Recommended</td>
 	</tr>
 	<tr id="2.4.4.1.s2.table1.row2">
 		<td>description</td>
 		<td><a href="#lang-maps">Language Map</a></td>
-		<td>A description of the Activity描述</td>
+		<td>A description of the Activity<br>描述</td>
 		<td>Recommended</td>
 	</tr>
 	<tr id="2.4.4.1.s2.table1.row3">
 		<a name="acttype"/>
 		<td>type</td>
 		<td>IRI</td>
-		<td>The type of Activity. 活动的类型</td>
+		<td>The type of Activity.<br> 活动的类型</td>
 		<td>Recommended</td>
 	</tr>
 	<tr id="2.4.4.1.s2.table1.row4">
 		<td>moreInfo</td>
 		<td>IRL</td>
 		<td>Resolves to a document with human-readable information about the Activity, 
-		which could include a way to launch the activity. 有关该活动更多信息的文档
+		which could include a way to launch the activity.<br>有关该活动更多信息的文档
 		</td>
 		<td>Optional</td>
 	</tr>
 	<tr>
-		<td colspan="4">Interaction properties, See: <a href="#interactionacts">Interaction Activities</a> 交互属性，参见<a href="#interactionacts">Interaction Activities</a></td>
+		<td colspan="4">Interaction properties, See: <a href="#interactionacts">Interaction Activities</a> <br>交互属性，参见<a href="#interactionacts">Interaction Activities</a></td>
 	</tr>
 	<tr id="2.4.4.1.s2.table1.row5">
 		<td>extensions</td>
 		<td>Object</td>
-		<td>A map of other properties as needed (see: <a href="#miscext">Extensions</a>)一系列其他需要的属性，见<a href="#miscext">扩展Extensions</a></td>
+		<td>A map of other properties as needed (see: <a href="#miscext">Extensions</a>)<br>一系列其他需要的属性，见<a href="#miscext">扩展Extensions</a></td>
 		<td>Optional</td>
 	</tr>
 </table>
