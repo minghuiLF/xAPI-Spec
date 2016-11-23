@@ -777,47 +777,47 @@ __Note:__ IRI片段（有时称为相对IRL）不是有效的IRI。与Verb一样
 		<td>fill-in</td>
 		<td>An interaction which requires the learner to supply a short response in the form of one or more 
 			strings of characters. Typically, the correct response consists of part of a word, one word or a few words. 
-			"Short" means that the correct responses pattern and learner response strings will normally be 250 characters or less.
+			"Short" means that the correct responses pattern and learner response strings will normally be 250 characters or less.<br>学习者需要反馈一个短小的回答的交互，可能是某个词或者某几个词，“短小”意味着一般不超过250的字符。
 		</td>
 	</tr>
 	<tr id="2.4.4.1.s9.table1.row4">
 		<td>long-fill-in</td>
 		<td>An interaction which requires the learner to supply a response in the form of a long string of characters.
-			"Long" means that the correct responses pattern and learner response strings will normally be more than 250 characters.
+			"Long" means that the correct responses pattern and learner response strings will normally be more than 250 characters.<br>学习者需要反馈一个长段的回答的交互，“长”以为这一般超过了250个字符
 		</td>
 	</tr>
 	<tr id="2.4.4.1.s9.table1.row5">
 		<td>matching</td>
 		<td>An interaction where the learner is asked to match items in one set (the source set) to items in another set (the target set).
-			Items do not have to pair off exactly and it is possible for multiple or zero source items to be matched to a given target and vice versa.</td>
+			Items do not have to pair off exactly and it is possible for multiple or zero source items to be matched to a given target and vice versa.
+			<br>学习者需要对一系列设置好的语句或者概念进行匹配的交互。
+			</td>
 	</tr>
 	<tr id="2.4.4.1.s9.table1.row6">
 		<td>performance</td>
-		<td>An interaction that requires the learner to perform a task that requires multiple steps.</td>
+		<td>An interaction that requires the learner to perform a task that requires multiple steps.<br>学习者需要完成一个包含着多个步骤的任务的交互</td>
 	</tr>
 	<tr id="2.4.4.1.s9.table1.row7">
 		<td>sequencing</td>
-		<td>An interaction where the learner is asked to order items in a set.</td>
+		<td>An interaction where the learner is asked to order items in a set.<br>学习者需要将一系列对象进行排序的交互</td>
 	</tr>
 	<tr id="2.4.4.1.s9.table1.row8">
 		<td>likert</td>
-		<td>An interaction which asks the learner to select from a discrete set of choices on a scale</td>
+		<td>An interaction which asks the learner to select from a discrete set of choices on a scale<br>学习者需要在一个离散阶梯中做出一个选择的交互（例如：1满意2一般，3不满意，4非常不满意）</td>
 	</tr>
 	<tr id="2.4.4.1.s9.table1.row9">
 		<td>numeric</td>
-		<td>Any interaction which requires a numeric response from the learner.</td>
+		<td>Any interaction which requires a numeric response from the learner.<br>学习者需要返回一个数字的交互</td>
 	</tr>
 	<tr id="2.4.4.1.s9.table1.row10">
 		<td>other</td>
-		<td>Another type of interaction that does not fit into those defined above.</td>
+		<td>Another type of interaction that does not fit into those defined above.<br>以上定义中未提到其他种类的交互</td>
 	</tr>
 </table>
 
-###### <a name="2.4.4.1.s10"></a>Response Patterns
-The table below outlines the format of the strings within "correctResponsesPattern" property for each interaction type. 
-This format is also used to represent the learner's response within the Result Object. These formats were originally based on the 
-requirements relating to "cmi.interactions.n.correct_responses.n.pattern" as defined in the SCORM 2004 4th Edition 
-Run-Time Environment. See [Appendix C](#Appendix2C) for examples of each format. 
+###### <a name="2.4.4.1.s10"></a>Response Patterns 返回参数
+The下面这个表给出了每个交互“correctResponsesPattern”属性字符串string的格式，这种格式也用于结果对象Result Object中的学习者响应。这些格式最初用于基于SCORM 2004第4版运行环境的“cmi.interactions.n.type”参阅附录C查看格式实例 [Appendix C](#Appendix2C) 
+
 
 <table>
 	<tr><th>interactionType</th><th>Format</th></tr>
@@ -827,17 +827,19 @@ Run-Time Environment. See [Appendix C](#Appendix2C) for examples of each format.
 	</tr>
 	<tr id="2.4.4.1.s10.table1.row2">
 		<td>choice</td>
-		<td>A list of item ids delimited by <code>[,]</code>. If the response contains only one item, the delimiter MUST not be used.</td>
+		<td>A list of item ids delimited by <code>[,]</code>. If the response contains only one item, the delimiter MUST not be used. <br>一系列被<code>[,]</code>分割的选项id。如果只有一个，那么就不使用分割符</td>
 	</tr>
 	<tr id="2.4.4.1.s10.table1.row3">
 		<td>fill-in and long-fill-in</td>
-		<td>A list of responses delimited by <code>[,]</code>. If the response contains only one item, the delimiter MUST not be used.</td>
+		<td>A list of responses delimited by <code>[,]</code>. If the response contains only one item, the delimiter MUST not be used.<br>一系列被<code>[,]</code>分割的响应。如果只有一个，那么就不使用分割符</td>
 	</tr>
 	<tr id="2.4.4.1.s10.table1.row4">
 		<td>matching</td>
 		<td>A list of matching pairs, where each  pair consists of a source item id followed by a target item id. 
 			Items can appear in multiple (or zero) pairs.
 			Items within a pair are delimited by <code>[.]</code>. Pairs are delimited by <code>[,]</code>.
+			
+			<br>配对的列表，其中每对由源项的id后跟一个靶项的id，之间由<code>[.]</code>分割，对与对之间由<code>[,]</code>分割
 		</td>
 	</tr>
 	<tr id="2.4.4.1.s10.table1.row5">
@@ -846,15 +848,17 @@ Run-Time Environment. See [Appendix C](#Appendix2C) for examples of each format.
 			A list of steps containing a step ids and the response to that step.
 			Step ids are separated from responses by <code>[.]</code>. Steps are delimited by <code>[,]</code>.
 			The response can be a String as in a fill-in interaction or a number range as in a numeric interaction. 
+			<br>步骤的列表，其中每对由步骤id后跟该步骤的响应，之间由<code>[.]</code>分割，对与对之间由<code>[,]</code>分割。
 		</td>
 	</tr>
 	<tr id="2.4.4.1.s10.table1.row6">
 		<td>sequencing</td>
-		<td>An ordered list of item ids delimited by <code>[,]</code>.</td>
+		<td>An ordered list of item ids delimited by <code>[,]</code>.
+		<br>一个排好序的项目id列表，由<code>[,]</code>分割</td>
 	</tr>
 	<tr id="2.4.4.1.s10.table1.row7">
 		<td>likert</td>
-		<td>A single item id</td>
+		<td>A single item id<br>一个单独的选项ID</td>
 	</tr>
 	<tr id="2.4.4.1.s10.table1.row8">
 		<td>numeric</td>
@@ -863,20 +867,18 @@ Run-Time Environment. See [Appendix C](#Appendix2C) for examples of each format.
 			still used. E.g. <code>[:]4</code> indicates a maximum for 4 and no minimum. 
 			Where the correct response or learner's response is a single number rather than a range, the single number
 			with no delimiter MAY be used. 
+			<br>一个单独的数字，或者如果是表示一个数字区间的话，由最小值和最大值加上分割符<code>[:]</code>组成，如果没有某个上限值，那么那个上限值被忽略，但是分隔符依然存在，例如<code>[:]</code>4表示最大值为4，没有最小值
 		</td>
 	</tr>
 	<tr id="2.4.4.1.s10.table1.row9">
 		<td>other</td>
-		<td>Any format is valid within this string as appropriate for the type of interaction.</td>
+		<td>Any format is valid within this string as appropriate for the type of interaction.<br>任何对于其他交互的有效合理的反馈格式</td>
 	</tr>
 </table>
 
-###### <a name="2.4.4.1.s11"></a>Correct Responses Pattern
+###### <a name="2.4.4.1.s11"></a>Correct Responses Pattern 正确响应参数（参考答案）
 
-The Correct Responses Pattern contains an array of response patterns. A learner's response will be considered correct if it 
-matches **any** of the response patterns in that array. Where a response pattern is a delimited list, the learner's response 
-is only considered correct if **all** of the items in that list match the learner's response. For example, consider the 
-Correct Responses Pattern with a value of:
+TheCorrect Responses Pattern正确响应参数中包含着一个响应参数数组Array，一个学习者的响应如果和任何该参数数组里的值匹配的话，就会被视为正确，当一个响应参数本身又是一个分割开的列表时，只有当学习者的响应与这一个响应参数中的所有项都匹配时，才被视为正确。例如，假设正确响应参数为:
 
 ```
 "correctResponsesPattern": [
@@ -885,172 +887,152 @@ Correct Responses Pattern with a value of:
 ]
 ``` 
 
-In this example, either "foo" and "bar", *or* just "foo" are correct learner responses; "bar" on it's own is not.
+那么同时 foo和bar，或者单单只是foo都被视为正确，但是单单只是bar的话就不被视为正确
 
-The Correct Responses Pattern, if used, is intended to be an exhaustive list of possible correct responses. Where the criteria 
-for a question are complex and correct responses cannot be exhaustively listed, Learning Record Providers are discouraged from 
-using the "correctResponsesPattern" property.
+对于正确响应参数Correct Responses Pattern，一旦使用的话，应该尽可能的去保证建立所有正确响应的清单，但凡问题的正确标准是复杂的，学习记录提供商不被鼓励使用正确响应参数。
 
-Learning Record Consumers cannot infer success based on comparison of the response with the Correct Responses Pattern, 
-nor can they rely on the Correct Responses Pattern always being exhaustive. The Learning Record Provider is allowed to mark 
-questions as correct where the response does not match the correct responses pattern, though this is discouraged except in 
-exceptional circumstances.
+学习记录消费者通过对比响应与正确响应参数是不能被称之为成功的，更不能依赖正确响应参数是全面的，学习记录提供者是可以将不与正确响应参数相匹配的答案视为正确的，虽然这是不被鼓励的。
 
-Where the Correct Responses Pattern contains an empty array, the meaning of this is that there is no correct
-answer; all answers are incorrect. Where any answer is correct (e.g. in a survey), the Correct Responses Pattern property
-is omitted. 
+当正确响应参数包含一个空数组Array时，说明没有正确答案，而当任何答案都是正确的情况时，正确响应参数将被忽略。
 
 ###### <a name="2.4.4.1.s12"></a>Characterstring parameters
 
-Some of the values within the responses described above can be prepended with certain additional parameters. These were 
-originally based on the characterstring delimiters defined in the SCORM 2004 4th Edition Run-Time Environment. These 
-parameters are represented by the format `{parameter=value}`. See [the long-fill-in example within Appendix C](#long-fill-in). 
+上面所描述的一些响应的值可以被预扩展某些参数，这些参数由格式`{parameter=value}`表示，这最初基于SCORM 2004第4版运行环境的字符串分割来定义的，参阅附录C [the long-fill-in example within Appendix C](#long-fill-in)查看简答题实例。
 
-Characterstring parameters are not validated by the LRS. Systems interpreting Statement data can use their best judgement 
-in interpreting (or ignoring) invalid characterstring parameters and values.
+字符串参数是不由LRS来做验证的，系统解读语句数据时能尽最大程度的解读或者忽略不合法的字符串参数和值。
 
-The following parameters are valid at the start of the string representing the list of items for the listed interaction types:
+下列参数在列出的交互类型中放置在开头来代表对应的对应项，是有效的。
 <table>
 	<tr><th>Parameter</th><th>Default</th><th>Description</th><th>Value</th><th>Interaction types</th></tr>
 	<tr id="2.4.4.1.s12.table1.row1">
 		<td>case_matters</td>
 		<td>false</td>
-		<td>Whether or not the case of items in the list matters.</td>
+		<td>Whether or not the case of items in the list matters. <br>是否区分大小写</td>
 		<td><code>true</code> or <code>false</code></td>
 		<td>fill-in, long-fill-in</td>
 	</tr>
 	<tr id="2.4.4.1.s12.table1.row2">
 		<td>order_matters</td>
 		<td>true</td>
-		<td>Whether or not the order of items in the list matters.</td>
+		<td>Whether or not the order of items in the list matters. <br>是否有序无序或者无序的列表有影响</td>
 		<td><code>true</code> or <code>false</code></td>
 		<td>fill-in, long-fill-in, performance</td>
 	</tr>
 </table>
 
-The following parameters are valid at the start of each item in the list for the listed interaction types:
+下面的参数在列出的交互类型中在每一项的开头放置时有效的：
 <table>
 	<tr><th>Parameter</th><th>Description</th><th>Value</th><th>Interaction types</th></tr>
 	<tr id="2.4.4.1.s12.table2.row1">
 		<td>lang</td>
-		<td>The language used within the item.</td>
+		<td>The language used within the item. <br>对于该项使用的语言</td>
 		<td><a href="http://tools.ietf.org/html/rfc5646">RFC 5646 Language Tag</a></td>
 		<td>fill-in, long-fill-in, performance (String responses only)</td>
 	</tr>
 </table>
 
 
-###### <a name="2.4.4.1.s13"></a>Requirements
+###### <a name="2.4.4.1.s13"></a>Requirements 要求
 
-* <a name="2.4.4.1.s13.b1"></a>Interaction Activities MUST have a valid interactionType.
-* <a name="2.4.4.1.s13.b2"></a>Interaction Activities SHOULD have the Activity type 
+* <a name="2.4.4.1.s13.b1"></a>Interaction Activities交互活动 必须MUST有一个有效的 交互类型interactionType
+* <a name="2.4.4.1.s13.b2"></a>Interaction Activities应该SHOULD 有活动类型 
 `http://adlnet.gov/expapi/activities/cmi.interaction`.
-* <a name="2.4.4.1.s13.b3"></a>An LRS, upon consuming a valid interactionType, MAY validate the remaining properties as 
-specified for Interaction Activities and MAY return `400 Bad Request` if the remaining properties are not valid for the 
-Interaction Activity.
-* <a name="2.4.4.1.s13.b4"></a>The LRS SHOULD* NOT enforce character limits relating to response patterns. 
-* <a name="2.4.4.1.s13.b5"></a>The LRS SHOULD* NOT limit the length of the correctResponsesPattern array for any interactionType. 
+* <a name="2.4.4.1.s13.b3"></a>一个LRS，在验证有了一个有效的交互类型interactionType之后，可能MAY需要验证剩下的属性，可能MAY回被返回`400 Bad Request`，如果剩下的属性没有通过验证的话。 
+* <a name="2.4.4.1.s13.b4"></a>LRS 不应当SHOULD* NOT 强制限制响应的字符数量
+* <a name="2.4.4.1.s13.b5"></a>LRS 不应当SHOULD* NOT限制正确响应参数Correct Responses Pattern数组的长度
 
 
-##### <a name="2.4.4.1.s14"></a>Interaction Components
+##### <a name="2.4.4.1.s14"></a>Interaction Components 交互组件
 
-###### <a name="2.4.4.1.s15"></a>Details
+###### <a name="2.4.4.1.s15"></a>Details 详情
 
-Interaction components are defined as follows:  
+交互组件定义如下： 
 
 <table>
 	<tr><th>Property</th><th>Type</th><th>Description</th><th>Required</th></tr>
 	<tr id="2.4.4.1.s15.table1.row1">
 		<td>id</td>
 		<td>String</td>
-		<td>Identifies the interaction component within the list.</td>
+		<td>Identifies the interaction component within the list.<br>标识交互组件到到一个列表</td>
         <td>Required</td>
 	<tr>
 		<td>description</td>
 		<td><a href="#lang-maps">Language Map</a></td>
 		<td>A description of the interaction component 
-			(for example, the text for a given choice in a multiple-choice interaction)</td>
+			(for example, the text for a given choice in a multiple-choice interaction)<br>对于交互组件的描述（例如对于给定多项选择的段落）</td>
 		<td>Optional</td>
 	</tr>
 </table>
 
 <a name="#interactionComponentLists"/>
 
-Depending on interactionType, Interaction Activities can take additional properties, each containing a 
-list of interaction components. These additional properties are called "interaction component lists". The following table
-shows the supported interaction component list(s) for an Interaction Activity with the given interactionType.
+取决于交互类型，交互活动能附加属性，每一个都包含一个交互组件列表，这些附加属性被称为交互组件表"interaction component lists"，下表展示了对于相应交互类型支持的交互组件列表。
 
 <table>
 	<tr id="2.4.4.1.s15.table2.row1"><th>interactionType</th><th>supported interaction component list(s)</th><th>Description</th><tr>
 	<tr><td>choice, sequencing</td><td>choices</td>
-	<td>A list of the options available in the interaction for selection or ordering.</td></tr>
+	<td>A list of the options available in the interaction for selection or ordering.<br>一个选项的列表</td></tr>
 	<tr id="2.4.4.1.s15.table2.row2"><td>likert</td><td>scale</td>
-	<td>A list of the options on the likert scale.</td></tr>
+	<td>A list of the options on the likert scale.<br>一个表示不同程度的离散阶梯。</td></tr>
 	<tr id="2.4.4.1.s15.table2.row3"><td>matching</td><td>source, target</td>
-	<td>Lists of sources and targets to be matched.</td></tr>
+	<td>Lists of sources and targets to be matched.<br>源项和靶项的列表</td></tr>
 	<tr id="2.4.4.1.s15.table2.row4"><td>performance</td><td>steps</td>
-	<td>A list of the elements making up the performance interaction.</td></tr>
+	<td>A list of the elements making up the performance interaction.<br>performance交互的元素的列表</td></tr>
 	<tr id="2.4.4.1.s15.table2.row5"><td>true-false, fill-in, long-fill-in, numeric, other</td><td>[No component lists supported]</td><td></td></tr>
 </table>
 
 
-###### <a name="2.4.4.1.s16"></a>Requirements
+###### <a name="2.4.4.1.s16"></a>Requirements 要求
 
-* <a name="2.4.4.1.s16.b1"></a>Within an array of interaction components, all id values MUST be distinct.
-* <a name="2.4.4.1.s16.b2"></a>An interaction component's id value SHOULD NOT have whitespace.
+* <a name="2.4.4.1.s16.b1"></a>对于交互组件的数组，所有的id值必须MIUST是不同的
+* <a name="2.4.4.1.s16.b2"></a>一个交互组件的id不应当SHOULD NOT包含空格（空白）
 
-###### <a name="2.4.4.1.s17"></a>Examples
+###### <a name="2.4.4.1.s17"></a>Examples 例子
 
-See [Appendix C](#Appendix2C) for examples of Activity Definitions for each of the cmi.interaction types.
+参阅附录C [Appendix C](#Appendix2C) 
 
 <a name="agentasobj"/>
 
-##### <a name="2.4.4.2">2.4.4.2</a> When the "Object" is an Agent or a Group
+##### <a name="2.4.4.2">2.4.4.2</a> When the "Object" is an Agent or a Group 当object为Agent或者Group
 
-###### <a name="2.4.4.2.s1"></a>Requirements
+###### <a name="2.4.4.2.s1"></a>Requirements 要求
 
-* <a name="2.4.4.2.s1.b1"></a>Statements that specify an Agent or Group as an Object MUST specify an "objectType" property. 
+* <a name="2.4.4.2.s1.b1"></a>将Agent或者Group作为为Object（宾语）时，必须申明"objectType"属性
 
-See [Actor](#actor) for details regarding Agents.  
+详见[Actor](#actor)中的Agent。 
 
 <a name="stmtasobj"/>
 
-##### <a name="2.4.4.3">2.4.4.3</a> When the "Object" is a Statement
+##### <a name="2.4.4.3">2.4.4.3</a> When the "Object" is a Statement 当object为语句Statement时
 
 ###### <a name="2.4.4.3.s1"></a>Rationale
 
-There are two possibilities for using a Statement as an Object. First, an Object can take on the form 
-of a Statement that already exists by using a Statement Reference. A common use case for 
-Statement References is grading or commenting on an experience that could be tracked as an 
-independent event. The special case of voiding a Statement would also use a Statement Reference.
-Second, an Object can be a brand new Statement by using a SubStatement. Each type is defined below.
+这里有两种情况会用到将语句Statement作为Object，1，一个对象利用已经使用过的语句的形式而运用语句引用Statement Reference，一个对于语句引用的常见的例子就是评论或分类一个学习活动，而这又作为一个单独的事件。无效化某语句的特例也使用了语句引用Statement Reference。2，一个对象能够通过使用字语句组成一个新的语句。每一种类型定义入下。
 
 <a name="stmtref"/>
 
-##### <a name="2.4.4.3.s2"></a>Statement References
+##### <a name="2.4.4.3.s2"></a>Statement References 语句引用
 
-###### <a name="2.4.4.3.s3"></a>Description
-A Statement Reference is a pointer to another pre-existing Statement.
+###### <a name="2.4.4.3.s3"></a>Description 描述
+一个对于已经存在的语句的引用。
 
-###### <a name="2.4.4.3.s4"></a>Requirements
+###### <a name="2.4.4.3.s4"></a>Requirements 要求
 
-* <a name="2.4.4.3.s4.b1"></a>A Statement Reference MUST specify an "objectType" property with the value `StatementRef`.
-* <a name="2.4.4.3.s4.b2"></a>A Statement Reference MUST set the "id" property to the UUID of a Statement. There is no 
-requirement for the LRS to validate that the UUID matches a Statement that exists.
+* <a name="2.4.4.3.s4.b1"></a>一个语句引用Statement Reference 必须MUST 申明"objectType" 属性为 `StatementRef`.
+* <a name="2.4.4.3.s4.b2"></a>一个语句引用Statement Reference 必须MUST将语句的UUID设置到“id”属性。且LRS不用再次对已经存在语句的UUID进行验证。
 
-The table below lists all properties of a Statement Reference Object:
+下表列出了语句引用Statement reference对象的所有属性：
 
 <table border ="1">
 	<tr><th>Property</th><th>Type</th><th>Description</th><th>Required</th></tr>
-	<tr id="2.4.4.3.s4.table1.row1"><td>objectType</td><td>String</td><td>In this case, MUST be <code>StatementRef</code>.</td><td>Required</td></tr>
-	<tr id="2.4.4.3.s4.table1.row2"><td>id</td><td>UUID</td><td>The UUID of a Statement. 
+	<tr id="2.4.4.3.s4.table1.row1"><td>objectType</td><td>String</td><td>In this case, MUST be <code>StatementRef</code>.<br>在这里必须为<code>StatementRef</code>.</td><td>Required</td></tr>
+	<tr id="2.4.4.3.s4.table1.row2"><td>id</td><td>UUID</td><td>The UUID of a Statement. <br> 一个语句的UUID
 	</td><td>Required</td></tr>
 </table>
 
-###### <a name="2.4.4.3.s5"></a>Example
+###### <a name="2.4.4.3.s5"></a>Example 示例
 
-Assuming that some Statement has already been stored with the id `8f87ccde-bb56-4c2e-ab83-44982ef22df0`, the following example 
-shows how a comment could be issued on the original Statement, using a new Statement:  
+假设一个语句已经已经被以ID为`8f87ccde-bb56-4c2e-ab83-44982ef22df0`而储存了，下面示范了如何实现使用一个新的语句来评论它
 
 ```
 {
@@ -1076,26 +1058,21 @@ shows how a comment could be issued on the original Statement, using a new State
 
 <a name="substmt"/>
 
-##### <a name="2.4.4.3.s6"></a>SubStatements
+##### <a name="2.4.4.3.s6"></a>SubStatements 子语句
 
-###### <a name="2.4.4.3.s7"></a>Description
-A SubStatement is like a StatementRef in that it is included as part of a containing Statement, but unlike a StatementRef, it 
-does not represent an event that has occurred. It can be used to describe, for example, a predication of a potential future 
-Statement or the behavior a teacher looked for when evaluating a student (without representing the student actually doing that 
-behavior). 
+###### <a name="2.4.4.3.s7"></a>Description 描述
+一个子语句就像一个语句引用StatementRef一样，用来作为某个语句的一部分，但是区别是，不同于StatementRef，子语句不表示一个新的事件的发生。可用来描述，例如，对某个潜在的未来的语句的预测或者一个老师评价一个学生时（这并不算做学生的行为）。
 
-###### <a name="2.4.4.3.s8"></a>Requirements
+###### <a name="2.4.4.3.s8"></a>Requirements 要求
 
-* <a name="2.4.4.3.s8.b1"></a>A SubStatement MUST specify an "objectType" property with the value `SubStatement`.
-* <a name="2.4.4.3.s8.b2"></a>A SubStatement MUST be validated as a Statement in addition to other SubStatement requirements.
-* <a name="2.4.4.3.s8.b3"></a>A SubStatement MUST NOT have the "id", "stored", "version" or "authority" properties.
-* <a name="2.4.4.3.s8.b4"></a>A SubStatement MUST NOT contain a SubStatement of its own, i.e., cannot be nested.
+* <a name="2.4.4.3.s8.b1"></a>一个子语句SubStatement 必须 MUST申明"objectType" 属性为 `SubStatement`.
+* <a name="2.4.4.3.s8.b2"></a>一个子语句SubStatement 必须 MUST被作为一个语句来验证
+* <a name="2.4.4.3.s8.b3"></a>一个子语句SubStatement 不能 MUST NOT包含"id", "stored", "version" 或者 "authority"属性
+* <a name="2.4.4.3.s8.b4"></a>一个子语句SubStatement不能 MUST NOT包含其自己的子语句，即不能嵌套。
 
-###### <a name="2.4.4.3.s9"></a>Example
+###### <a name="2.4.4.3.s9"></a>Example 示例
 
-One interesting use of SubStatements is in creating Statements of intention. For example, using SubStatements we can create 
-Statements of the form `"<I> <planned> (<I> <did> <this>)"` to indicate that we've planned to take some action. The concrete 
-example that follows logically states that "I planned to visit 'Some Awesome Website'". 
+一个有趣的使用子语句SubStatements的例子是在创建意向语句时，例如，使用子语句我们可以创建形式为`"<I> <planned> (<I> <did> <this>)"`的语句来表达我们计划将要做某事，一个具体的遵循逻辑的例子展示如下，“我计划访问一些很酷的网站”。
  
 
 
@@ -1138,53 +1115,53 @@ example that follows logically states that "I planned to visit 'Some Awesome Web
 
 <a name="result"/>
 
-#### <a name="2.4.5">2.4.5</a> Result
+#### <a name="2.4.5">2.4.5</a> Result Result 对象
 
-###### <a name="2.4.5.s1"></a>Description
+###### <a name="2.4.5.s1"></a>Description 描述
 
-An optional property that represents a measured outcome related to the Statement in which it is included.
+一个可选属性，代表着相应语句的结果
 
 ###### <a name="2.4.5.s2"></a>Details
 
-The following table contains the properties of the Result Object.
+下表包含了结果对象的属性
 
 <table border="1">
 <tr><th>Property</th><th>Type</th><th>Description</th><th>Required</th></tr>
 <tr id="2.4.5.s2.table1.row1">
 	<td>score</td>
 	<td>Object</td>
-	<td>The score of the Agent in relation to the success or quality of the experience. 
+	<td>The score of the Agent in relation to the success or quality of the experience. <br>一个与成功或者质量相关的得分。<br>
 	<a href ="#Score">See: Score</a></td>
 	<td>Optional</td>
 </tr>
 <tr id="2.4.5.s2.table1.row2">
 	<td>success</td>
 	<td>Boolean</td>
-	<td>Indicates whether or not the attempt on the Activity was successful.</td>
+	<td>Indicates whether or not the attempt on the Activity was successful.<br>表示是否成功</td>
 	<td>Optional</td>
 </tr>
 <tr id="2.4.5.s2.table1.row3">
 	<td>completion</td>
 	<td>Boolean</td>
-	<td>Indicates whether or not the Activity was completed.</td>
+	<td>Indicates whether or not the Activity was completed.<br>表示是否完成</td>
 	<td>Optional</td>
 </tr>
 <tr id="2.4.5.s2.table1.row4">
 	<td>response</td>
 	<td>String</td>
-	<td>A response appropriately formatted for the given Activity.</td>
+	<td>A response appropriately formatted for the given Activity.<br>对给定活动的有着合理格式的反馈（响应）</td>
 	<td>Optional</td>
 </tr>
 <tr id="2.4.5.s2.table1.row5">
 	<td>duration</td>
 	<td><a href="#durations">Duration</a></td>
-	<td>Period of time over which the Statement occurred.</td>
+	<td>Period of time over which the Statement occurred.<br>语句发生的时间长度</td>
 	<td>Optional</td>
 </tr>
 <tr id="2.4.5.s2.table1.row6">
 	<td>extensions</td>
 	<td>Object</td>
-	<td>A map of other properties as needed.
+	<td>A map of other properties as needed.<br>需要的其他属性的结构<br>
 	<a href="#miscext">See: Extensions</a></td>
 	<td>Optional</td>
 </tr>
@@ -1192,21 +1169,21 @@ The following table contains the properties of the Result Object.
 
 <a name="Score"/>
 
-##### <a name="2.4.5.1">2.4.5.1</a> Score
+##### <a name="2.4.5.1">2.4.5.1</a> Score 得分
+ 
+###### <a name="2.4.5.1.s1"></a>Description 描述
+一个代表着学习者达成分数的可选属性
 
-###### <a name="2.4.5.1.s1"></a>Description
-An optional property that represents the outcome of a graded Activity achieved by an Agent.
+###### <a name="2.4.5.1.s2"></a>Details 详情
 
-###### <a name="2.4.5.1.s2"></a>Details
-
-The table below defines the Score Object. 
+Score对象定义如下表
 
 <table border ="1">
 	<tr><th>Property</th><th>Type</th><th>Description</th><th>Required</th></tr>
 	<tr id="2.4.5.1.s2.table1.row1">
 		<td>scaled</td>
 		<td>Decimal number between -1 and 1, inclusive</td>
-		<td>The score related to the experience as modified by scaling and/or normalization. 
+		<td>The score related to the experience as modified by scaling and/or normalization.<br>对于相关活动的缩放或归一化分数。
 		</td>
 		<td>Recommended</td>
 	</tr>
@@ -1214,101 +1191,97 @@ The table below defines the Score Object.
 		<td>raw</td>
 		<td>Decimal number between min and max (if present, otherwise unrestricted), inclusive</td>
 		<td>The score achieved by the Actor in the experience described by the Statement. This is not modified by
-		any scaling or normalization.</td>
+		any scaling or normalization.<br>对于相关活动的原始分数</td>
 		<td>Optional</td>
 	</tr>
 	<tr id="2.4.5.1.s2.table1.row3">
 		<td>min</td>
 		<td>Decimal number less than max (if present)</td>
-		<td>The lowest possible score for the experience described by the Statement.</td>
+		<td>The lowest possible score for the experience described by the Statement.<br>相关活动的最少可能分数</td>
 		<td>Optional</td>
 	</tr>
 	<tr id="2.4.5.1.s2.table1.row4">
 		<td>max</td>
 		<td>Decimal number greater than min (if present)</td>
-		<td>The highest possible score for the experience described by the Statement.</td>
+		<td>The highest possible score for the experience described by the Statement.<br>相关活动的最多可能分数</td>
 		<td>Optional</td>
 	</tr>
 </table>
 
-The properties of the Score Object are based on the corresponding properties of `cmi.score` as defined in SCORM 2004 
-4th Edition. The "scaled" and "raw" properties do not necessarily relate directly as scaling and normalization can
-be applied differently by Learning Record Providers within different Communities of Practice. Scaling and normalization 
-are outside the scope of this specification.
+Score 分数对象的属性是基于cmi。Score的相应属性，如SCORM 2004第四版限定。“scaled缩放”和”raw原始”属性不一定有直接联系，因为缩放和归一化是因不同学习记录提供者不同xAPI实践社区二不同的，分数的缩放和归一化在这里不做谈论。
 
-###### <a name="2.4.5.1.s3"></a>Requirements
+###### <a name="2.4.5.1.s3"></a>Requirements 要求
 
-* <a name="2.4.5.1.s3.b1"></a>The Score Object SHOULD include "scaled" if a logical percent based score is known.
-* <a name="2.4.5.1.s3.b2"></a>The Score Object SHOULD NOT be used for scores relating to progress or completion. Consider 
-using an extension (preferably from an established Community of Practice) instead.
+* <a name="2.4.5.1.s3.b1"></a>分数对象Score Object 应该SHOULD 包含“scale”，如果能得出一个逻辑百分比的话。
+* <a name="2.4.5.1.s3.b2"></a>分数对象Score Object 不应该SHOULD NOT用于评估完成度和进度，如需要，则考虑使用扩展（最好是xAPI实践社区建立的）。
 
 <a name="context"/>
 
-#### <a name="2.4.6">2.4.6</a> Context
+#### <a name="2.4.6">2.4.6</a> Context 内容
 
-###### <a name="2.4.6.s1"></a>Description
-An optional property that provides a place to add contextual information to a Statement. All "context" properties are optional.
+###### <a name="2.4.6.s1"></a>Description 描述
+一个可选属性，提供了一个可以对语句附加上下文信息的地方，所有的“context”属性都是可选的
 
-###### <a name="2.4.6.s2"></a>Rationale
-The "context" property provides a place to add some contextual information to a Statement. It can store information such 
-as the instructor for an experience, if this experience happened as part of a team-based Activity, or how an experience fits 
-into some broader activity.
+###### <a name="2.4.6.s2"></a>Rationale 缘由
+可选属性提供了提供了一个可以对语句附加上下文信息的地方，这可以储存例如一个活动的指导者，，如果这个活动是一个基于团队的活动，或者一个活动如何更广泛的融入一个活动。
 
-###### <a name="2.4.6.s3"></a>Details
+###### <a name="2.4.6.s3"></a>Details 详情
 
-The following table contains the properties of the Context Object.
+下表包含了Context object的属性
 
 <table border="1">
 <tr><th>Property</th><th>Type</th><th>Description</th><th>Required</th></tr>
 <tr id="2.4.6.s3.table1.row1">
 	<td>registration</td>
 	<td>UUID</td>
-	<td>The registration that the Statement is associated with.</td>
+	<td>The registration that the Statement is associated with.<br>语句相关的注册</td>
 	<td>Optional</td>
 </tr>
 <tr id="2.4.6.s3.table1.row2">
 	<td>instructor</td>
 	<td>Agent (MAY be a Group)</td>
-	<td>Instructor that the Statement relates to, if not included as the Actor of the Statement.</td>
+	<td>Instructor that the Statement relates to, if not included as the Actor of the Statement.<br>相关语句活动的指导者</td>
 	<td>Optional</td>
 </tr>
 <tr id="2.4.6.s3.table1.row3">
 	<td>team</td>
 	<td>Group</td>
-	<td>Team that this Statement relates to, if not included as the Actor of the Statement.</td>
+	<td>Team that this Statement relates to, if not included as the Actor of the Statement.<br>相关语句的团队</td>
 	<td>Optional</td>
 </tr>
 <tr id="2.4.6.s3.table1.row4">
 	<td>contextActivities</td>
 	<td>contextActivities Object</td>
 	<td>A map of the types of learning activity context that this Statement is related to.
-	Valid context types are: <code>parent</code>, <code>"grouping"</code>, <code>"category"</code> and <code>"other"</code>.</td>
+	Valid context types are: <code>parent</code>, <code>"grouping"</code>, <code>"category"</code> and <code>"other"</code>.
+	<br>一组与语句相关的学习活动内容类型，有效的值是<code>parent</code>, <code>"grouping"</code>, <code>"category"</code> 和 <code>"other"</code>.
+	</td>
 	<td>Optional</td>
 </tr>
 <tr id="2.4.6.s3.table1.row5">
 	<td>revision</td>
 	<td>String</td>
-	<td>Revision of the learning activity associated with this Statement. Format is free.
+	<td>Revision of the learning activity associated with this Statement. Format is free.<br>相关语句的学习活动的修订，格式无限制</td>
 	<td>Optional</td>
 </tr>
 <tr id="2.4.6.s3.table1.row6">
 	<td>platform</td>
 	<td>String</td>
-	<td>Platform used in the experience of this learning activity. </td>
+	<td>Platform used in the experience of this learning activity.<br>相应学习活动的平台 </td>
 	<td>Optional</td>
 </tr>
 <tr id="2.4.6.s3.table1.row7">
 	<td>language</td>
 	<td>String (as defined in <a href="http://tools.ietf.org/html/rfc5646">RFC 5646</a>)</td>
 	<td>Code representing the language in which the experience being recorded in this 
-	Statement (mainly) occurred in, if applicable and known.
+	Statement (mainly) occurred in, if applicable and known.<br>相应语言的代码
 	</td>
 	<td>Optional</td>
 </tr>
 <tr id="2.4.6.s3.table1.row8">
 	<td>statement</td>
 	<td><a href="#stmtref">Statement Reference</a></td>
-	<td>Another Statement to be considered as context for this Statement. </td>
+	<td>Another Statement to be considered as context for this Statement.<br>另外的一条与该语句相关的语句 </td>
 	<td>Optional</td>
 </tr>
 <tr id="2.4.6.s3.table1.row9">
@@ -1316,97 +1289,69 @@ The following table contains the properties of the Context Object.
 	<td>Object</td>
 	<td>A map of any other domain-specific context relevant to this Statement. For example, 
 	in a flight simulator altitude, airspeed, wind, attitude, GPS coordinates might all be 
-	relevant (<a href="#miscext">See Extensions</a>)</td>
+	relevant (<a href="#miscext">See Extensions</a>)<br>扩展。与本语句相关的特定上下文的结构。例如，在一次飞行模拟活动中的高度，风速，姿态，GPS坐标等。参加扩展(<a href="#miscext">See Extensions</a>)</td>
 	<td>Optional</td>
 </tr>
 
 </table>
 
-###### <a name="2.4.6.s4"></a>Requirements
+###### <a name="2.4.6.s4"></a>Requirements 要求
 
-* <a name="2.4.6.s4.b1"></a>The "revision" property MUST only be used if the Statement's Object is an Activity.
-* <a name="2.4.6.s4.b2"></a>The "platform" property MUST only be used if the Statement's Object is an Activity.
-* <a name="2.4.6.s4.b3"></a>The "language" property MUST NOT be used if not applicable or unknown.
-* <a name="2.4.6.s4.b4"></a>The "revision" property SHOULD be used to track fixes of minor issues (like a spelling error).
-* <a name="2.4.6.s4.b5"></a>The "revision" property SHOULD NOT be used if there is a major change in learning objectives, pedagogy, 
-or assets of an Activity. (Use a new Activity id instead).
+* <a name="2.4.6.s4.b1"></a>修订“revision”属性MUST 只能在语句的对象（宾语）为活动时使用
+* <a name="2.4.6.s4.b2"></a>平台“platform”属性MUST 只能在语句的对象（宾语）为活动时使用
+* <a name="2.4.6.s4.b3"></a>语言“language”属性MUST NOT 不能在该语言无法应用的情况下使用
+* <a name="2.4.6.s4.b4"></a>修订“revision”属性SHOULD属性应该用于跟踪小问题的修复（如拼写错误）
+* <a name="2.4.6.s4.b5"></a>如果活动的学习目标，教育方式或设置发生重大变化，则SHOULD NOT不应使用修订“revision”属性。 （改用新的活动ID）。
 
-__Note:__ Revision has no behavioral implications within the scope of xAPI. It is simply stored
-so that it is available (e.g. for interpreting and displaying data).
+__Note:__ 修订“revision”在xAPI的范围内对活动的过程没有实质上的影响。它被简单地存储来以防需要（例如，用于解释和显示数据）.
 
 <a name="Registration"/>
 
-##### <a name="2.4.6.1">2.4.6.1</a> Registration Property
+##### <a name="2.4.6.1">2.4.6.1</a> Registration Property 注册属性
 
-###### <a name="2.4.6.1.s1"></a>Rationale/Details
+###### <a name="2.4.6.1.s1"></a>Rationale/Details 缘由和详情
 
-When an LRS is an integral part of an LMS, the LMS likely supports the concept of registration. 
-The Experience API applies the concept of registration more broadly. A registration could be 
-considered to be an attempt, a session, or could span multiple Activities. There is no expectation that 
-completing an Activity ends a registration. Nor is a registration necessarily confined to a single Agent.
+当LRS是LMS的组成部分时，LMS可能支持注册Registration的概念。xAPI更广泛地应用注册的概念。注册可以被认为是尝试，会话，或可以跨越多个活动。不是说完成活动来结束注册。注册也不一定限于单个代理
 
-The Registration is also used when storing documents within the State Resource, e.g. for 
-bookmarking. Normally the same registration is used for requests to both the Statement and 
-State Resources relating to the same learning experience so that all data recorded for the experience is consistent. 
+当在状态资源中储存文档时，也会使用registration，例如，对于标记书签，通常对于相同活动的语句和状态资源的请求都使用同一个registration，以便于所有的活动记录的数据一致。
 
 <a name="contextActivities"/>
 
-##### <a name="2.4.6.2">2.4.6.2</a> ContextActivities Property
+##### <a name="2.4.6.2">2.4.6.2</a> ContextActivities Property 上下文内容属性
 
-###### <a name="2.4.6.2.s1"></a>Description
+###### <a name="2.4.6.2.s1"></a>Description 描述
 
-A map of the types of learning activity context that this Statement is related to.
+一系列对于该语句的关于其学习活动上下文的种类
 
-###### <a name="2.4.6.2.s2"></a>Rationale
+###### <a name="2.4.6.2.s2"></a>Rationale 缘由
 
-Many Statements do not just involve one (Object) Activity that is the focus, but relate to other contextually relevant 
-Activities. The "contextActivities" property allow for these related Activities to be represented in a structured manner.
+许多语句并不仅只聚焦一个活动（对象），而是涉及其他上下文相关结构，“contextActivities”属性用来以结构化的方式表示这些相关活动。
 
-###### <a name="2.4.6.2.s3"></a>Details
+###### <a name="2.4.6.2.s3"></a>Details 详情
 
-There are four valid context types. All, any or none of these MAY be used in a given Statement:
+有4种上下文类型，每一个或者全都可能使用在语句中:
 
-* <a name="2.4.6.2.s3.b1"></a>__Parent__: an Activity with a direct relation to the Activity which is the Object of the Statement. 
-In almost all cases there is only one sensible parent or none, not multiple. For example: a Statement about a quiz question
-would have the quiz as its parent Activity.
+* <a name="2.4.6.2.s3.b1"></a>__Parent__: 对于语句中的活动（宾语对象），与其有直接关系的活动，多数情况下只会有一个或者没有。例如，对于一个测验问题的语句有着一个测验活动作为其parent
  
-* <a name="2.4.6.2.s3.b2"></a>__Grouping__: an Activity with an indirect relation to the Activity which is the Object of the 
-Statement. For example: a course that is part of a qualification. The course has several classes. The course relates to a class 
-as the parent, the qualification relates to the class as the grouping.
+* <a name="2.4.6.2.s3.b2"></a>__Grouping__: 对于语句中的活动（宾语对象），与其有非直接关系的活动，例如，一个课程作为一个资质的一部分，而这个课程有7节课，那么这个课程作为这7节课的parent，而这歌资质则作为这7节课的grouping活动
 
-* <a name="2.4.6.2.s3.b3"></a>__Category__: an Activity used to categorize the Statement. "Tags" would be a synonym. 
-Category SHOULD be used to indicate a profile of xAPI behaviors, as well as other categorizations. For example: Anna attempts 
-a biology exam, and the Statement is tracked using the cmi5 profile. The Statement's Activity refers to the exam, and the 
-category is the cmi5 profile.
+* <a name="2.4.6.2.s3.b3"></a>__Category__: 用于对语句的分类，和标签一个意思，用于标识xAPI的配置类型，例如，Anna,尝试生物学考试，并且使用cmi5 配置，则语句的活动为考试，而类别为cmi5配置
 
-* <a name="2.4.6.2.s3.b4"></a>__Other__: a contextActivity that doesn't fit one of the other properties. For example: Anna 
-studies a textbook for a biology exam. The Statement's Activity refers to the textbook, and the exam is a contextActivity 
-of type `other`.
+* <a name="2.4.6.2.s3.b4"></a>__Other__: 与上述不同的其他的分类，例如，Anna为了生物考试而学习一本书，语句的活动（宾语）为书，而exam则作为上下文，则contextActivity为other
 
-Single Activity Objects are allowed as values so that 0.95 Statements will be compatible with 1.0.0.
 
-__Note:__ The values in this section are not for expressing all the relationships the Statement Object has. Instead, they 
-are for expressing relationships appropriate for the specific Statement (though the nature of the Object will often be 
-important in determining that). For instance, it is appropriate in a Statement about a test to include the course the test 
-is part of as a "parent", but not to include every possible degree program the course could be part of in the grouping value.
+__Note:__此部分中的值不是用于表示Statement对象具有的所有关系。相反，它们用于表达适合于特定语句的关系（虽然对象的性质在确定时通常很重要）。例如，在关于测试的语句中包括“某课程”作为测试“parent”的部分是适当的，但不包括每个可能的将课程作为一部分的grouping元素。
 
-###### <a name="2.4.6.2.s4"></a>Requirements
-* <a name="2.4.6.2.s4.b1"></a>Every key in the contextActivities Object MUST be one of parent, grouping, category, or other.
-* <a name="2.4.6.2.s4.b2"></a>Every value in the contextActivities Object MUST be either a single Activity Object or an array of Activity Objects.
-* <a name="2.4.6.2.s4.b3"></a>The LRS MUST return every value in the contextActivities Object as an array, even if it arrived as a single Activity Object.
-* <a name="2.4.6.2.s4.b4"></a>The LRS MUST return single Activity Objects as an array of length one containing the same Activity.
-* <a name="2.4.6.2.s4.b5"></a>The Learning Record Provider SHOULD ensure that every value in the contextActivities Object is an array of Activity Objects 
-instead of a single Activity Object.
+###### <a name="2.4.6.2.s4"></a>Requirements 要求
+* <a name="2.4.6.2.s4.b1"></a>contextActivities上下文活动对象的每一个键MUST必须为parent, grouping, category, 或者 other。
+* <a name="2.4.6.2.s4.b2"></a>contextActivities上下文活动对象的每一个值MUST必须为一个活动对象或者一组活动对象
+* <a name="2.4.6.2.s4.b3"></a>LRS必须MUST将上下文活动对象的每个值返回为数组array，尽管其接收到时是一个单一的活动对象。
+* <a name="2.4.6.2.s4.b4"></a>LRS必须MUST将单个活动对象返回为一个长度为一的数组array。
+* <a name="2.4.6.2.s4.b5"></a>学习记录提供者SHOULD应当确保每个上下文活动对象都为一个array而不是一个单一的活动对象。
 
-###### <a name="2.4.6.2.s5"></a>Example
+###### <a name="2.4.6.2.s5"></a>Example 示例
 
-Consider the following hierarchical structure: "Questions 1 to 6"
-are part of "Test 1" which in turn belongs to the course "Algebra 1". 
-The six questions are registered as part of the test by declaring
-"Test 1" as their parent. Also they are grouped with other Statements
-about "Algebra 1" to fully mirror the hierarchy. This is particularly
-useful when the Object of the Statement is an Agent, not an Activity.
-"Andrew mentored Ben with context Algebra I".
+考虑如下梯级形式，问题1-6(Questions 1 to 6)作为测验1(Test 1)的一部分，而测验1又属于课程算法1（Algebra 1）。那么测验1就作为问题1-6的parent，而同时算法1就作为问题1-6的grouping来完成一个最基本的阶梯结构。这在当一个代理作为语句的对象（宾语）时尤其有用，如“安德鲁对于“算法1”的内容指导了本”
 
 ```
 {
@@ -1425,120 +1370,91 @@ useful when the Object of the Statement is an Agent, not an Activity.
 
 <a name="timestamp"/>
 
-#### <a name="2.4.7">2.4.7</a> Timestamp
+#### <a name="2.4.7">2.4.7</a> Timestamp 时间戳
 
-###### <a name="2.4.7.s1"></a>Description
+###### <a name="2.4.7.s1"></a>Description 描述
 
-The time at which the experience occurred.
+活动出现的时间
 
-###### <a name="2.4.7.s2"></a>Details
+###### <a name="2.4.7.s2"></a>Details 详情
 
-The "timestamp" property is of type [Timestamp](#timestamps). It is formatted according to the normal format of ISO 8601 and 
-corresponds to the time of when the events described within this Statement occurred. If it is not included in the Statement 
-when it is submitted to the LRS, the LRS populates it with the same value it would use with [Stored](#stored).
+“timestamp”属性的类型为Timestamp。它根据ISO 8601的正常格式进行格式化，并且对应于在此语句中描述的事件发生的时间。如果在提交到LRS时未包括在语句中，则LRS将使用与存储时使用的值相同的值填充它
 
-The "timestamp property" in a Statement can differ from the ["stored" property](#stored) (the time at which the Statement is 
-stored). Namely, there can be delays between the occurrence of the experience and the reception of the corresponding 
-Statement by the LRS. 
+Statement中的“timestamp属性”可能与“stored”属性（语句存储的时间）不同。也就是说，在经验的出现和由LRS接收相应的声明之间可能存在延迟。
 
-Where the experience occurs over a period of time, the "timestamp" property can represent the start, end or any point of time 
-during the experience. It is expected that Communities of Practice will define an appropriate point to record the 
-timestamp for different experiences. For example, when recording the experience of eating at a restaurant, it might 
-be most appropriate to record the timestamp of the start of the experience; when recording the experience of 
-completing a qualification, it might be most appropriate to record the timestamp of the end of the experience.
-These examples are for illustrative purposes only and are not meant to be prescriptive.
+在经历在一段时间内发生的情况下，“时间戳timestamp”属性可以表示体验期间的开始，结束或任何时间点。将由实践社区将定义一个适当的点来记录不同体验的时间戳。例如，当记录在餐馆吃饭的经历时，记录开始体验的时间戳可能是最合适的;当记录完成资格的经验时，记录经验结束的时间戳可能是最合适的。这些实施例仅用于说明目的，并不意味着是规定性的
 
-###### <a name="2.4.7.s3"></a>Requirements
+###### <a name="2.4.7.s3"></a>Requirements 要求
 
-* <a name="2.4.7.s3.b1"></a>For requirements pertaining to the Timestamp data type, see [Section 4.5 ISO 8601 Timestamps](#timestamps).
-* <a name="2.4.7.s3.b2"></a>The "timestamp" property SHOULD* be set by the LRS to the value of the ["stored" property](#stored) 
-if not provided.
-* <a name="2.4.7.s3.b3"></a>A "timestamp" property MAY represent any point during an experience, not necessarily the 
-beginning or end. 
-* <a name="2.4.7.s3.b4"></a>A Learning Record Provider MUST NOT use a future time for a "timestamp" property in a Statement.
-* <a name="2.4.7.s3.b5"></a>A SubStatement MAY have a "timestamp" property that is in the future.
-* <a name="2.4.7.s3.b6"></a>An LRS SHOULD* NOT reject a timestamp for having a greater value than the current time, to prevent 
-issues due to clock errors.
+* <a name="2.4.7.s3.b1"></a>对于Timestamp 数据结构 请参阅 [Section 4.5 ISO 8601 Timestamps](#timestamps).
+* <a name="2.4.7.s3.b2"></a>时间戳"timestamp"属性应当SHOULD*被LRS设置为与 ["stored" property](#stored)属性里一样，如果没提供的话 
+* <a name="2.4.7.s3.b3"></a>"timestamp"属性可以MAY是活动中的任何一个时间点。
+* <a name="2.4.7.s3.b4"></a>一个学习记录提供者不能MUST NOT在当前语句中使用未来的时间点
+* <a name="2.4.7.s3.b5"></a>一个子语句可以MAY有一个未来的时间点
+* <a name="2.4.7.s3.b6"></a>为了防止是时钟错误，一个LRS  不应当SHOULD* NOT拒绝有着与现在时间相差甚远的时间戳的语句。
 
 <a name="stored"/> 
 
-#### <a name="2.4.8">2.4.8</a> Stored
+#### <a name="2.4.8">2.4.8</a> Stored 储存的时间
 
-###### <a name="2.4.8.s1"></a>Description
+###### <a name="2.4.8.s1"></a>Description 描述
 
-The time at which a Statement is stored by the LRS. This can be any time between when the LRS receives the Statement and 
-when it is written to storage. 
+LRS存储Statement的时间。这可以是LRS收到语句和写入存储之间的任何时间
 
-###### <a name="2.4.8.s2"></a>Details
+###### <a name="2.4.8.s2"></a>Details 详情
 
-The "stored" property is of type [Timestamp](#timestamps). The "stored" property is the literal time the Statement was stored. 
+“stored”属性的类型为 [Timestamp](#timestamps)。就是语句被存储的字面意思的时间.
 
-###### <a name="2.4.8.s3"></a>Requirements
+###### <a name="2.4.8.s3"></a>Requirements 要求
 
-* <a name="2.4.8.s3.b1"></a>For requirements pertaining to the Timestamp data type, see [ISO 8601 Timestamps](#timestamps) below.
-* <a name="2.4.8.s3.b2"></a>The "stored" property MUST be set by the LRS; An LRS SHOULD validate and then MUST overwrite any 
-value currently in the "stored" property of a Statement it receives.
-* <a name="2.4.8.s3.b3"></a>The "stored" property SHOULD be the current or a past time.
+* <a name="2.4.8.s3.b1"></a>对于Timestamp 数据结构 请参阅后文的 [ISO 8601 Timestamps](#timestamps) below.
+* <a name="2.4.8.s3.b2"></a>“存储stored”属性必须由LRS设置;一个LRS应该验证，然后必须覆盖当前在它接收的Statement的“stored”属性中的任何值。
+* <a name="2.4.8.s3.b3"></a>“存储stored”属性应该是当前或过去的时间。
 
 <a name="authority"/> 
 
-#### <a name="2.4.9">2.4.9</a> Authority
+#### <a name="2.4.9">2.4.9</a> Authority 授权
 
-###### <a name="2.4.9.s1"></a>Description
+###### <a name="2.4.9.s1"></a>Description 描述
 
-The authority property provides information about whom or what has asserted that this Statement is true. 
+授权authority属性提供了有关谁或者什么声称被语句为真的信息
 
-###### <a name="2.4.9.s2"></a>Details
+###### <a name="2.4.9.s2"></a>Details 详情
 
-The asserting authority represents the authenticating user or some system or application.
+断言授权表示某些认证的用户，系统或应用程序。
 
-###### <a name="2.4.9.s3"></a>Requirements
+###### <a name="2.4.9.s3"></a>Requirements 要求
 
-* <a name="2.4.9.s3.b1"></a>Authority MUST be an Agent, except in 3-legged OAuth, where it MUST be a Group with two Agents. 
-The two Agents represent an application and user together.
-* <a name="2.4.9.s3.b2"></a>The LRS MUST include the user as an Agent as the entire authority if a user connects 
-directly (using HTTP Basic Authentication) or is included as part of a Group. 
-* <a name="2.4.9.s3.b3"></a>The LRS MUST ensure that all Statements stored have an authority.
-* <a name="2.4.9.s3.b4"></a>The LRS SHOULD overwrite the authority on all Statements it stores,
-based on the credentials used to send those Statements.
-* <a name="2.4.9.s3.b5"></a>The LRS MAY leave the submitted authority unchanged but SHOULD do so only 
-where a strong trust relationship has been established, and with extreme caution.
-* <a name="2.4.9.s3.b6"></a>The LRS MAY identify the user with any of the legal identifying properties if 
-a user connects directly (using HTTP Basic Authentication) or a part of 3-legged OAuth. 
+* <a name="2.4.9.s3.b1"></a>授权MUST必须是一个代理，除非为第三方认证Oauth，这样的话就必须是具有两个代理的组来分别表示应用和用户。
+* <a name="2.4.9.s3.b2"></a>如果用户直接连接（使用HTTP基本身份验证）或作为组的一部分包括在内，LRS必须将用户作为代理视为整个权限 
+* <a name="2.4.9.s3.b3"></a>LRS 必须MUST保证所有的语句都有授权
+* <a name="2.4.9.s3.b4"></a>LRS应该根据用于发送这些语句的凭证，覆盖其存储的所有语句的权限
+* <a name="2.4.9.s3.b5"></a>LRS可能使提交的权限保持不变，但只有在建立强烈的信任关系并且非常谨慎的情况下才这样做。
+* <a name="2.4.9.s3.b6"></a>如果用户直接连接（使用HTTP基本身份验证）或使用三方模式OAuth的一部分，则LRS可以为用户标识任何合法的标识属性。
 
-##### <a name="2.4.9.s4"></a>OAuth Credentials as Authority
+##### <a name="2.4.9.s4"></a>OAuth Credentials as Authority 以OAuth 证书 作为认证
 
-###### <a name="2.4.9.s5"></a>Description
+###### <a name="2.4.9.s5"></a>Description 描述
 
-This is a workflow for use of OAuth. 2-legged and 3-legged OAuth are both supported.
+使用OAuth的工作流程，支持2-legged和3-legged OAuth。
 
 ###### <a name="2.4.9.s6"></a>Details
 
-This workflow assumes a Statement is stored using a validated OAuth connection and the LRS 
-creates or modifies the authority property of the Statement.
+此工作流假定使用已验证的OAuth连接存储Statement，并且LRS创建或修改Statement的权限属性
 
-In a 3-legged OAuth workflow, authentication involves both an OAuth consumer and a user of the 
-OAuth service provider. For instance, requests made by an authorized Twitter plug-in on their 
-Facebook account will include credentials that are specific not only to Twitter as a Client application, 
-or them as a user, but the unique combination of both.
+在三方OAuth工作流程中，身份验证涉及OAuth使用者和OAuth服务提供商的用户。例如，由经授权的Twitter插件在其Facebook帐户上发出的请求将包含不只是Twitter作为客户端或者作为user而已，而是二者的结合。
 
-###### <a name="2.4.9.s7"></a>Requirements
+###### <a name="2.4.9.s7"></a>Requirements 要求
+ 
+* <a name="2.4.9.s7.b1"></a>授权authority必须包含作为代表OAuth使用者的Agent Object，不论是其自己还是在三方OAuth情况下作为group的一部分。
+* <a name="2.4.9.s7.b2"></a>代表OAuth客户的代理MUST必须通过账户标识。
+* <a name="2.4.9.s7.b3"></a>代表OAuth客户的代理必须MUST使用consumer键作为帐户的“name”属性的值
+* <a name="2.4.9.s7.b4"></a>如果代表OAuth使用者的代理是注册的应用程序，则令牌请求端点必须用作帐户的“homePage”属性的值。
+* <a name="2.4.9.s7.b5"></a>如果代表OAuth使用者的代理程序不是注册的应用程序，则临时凭证端点必须用作帐户的“homePage”属性的值。
+* <a name="2.4.9.s7.b6"></a>在帐户名与未注册的应用程序来自相同的源的情况下，LRS不得信任权限的应用程序部分。 （多个未注册的应用程序可以选择相同的使用者密钥。因此，没有一致的方法来验证此临时凭证和帐户名的组合。）
+* <a name="2.4.9.s7.b7"></a>每个未注册的客户应该SHOULD使用唯一的客户密钥。
 
-* <a name="2.4.9.s7.b1"></a>The authority MUST contain an Agent Object that represents the OAuth consumer, either by itself, or 
-as part of a group in the case of 3-legged OAuth.
-* <a name="2.4.9.s7.b2"></a>The Agent representing the OAuth consumer MUST be identified by account.
-* <a name="2.4.9.s7.b3"></a>The Agent representing the OAuth consumer MUST use the consumer key as the value of the 
-account's "name" property.
-* <a name="2.4.9.s7.b4"></a>If the Agent representing the OAuth consumer is a registered application, the token request endpoint 
-MUST be used as the value of the account's "homePage" property.
-* <a name="2.4.9.s7.b5"></a>If the Agent representing the OAuth consumer is not a registered application, the temporary 
-credentials endpoint MUST be used as the value of the account's "homePage" property.
-* <a name="2.4.9.s7.b6"></a>An LRS MUST NOT trust the application portion of the authority in the event the account name is from 
-the same source as the unregistered application. (Multiple unregistered applications could choose the same consumer key. 
-As a result, there is no consistent way to verify this combination of temporary credentials and the account name.) 
-* <a name="2.4.9.s7.b7"></a>Each unregistered consumer SHOULD use a unique consumer key.
-
-###### <a name="2.4.9.s8"></a>Example
+###### <a name="2.4.9.s8"></a>Example 示例
 
 The pairing of an OAuth consumer and a user.
 
@@ -1561,48 +1477,39 @@ The pairing of an OAuth consumer and a user.
 
 <a name="version"/> 
 
-#### <a name="2.4.10">2.4.10</a> Version
-###### <a name="2.4.10.s1"></a>Description
+#### <a name="2.4.10">2.4.10</a> Version 版本
+###### <a name="2.4.10.s1"></a>Description 描述
 
-Version information in Statements helps Learning Record Consumers get their bearings. Since
-the Statement data model is guaranteed consistent through all 1.0.x versions, in order to support data
-flow among such LRSs, the LRS is given some flexibility on Statement versions that are accepted.
+Statement中的版本信息有助于学习记录消费者获得自己的方向。由于Statement数据模型通过所有1.0.x版本保证一致，为了支持这些LRS之间的数据流，LRS在接受的Statement版本上有一定的灵活性。
 
-###### <a name="2.4.10.s2"></a>Requirements
+###### <a name="2.4.10.s2"></a>Requirements 要求
 
-* <a name="2.4.10.s2.b1"></a>Version MUST be formatted as laid out for the API version header in [Versioning](./xAPI-Communication.md#versioning)
+* <a name="2.4.10.s2.b1"></a>版本必须格式化为[Versioning](./xAPI-Communication.md#versioning)中的API版本头
 
-###### <a name="2.4.10.s3"></a>LRS Requirements
+###### <a name="2.4.10.s3"></a>LRS Requirements 对LRS的要求
 
-* <a name="2.4.10.s3.b1"></a>An LRS MUST accept all Statements where their version starts with `1.0.` if they otherwise validate.
-* <a name="2.4.10.s3.b2"></a>An LRS MUST reject all Statements with a version specified that does not start with `1.0.`.
-* <a name="2.4.10.s3.b3"></a>Statements returned by an LRS MUST retain the version they are accepted with. If they
-lack a version, the version MUST be set to `1.0.0`.
+* <a name="2.4.10.s3.b1"></a>LRS必须MUST接受所有以`1.0.`开头版本的语句
+* <a name="2.4.10.s3.b2"></a>LRS必须MUST拒绝所有具有指定版本且不以`1.0.`开头的语句 .
+* <a name="2.4.10.s3.b3"></a>LRS返回的语句必须保留它们接受的版本。如果他们没有版本，版本必须设置为 `1.0.0`.
 
 
-###### <a name="2.4.10.s4"></a>Learning Record Provider Requirements
+###### <a name="2.4.10.s4"></a>Learning Record Provider Requirements 对LRP的要求
 
-* <a name="2.4.10.s4.b1"></a>If Learning Record Providers set the Statement version, they MUST set it to `1.0.0`.
-* <a name="2.4.10.s4.b2"></a>Learning Record Providers SHOULD NOT set the Statement version.
+* <a name="2.4.10.s4.b1"></a>如果学习记录提供者设置语句版本，它们必须将其设置为 `1.0.0`.
+* <a name="2.4.10.s4.b2"></a>学习记录提供者不应该设置Statement版本
 
-__Note:__ The requirement for the "version" property to contain the value `1.0.0`, rather than the latest
-patch version is deliberate since Statements in any version of 1.0.x conform to the 1.0.0 data model. In fact, 
-a single Statement may be included in multiple requests over time, each following a different patch version 
-of the specification. The patch version of the specification being followed can be determined from the 
-["X-Experience-API-Version" header](./xAPI-Communication.md#versioning) being used in each request. 
+__Note:__ 对于“version”属性包含值`1.0.0`而不是最新修补程序版本的要求是慎重的，因为任何版本的1.0.x中的语句都符合1.0.0数据模型。事实上，随着时间的推移，单个语句可能会包含在多个请求中，每个都在规范的不同补丁版本之后。可以从在每个请求中使用的["X-Experience-API-Version" header](./xAPI-Communication.md#versioning)报头确定遵循的规范的补丁版本。
 
 <a name="attachments"/>
-#### <a name="2.4.11">2.4.11</a> Attachments
+#### <a name="2.4.11">2.4.11</a> Attachments 附件
 
-###### <a name="2.4.11.s1"></a>Rationale
+###### <a name="2.4.11.s1"></a>Rationale 缘由
 
-In some cases an Attachment is logically an important part of a Learning Record. It could be an essay, a video, etc. 
-Another example of such an Attachment is (the image of) a certificate that was granted as a result of an experience. 
-It is useful to have a way to store these Attachments in and retrieve them from an LRS. 
+在某些情况下，附件在逻辑上是学习记录的重要组成部分。它可以是文章，视频等。这种附件的另一个示例是作为经历的结果而被授予的证书（的图像）。有一种方法来存储这些附件并从LRS中检索它们是非常有用的
 
-###### <a name="2.4.11.s2"></a>Details
+###### <a name="2.4.11.s2"></a>Details 详情
 
-The table below lists all properties of the Attachment Object.
+下表列出了附件对象Attachment Object的所有属性
 
 <table>
 	<tr><th>Property</th><th>Type</th><th>Description</th><th>Required</th><th>Corresponding request parameter</th></tr>
@@ -1613,35 +1520,35 @@ The table below lists all properties of the Attachment Object.
 		<td>IRI</td>
 		<td>Identifies the usage of this Attachment. For example: one expected use case
 		for Attachments is to include a "completion certificate". An IRI corresponding
-		to this usage MUST be coined, and used with completion certificate attachments.</td>
+		to this usage MUST be coined, and used with completion certificate attachments. <br>标识此附件的用法。例如：附件的一个预期用例是包括“完成证书”。与此用法相对应的IRI必须被创造，并与完成证书附件一起使用。</td>
 		<td>Required</td>
 		<td></td>
 	</tr>
 	<tr id="2.4.11.s2.table1.row2">
 		<td>display</td>
 		<td><a href="#lang-maps">Language Map</a></td>
-		<td>Display name (title) of this Attachment.</td>
+		<td>Display name (title) of this Attachment.<br>此附件的显示名称（标题）。</td>
 		<td>Required</td>
 		<td></td>
 	</tr>
 	<tr id="2.4.11.s2.table1.row3">
 		<td>description</td>
 		<td><a href="#lang-maps">Language Map</a></td>
-		<td>A description of the Attachment</td>
+		<td>A description of the Attachment<br>附件说明</td>
 		<td>Optional</td>
 		<td></td>
 	</tr>
 	<tr id="2.4.11.s2.table1.row4">
 		<td>contentType</td>
 		<td><a href="https://www.ietf.org/rfc/rfc2046.txt?number=2046">Internet Media Type</a></td>
-		<td>The content type of the Attachment.</td>
+		<td>The content type of the Attachment.<br>附件内容类型</td>
 		<td>Required</td>
 		<td>Content-Type</td>
 	</tr>
 	<tr id="2.4.11.s2.table1.row5">
 		<td>length</td>
 		<td>Integer</td>
-		<td>The length of the Attachment data in octets.</td>
+		<td>The length of the Attachment data in octets.<br>附件数据的长度（以字节为单位）</td>
 		<td>Required</td>
 		<td>Content-Length</td>
 	</tr>
@@ -1649,7 +1556,7 @@ The table below lists all properties of the Attachment Object.
 		<td>sha2</td>
 		<td>String</td>
 		<td>The SHA-2 hash of the Attachment data. <br/>
-		This property is always required, even if fileURL is also specified. 
+		This property is always required, even if fileURL is also specified. <br>附件数据的SHA-2散列。此属性始终是必需的，即使还指定了fileURL。
 		</td>
 		<td>Required</td>
 		<td>X-Experience-API-Hash</td>
@@ -1658,26 +1565,24 @@ The table below lists all properties of the Attachment Object.
 		<td>fileUrl</td>
 		<td>IRL</td>
 		<td>An IRL at which the Attachment data can be retrieved, or from which it used 
-		to be retrievable. </td>
+		to be retrievable. <br>可以检索附件数据或是从中可以检索到附件数据的IRL。</td>
         <td>Optional</td>
 		<td></td>
 	</tr>
 </table>
 
-In the case of wanting to include an Attachment(s) for a SubStatement, it is strongly recommended to include the 
-Attachment(s) in the Statement's Attachment object and to include the payloads as normally done for a Statement.
+在希望包含子语句的附件的情况下，强烈建议在Statement的Attachment对象中包含附件，并包括通常对语句所做的有效内容。
 
 <a name="retrieval"/> 
-### <a name="2.5">2.5</a> Retrieval of Statements
+### <a name="2.5">2.5</a> Retrieval of Statements 语句的检索
 
-###### <a name="2.5.s1"></a>Description
+###### <a name="2.5.s1"></a>Description 描述
 
-A collection of Statements can be retrieved by performing a query on the Statement 
-Resource, see [Statement Resource](./xAPI-Communication.md#stmtres) for details. 
+可以通过对语句资源执行查询来检索语句集合，有关详细信息，请参阅 [Statement Resource](./xAPI-Communication.md#stmtres)语句资源。 
 
-###### <a name="2.5.s2"></a>Details
+###### <a name="2.5.s2"></a>Details 详情
 
-The following table shows the data structure for the results of queries on the Statement Resource.
+下表显示了对语句资源的查询结果的数据结构。
 <table>
 	<tr><th>Property</th><th>Type</th><th>Description</th><th>Required</th></tr>
 	<tr id="2.5.s2.table1.row1"><td>statements</td><td>Array of Statements</td>
@@ -1686,154 +1591,115 @@ The following table shows the data structure for the results of queries on the S
 			within the container located at the IRL provided by the "more" property of 
 			this Statement result Object.
 			
-			Where no matching Statements are found, this property will contain an empty array.
+			Where no matching Statements are found, this property will contain an empty array. <br>语句列表。如果返回的列表已被限制（由于分页），并且有更多结果，它们将位于由此Statement对象的“more”属性提供的IRL中的容器中的“statements”属性。如果没有找到匹配的语句，此属性将包含一个空数组。
 		</td>
 		<td>Required</td>
 	</tr>
 	<tr id="2.5.s2.table1.row2"><td>more</td><td>IRL</td>
 		<td>Relative IRL that can be used to fetch more results, including the full path 
 			and optionally a query string but excluding scheme, host, and port. 
-			Empty string if there are no more results to fetch.
+			Empty string if there are no more results to fetch.<br>可用于获取更多结果的相对IRL，包括完整路径和可选的查询字符串，但不包括方案，主机和端口。如果没有更多结果要提取，则为空字符串
 		</td>
-		<td>Required if the list returned has been limited, otherwise optional.</td>
+		<td>Required if the list returned has been limited, otherwise optional.<br>如果返回的列表已被限制，则为必需，否则为可选</td>
 	</tr>
 </table>
 
-###### <a name="2.5.s3"></a>Requirements
+###### <a name="2.5.s3"></a>Requirements 要求
 
-* <a name="2.5.s3.b1"></a>The IRL retrieved from the "more" property MUST be usable for at least 24 hours after it is returned 
-by the LRS. 
-* <a name="2.5.s3.b2"></a>An LRS MAY include all necessary information within the "more" property IRL to continue the query 
-to avoid the need to store IRLs and associated query data.
-* <a name="2.5.s3.b3"></a>An LRS SHOULD NOT generate extremely long IRLs within the "more" property.
-* <a name="2.5.s3.b4"></a>An LRS MAY re-run the query at the point in time that the IRL retrieved from the "more" property 
-is accessed such that the batch retrieved includes Statements which would have been included in that batch if present in the 
-LRS at the time the original query was run and excludes Statements from that batch which have since been voided. 
-* <a name="2.5.s3.b5"></a>Alternatively, an LRS MAY cache a list of Statements to be returned at the "more" property such that 
-the batch of Statements returned matches those Statements that would have been returned when the original query was run. 
-* <a name="2.5.s3.b6"></a>An LRS MAY remove voided Statements from the cached list of Statements if using this method. 
-* <a name="2.5.s3.b7"></a>A Learning Record Consumer SHOULD NOT attempt to interpret any meaning from the IRL returned from the 
-"more" property.
+* <a name="2.5.s3.b1"></a>从“more”属性检索到的IRL必须MUST在LRS返回后至少24小时内可用
+* <a name="2.5.s3.b2"></a>LRS可以MAY在 “more”属性IRL中包括所有必要信息，以继续查询，从而避免存储IRL和关联查询数据。
+* <a name="2.5.s3.b3"></a>LRS不应该SHOULD NOT在“more”属性中生成超长的IRL。
+* <a name="2.5.s3.b4"></a>LRS可以在访问从“more”属性检索到的IRL时立即重新查询，如果在LRS中存在的话，会使得所检索的批拥有将被包括在该批中的语句，并排除该批次中已被无效的语句。
+* <a name="2.5.s3.b5"></a>或者，LRS可以缓存要在“more”属性返回的语句的列表，使得返回的语句批次与在运行原始查询时将返回的语句相匹配
+* <a name="2.5.s3.b6"></a>如果使用此方法，LRS可以从缓存的语句列表中删除voided语句。
+* <a name="2.5.s3.b7"></a>学习记录消费者不应试图解释从“more”属性返回的IRL的任何含义。
 
 <a name="signature"/>
-### <a name="2.6">2.6</a> Signed Statements
+### <a name="2.6">2.6</a> Signed Statements 签名语句
 
-##### <a name="2.6.s1"></a>Description
+##### <a name="2.6.s1"></a>Description 描述
 
-A Statement can include a [digital signature](https://en.wikipedia.org/wiki/Digital_signature) 
-to provide strong and durable evidence of the authenticity and integrity of the Statement.
+语句可以包括数字签名[digital signature](https://en.wikipedia.org/wiki/Digital_signature)，以提供有力和持久的声明的真实性和完整性的证据。 
 
-##### <a name="2.6.s2"></a>Rationale
 
-Some Statements will have regulatory or legal significance, or otherwise require strong
-and durable evidence of their authenticity and integrity. It might be necessary to verify
-these Statements without trusting the environment they were first recorded in, or perhaps
-without access to that environment. Digital signatures will enable a third-party to validate such Statements.
+##### <a name="2.6.s2"></a>Rationale 缘由
 
-##### <a name="2.6.s3"></a>Details
+一些语句将具有监管或法律意义，或以其他方式要求其真实性和完整性的强有力和持久的证据。可能有必要验证这些语句，而不信任他们首次记录的环境，或者可能无法访问该环境。数字签名将使第三方能够验证此类语句。
 
-Signed Statements include a JSON web signature (JWS) as an Attachment. This allows
-the original serialization of the Statement to be included along with the signature.
-For interoperability, the "RSA + SHA" series of JWS algorithms have been selected, and
-for discoverability of the signer X.509 certificates SHOULD be used.
+##### <a name="2.6.s3"></a>Details 详情
 
-##### <a name="2.6.s4"></a>Signature Requirements
-* <a name="2.6.s4.b1"></a>A Signed Statement MUST include a JSON web signature (JWS) as defined here:
-http://tools.ietf.org/html/rfc7515, as an Attachment with a usageType
-of `http://adlnet.gov/expapi/attachments/signature` and a contentType of `application/octet-stream`.
-* <a name="2.6.s4.b2"></a>JWS Compact Serialization SHOULD* be used to create the JSON web signature. Use of JWS 
-JSON Serialization is strongly discouraged, is unlikely to be interoperble with other systems, and will be forbidden 
-in a future version of this specification. 
-* <a name="2.6.s4.b3"></a>The JWS signature MUST have a payload of a valid JSON serialization of the complete Statement 
-before the signature was added.
-* <a name="2.6.s4.b4"></a>The JWS signature MUST use an algorithm of "RS256", "RS384", or "RS512".
-* <a name="2.6.s4.b5"></a>The JWS signature SHOULD have been created based on the private key associated with an
-X.509 certificate.
-* <a name="2.6.s4.b6"></a>If X.509 was used to sign, the JWS header SHOULD include the "x5c" property containing
-the associated certificate chain.
+签名语句包括作为附件的JSON Web签名（JWS）。这允许语句的原始系列化将签名一起包括了起来。为了实现交互性，选择了“RSA + SHA”系列JWS算法，并且为了签名者的可见性，应使用X.509证书。
 
-##### <a name="2.6.s5"></a>LRS Requirements
-* <a name="2.6.s5.b1"></a>The LRS MUST reject requests to store Statements that contain malformed signatures, with `400 Bad Request`.
-* <a name="2.6.s5.b2"></a>The LRS SHOULD include a message in the response of a rejected statement. 
-* <a name="2.6.s5.b3"></a>In order to verify signatures are well formed, the LRS MUST do the following:
-    * <a name="2.6.s5.b3.b1"></a>Decode the JWS signature, and load the signed serialization of the Statement from the
-      JWS signature payload.
-    * <a name="2.6.s5.b3.b2"></a>Validate that the original Statement is logically equivalent to the received Statement. 
-    See [Statement comparision requirements](#statement-comparison-requirements).
-    * <a name="2.6.s5.b3.b3"></a>If the JWS header includes an X.509 certificate, validate the signature against that
-    certificate as defined in JWS.
-    * <a name="2.6.s5.b3.b4"></a>Validate that the signature requirements outlined above have been met. 
+##### <a name="2.6.s4"></a>Signature Requirements 对签名的要求
+* <a name="2.6.s4.b1"></a>签名语句必须包含如下定义的Web签名（JWS）：
+http://tools.ietf.org/html/rfc7515 ,在附件中以 `http://adlnet.gov/expapi/attachments/signature`来作为usageType 和 `application/octet-stream`来作为contentType
+* <a name="2.6.s4.b2"></a>JWS紧凑序列化应该用于创建JSON Web签名。使用JWS JSON序列化是强烈不推荐的，这会导致不可能与其他系统互操作，并且将在本规范的未来版本中被禁止。
+* <a name="2.6.s4.b3"></a>在添加签名之前，JWS签名必须具有有效的JSON序列化的有效载荷。
+* <a name="2.6.s4.b4"></a>JWS签名必须使用“RS256”，“RS384”或“RS512”算法。
+* <a name="2.6.s4.b5"></a>JWS签名应该基于与X.509证书相关联的私钥创建。
+* <a name="2.6.s4.b6"></a>如果使用X.509进行签名，JWS头应该包含包含相关证书链的“x5c”属性。
 
-__Note:__ The step of validating against the included X.509 certificate is intended as a
-way to catch mistakes in the signature, not as a security measure. The steps to authenticate
-a signed Statement will vary based on the degree of certainty required and are outside
-the scope of this specification.
+##### <a name="2.6.s5"></a>LRS Requirements 对LRS的要求
+* <a name="2.6.s5.b1"></a>LRS必须拒绝存储包含格式不正确的签名的语句的请求，具有400错误请求。`400 Bad Request`.
+* <a name="2.6.s5.b2"></a>LRS应该在被拒绝的语句的响应中包括一条消息。
+* <a name="2.6.s5.b3"></a>为了使得验证的签名具有好的格式，LRS必须遵守
+    * <a name="2.6.s5.b3.b1"></a>解码JWS签名，并从JWS签名有效载荷加载Statement的签名序列化。
+    * <a name="2.6.s5.b3.b2"></a>验证原始语句在逻辑上等同于接收的语句。见[Statement comparision requirements](#statement-comparison-requirements).
+    * <a name="2.6.s5.b3.b3"></a>如果JWS头包含X.509证书，则根据JWS中定义的该证书验证签名。
+    * <a name="2.6.s5.b3.b4"></a>验证是否满足上述签名要求
 
-##### <a name="2.6.s6"></a>Client Requirements
+__Note:__ 针对包括的X.509证书进行验证的步骤旨在作为捕获签名中的错误的方式，而不是作为安全措施。验证签名的语句的步骤将根据所需的确定性程度而变化，并且超出本规范的范围。
 
-* <a name="2.6.s6.b1"></a>Clients MUST follow the signature requirements outlined above.
-* <a name="2.6.s6.b2"></a>Clients MUST NOT assume a signature is valid simply because an LRS has accepted it.
+##### <a name="2.6.s6"></a>Client Requirements 对客户的要求
 
-##### <a name="2.6.s7"></a>Example
+* <a name="2.6.s6.b1"></a>客户必须遵守上述签名要求。
+* <a name="2.6.s6.b2"></a>客户不得只是因为LRS已经接受它，就假设签名有效。
 
-See [Appendix D: Example Signed Statement](#Appendix2D) for an example.
+
+
+##### <a name="2.6.s7"></a>Example 示例
+
+例子参见 [Appendix D: Example Signed Statement](#Appendix2D)
 
 <a name="metadata"/>
 
-## <a name="3.0">3.0</a> Metadata
+## <a name="3.0">3.0</a> Metadata 元数据
 
-Metadata is additional information about the resource. It enables decision making, search, and discoverability. 
-In xAPI, metadata can be utilized in a variety of locations. The most common is within [Activity Definitions](#actdef).
+元数据是关于资源的附加信息。它被利用在决策，搜索和可发现性。在xAPI中，元数据可以在各种位置中使用。最常见的是在活动定义中。
 
 <a name="iri-requirements"/>
 
-### <a name="3.1">3.1</a> IRI Requirements
+### <a name="3.1">3.1</a> IRI Requirements IRI要求
 
-xAPI uses IRIs for identifiers. Using IRIs ensures uniqueness and promotes resolvability. The LRS and Learning Record 
-Provider each have responsibilities in regard to each IRI as outlined below. Activity Definitions have additional rules 
-which can be found [here](#actdef).
+xAPI使用IRI作为标识符。使用IRI可确保唯一性并提高可解析性。如下所述，LRS和学习记录提供者都分别对每个IRI的职责。在活动定义中有其他规则，可以在这里找到。 [here](#actdef)
 
-##### <a name="3.1.s1"></a>Metadata Provider Requirements
+##### <a name="3.1.s1"></a>Metadata Provider Requirements 对元数据提供者的要求
 
-These requirements also apply to Learning Record Providers defining new IRIs. 
+这些要求也适用于定义新IRI的学习记录提供者。
 
-* <a name="3.1.s1.b1"></a>[Metadata Providers](./xAPI-About.md#def-metadata-provider) defining new IRIs SHOULD* only use IRIs they control 
-or have permission from the controller to use.
-* <a name="3.1.s1.b2">Metadata Providers defining new Verb IRIs MUST only use IRIs they control 
-or have permission from the controller to use.
-* <a name="3.1.s1.b3"></a>Where a suitable identifier already exists, the Metadata Provider SHOULD use the corresponding 
-existing identifier and SHOULD NOT create a new identifier.
-* <a name="3.1.s1.b4"></a>When re-using an existing identifier, Metadata Providers SHOULD* ensure that the exact character 
-equivelent IRI is used. 
-* <a name="3.1.s1.b5"></a>The Metadata Provider MAY create their own identifiers where a suitable identifier does not already exist.
-* <a name="3.1.s1.b6"></a>When defining identifiers, the Metadata Provider MAY use IRIs containing anchors so that a single 
-page can contain definitions for multiple identifiers. E.g. `http://example.com/xapi/verbs#defenestrated`
-* <a name="3.1.s1.b7"></a>When defining identifiers, the Metadata Provider SHOULD use lowercase IRIs. 
+* <a name="3.1.s1.b1"></a>[Metadata Providers 元数据提供者](./xAPI-About.md#def-metadata-provider) 在定义新的IRI时，应该SHOULD*使用在他们控制范围内的IRI。
+* <a name="3.1.s1.b2">元数据提供者在定义新的Verb IRI时，必须MUST使用在他们控制范围内的IRI。
+* <a name="3.1.s1.b3"></a>在合适的标识符已经存在的情况下，元数据提供者应该使用相应的现有标识符，并且不应该创建新的标识符。
+* <a name="3.1.s1.b4"></a>当重新使用现有标识符时，元数据提供者应该确保使用确切的字符等价的IRI
+* <a name="3.1.s1.b5"></a>元数据提供者可以创建自己的标识符，如果其中合适的标识符不存在的话。
+* <a name="3.1.s1.b6"></a>定义标识符时，元数据提供者可以使用包含定位点的IRI，以便单个页面可以包含多个标识符的定义。例如： `http://example.com/xapi/verbs#defenestrated`
+* <a name="3.1.s1.b7"></a>定义标识符时，元数据提供者应该使用小写的IRI。
 
-##### <a name="3.1.s2"></a>LRS Requirements
+##### <a name="3.1.s2"></a>LRS Requirements LRS哟求
 
-* <a name="3.1.s2.b1"></a>When storing or comparing IRIs, LRSs SHOULD* handle them only by using one or more of the approaches 
-described in [5.3.1 (Simple String Comparison) and 5.3.2 (Syntax-Based Normalization) of RFC 3987](https://tools.ietf.org/html/rfc3987#section-5.3), and 
-SHOULD* NOT handle them using any approaches described in [5.3.3 (Scheme-Based Normalization) or 5.3.4 (Protocol-Based Normalization) of the same RFC](https://tools.ietf.org/html/rfc3987#section-5.3), 
-or any other approaches.
-* <a name="3.1.s2.b2"></a>LRSs SHOULD* apply the same IRI comparison and normalization rules with all IRIs in parameters and 
-fields defined to contain IRIs.
-
+* <a name="3.1.s2.b1"></a>当存储或比较IRI时，LRS应该仅使用RFC 3987的5.3.1（简单字符串比较）[5.3.1 (Simple String Comparison)和5.3.2（基于语法的规范化）5.3.2 (Syntax-Based Normalization) of RFC 3987](https://tools.ietf.org/html/rfc3987#section-5.3)中描述的一种或多种方法来处理它们，并且应当SHOULD *使用相同RFC的5.3.3（基于方案的规范化）或5.3.4（基于协议的规范化）[5.3.3 (Scheme-Based Normalization) or 5.3.4 (Protocol-Based Normalization) of the same RFC](https://tools.ietf.org/html/rfc3987#section-5.3)或任何其他方法中描述的任一方法。  
+* <a name="3.1.s2.b2"></a>LRSs 应当SHOULD *应用相同的IRI比较和规范化规则对于包含IRI的参数和字段的所有IRI。
 <a name="miscmeta"/>
 
-### <a name="3.2">3.2</a> Hosted Metadata
+### <a name="3.2">3.2</a> Hosted Metadata 站点元数据
 
-##### <a name="3.2.s1"></a>Description
+##### <a name="3.2.s1"></a>Description 描述
 
-Additional information about an identifier can be provided within a Statement and can 
-be hosted at the location pointed to by the identifier IRI. Including metadata in a Statement
-allows metadata about the IRI to be expressed without the necessity of resolving it. Hosting
-metadata at the IRI location allows the owner of the IRI to define the canonical metadata for
-that IRI. 
+关于标识的额外的信息可以被放在被IRI所指定的站点上，包含在语句中的元数据使得关于IRI的元数据能够不需要解析的情况下使用它，而储存在站点上的元数据使得IRI的持有者能够定义其规范。
 
-##### <a name="3.2.s2"></a>Details
+##### <a name="3.2.s2"></a>Details 详情
 
-There are several types of IRI identifiers used in this specification:
+在本规范中，有以下几类IRI标识：
 
 * <a name="3.2.s2.b1"></a>[Verb](#verb)
 * <a name="3.2.s2.b2"></a>[Activity id](#acturi)
@@ -1841,220 +1707,171 @@ There are several types of IRI identifiers used in this specification:
 * <a name="3.2.s2.b4"></a>[extension key](#miscext)
 * <a name="3.2.s2.b5"></a>[attachment usage type](#attachmentUsage)
 
-For the structure of hosted metadata about Activity ids, see [Activity Definition Object](#activity).
+有关活动ID的站点元数据的结构，请参阅活动定义对象。 [Activity Definition Object](#activity).
 
-For the structure of hosted metadata about all other identifiers, see the format below:
+有关所有的站点元数据的结构，参见下格式
 
 <table>
 	<tr><th>Property</th><th>Type</th><th>Description</th><th>Required</th></tr>
 	<tr id="3.2.s2.table1.row1">
 		<td>name</td>
 		<td><a href="#lang-maps">Language Map</a></td>
-		<td>The human readable/visual name. For Verbs, this is equivalent to the "display" property in a Statement.</td>
+		<td>The human readable/visual name. For Verbs, this is equivalent to the "display" property in a Statement.<br>人类可读/视觉名称。对于动词，这相当于Statement中的“display”属性。</td>
 		<td>Optional</td>
 	</tr>
 	<tr id="3.2.s2.table1.row2">
 		<td>description</td>
 		<td><a href="#lang-maps">Language Map</a></td>
-		<td>description</td>
+		<td>description<br>描述</td>
 		<td>Optional</td>
 	</tr>
 </table>
 
-Hosted metadata consists of a document containing a JSON object as described above. If this hosted metadata is provided, 
-it is the canonical source of information about the identifier it describes. It is recommended that those implementing xAPI
-look for and use established, widely adopted identifiers for all types of IRI identifiers other than Activity id.
+站点元数据由包含上述JSON对象的文档组成，如果提供此站点元数据，则它是关于其描述的标识符的规范信息源，除了Activity id之外的所有类型的IRI标识符，建议实现xAPI的人查找和使用已经建立的被广泛采用的标识符。
 
-##### <a name="3.2.s3"></a>Metadata Provider Requirements
+##### <a name="3.2.s3"></a>Metadata Provider Requirements 对元数据提供者的要求
 
-* <a name="3.2.s3.b1"></a>Metadata MAY be provided with an identifier.
-* <a name="3.2.s3.b2"></a>If metadata is provided, both "name" and "description" SHOULD be included.
-* <a name="3.2.s3.b3"></a>For any of the identifier IRIs above the Metadata Provider SHOULD make a human-readable description of the 
-intended usage accessible at the IRI.
-* <a name="3.2.s3.b4"></a>For any of the identifier IRIs above the Metadata Provider SHOULD ensure that this JSON metadata 
-available at that IRI when the IRI is requested and a Content-Type of `application/json` is requested.
-* <a name="3.2.s3.b5"></a>Where the IRI represents an Activity, the Metadata Provider MAY host metadata using 
-the [Activity Definition](#actdef) JSON format which is used in Statements, with a Content-Type of `application/json`.
+* <a name="3.2.s3.b1"></a>元数据可以MAY随着一个标识来提供
+* <a name="3.2.s3.b2"></a>如果提供了元数据，那么相应的“名称name”和“描述description”都该提供
+* <a name="3.2.s3.b3"></a>对于元数据提供者上面的任何标识符IRI，应该对IRI上可访问的预期用途进行人类可读的描述。
+* <a name="3.2.s3.b4"></a>对于元数据提供者上面的任何标识符IRI，应当在请求IRI时用 内容类型`application/json`时，确保该IRI处的该JSON元数据可用。
+* <a name="3.2.s3.b5"></a>在IRI表示活动的情况下，元数据提供者可以使用在语句中使用的[活动定义Activity Definition](#actdef)JSON格式来存放元数据，其具有内容类型 `application/json` 
 
-##### <a name="3.2.s4"></a>LRS Requirements
+##### <a name="3.2.s4"></a>LRS Requirements 对LRS的要求
 
-* <a name="3.2.s4.b1"></a>The LRS MAY act as a [Metadata Consumer](./xAPI-About.md#def-metadata-consumer) and attempt to resolve identifier IRIs.
-* <a name="3.2.s4.b2"></a>If an Activity IRI is a URL, an LRS SHOULD attempt to GET that URL, and include in HTTP
-headers: `Accept: application/json, */*`. This SHOULD be done as soon as practical after the LRS
-first encounters the Activity id.
-* <a name="3.2.s4.b3"></a>Upon loading JSON which is a valid Activity Definition from a URL used as an Activity id,
- an LRS SHOULD incorporate the loaded definition into its canonical definition for that Activity,
-while preserving names or definitions not included in the loaded definition.
-* <a name="3.2.s4.b4"></a>Upon loading any document from which the LRS can parse an Activity Definition
-from a URL used as an Activity id, an LRS MAY consider this definition when determining
+* <a name="3.2.s4.b1"></a>LRS可能充当[元数据使用者Metadata Consumer](./xAPI-About.md#def-metadata-consumer)并尝试解析标识符IRI。  
+* <a name="3.2.s4.b2"></a>如果活动IRI是一个URL，LRS应该尝试获取该URL，并包括在HTTP头中： `Accept: application/json, */*`。这应该在LRS首次遇到活动ID后尽快实施。
+* <a name="3.2.s4.b3"></a>在从用作活动ID的URL中加载作为有效活动定义的JSON时，LRS应该将加载的定义合并到该活动的规范定义中，同时保留未包含在加载的定义中的名称或定义。
+* <a name="3.2.s4.b4"></a>加载任何文档，LRS可以从用作活动ID的URL解析活动定义时，LRS可以在确定其活动定义的规范表示时考虑此定义
 its canonical representation of that Activity's definition.
 
-##### <a name="3.2.s5"></a>Metadata Consumer Requirements
+##### <a name="3.2.s5"></a>Metadata Consumer Requirements 对元数据消费者的要求
 
-* <a name="3.2.s5.b1"></a>If a Metadata Consumer obtains metadata from an IRI, it SHOULD make a strong presumption that the 
-metadata found at that IRI is authoritative in regards to the properties and languages included in that metadata. 
-* <a name="3.2.s5.b2"></a>The Metadata Consumer MAY use other sources of information to fill in missing details, 
-such as translations, or take the place of the hosted metadata entirely if it was not provided, cannot be loaded or the 
-Metadata Consumer does not trust it. Other sources of information MAY include metadata in other formats stored at the 
-IRI of an identifier, particularly if that identifier was not coined for use with this specification.
+* <a name="3.2.s5.b1"></a>如果元数据消费者从IRI获得元数据，它应该强烈推测在该IRI中找到的元数据对于该元数据中包括的属性和语言是权威的。
+* <a name="3.2.s5.b2"></a>元数据消费者可以使用其他信息来填充缺少的详细信息（例如翻译），或者完全代替托管的元数据（如果未提供），无法加载或元数据使用者不信任它。其他信息源可以包括存储在标识符的IRI处的其他格式的元数据，特别是如果该标识符不是为了与本说明书一起使用而创建的。
 
 
 <a name="special-data"/>
 
-## <a name="4.0">4.0</a> Special Data Types and Rules
+## <a name="4.0">4.0</a> Special Data Types and Rules 特殊的数据类型和规则
 
-The following are data types requiring additional rules that are found commonly in this specification.
+以下是在本说明书中常见的需要附加规则的数据类型。
 
 <a name="miscext"/> 
 
-### <a name="4.1">4.1</a> Extensions
+### <a name="4.1">4.1</a> Extensions 扩展
 
-##### <a name="4.1.s1"></a>Description
+##### <a name="4.1.s1"></a>Description 描述
 
-Extensions are available as part of Activity Definitions, as part of a Statement's "context" property, or as part of a 
-Statement's "result" property. In each case, extensions are intended to provide a natural way to extend those properties 
-for some specialized use. The contents of these extensions might be something valuable to just one application, or it might 
-be a convention used by an entire Community of Practice.
+扩展可作为活动定义的一部分，作为语句的“上下文”属性的一部分，或作为语句的“result”属性的一部分。在每种情况下，扩展旨在提供一种自然的方式来扩展那些属性以用于某些专门用途。这些扩展的内容可能只对一个应用程序有价值，或者它可能是一个完整的实践社区使用的约定
 
-##### <a name="4.1.s2"></a>Details
+##### <a name="4.1.s2"></a>Details 详情
 
-Extensions are defined by a map and logically relate to the part of the Statement where they are present. The values of an 
-extension can be any JSON value or data structure. Extensions in the "context" property provide context to the core experience, 
-while those in the "result" property provide elements related to some outcome. Within Activities, extensions provide additional 
-information that helps define an Activity within some custom application or Community of Practice. The meaning and structure of 
-extension values under an IRI key are defined by the person who controls the IRI.
+扩展由映射定义，并在逻辑上与它们所在的语句的部分相关。扩展的值可以是任何JSON值或数据结构。 “context”属性中的扩展为核心体验提供上下文，而“result”属性中的扩展提供与某些结果相关的元素。在活动内，扩展提供了其他信息，有助于在某些自定义应用程序或实践社区中定义活动。 IRI密钥下的扩展值的含义和结构由控制IRI的人员定义。
 
-##### <a name="4.1.s3"></a>Requirements
+##### <a name="4.1.s3"></a>Requirements 要求
 
-* <a name="4.1.s3.b1"></a>The keys of an extensions map MUST be IRIs.
-* <a name="4.1.s3.b2"></a>An LRS MUST NOT reject a Statement based on the values of the extensions map.
-* <a name="4.1.s3.b3"></a>Learning Record Providers SHOULD always strive to map as much information as possible into the built-in 
-elements in order to leverage interoperability among Experience API conformant tools.
-* <a name="4.1.s3.b4"></a>All extension IRIs SHOULD have controllers.
-* <a name="4.1.s3.b5"></a>The controller of an IRL extension key SHOULD make a human-readable description of the intended meaning of 
-the extension supported by the IRL accessible at the IRL.
+* <a name="4.1.s3.b1"></a>扩展映射的键必须是IRI
+* <a name="4.1.s3.b2"></a>LRS不得基于扩展映射的值拒绝语句。
+* <a name="4.1.s3.b3"></a>学习记录提供者应该总是努力将尽可能多的信息映射到内置元素中，以便利用x API一致性工具之间的互操作性。
+* <a name="4.1.s3.b4"></a>所有扩展IRI应该有持有者
+* <a name="4.1.s3.b5"></a>IRL扩展密钥的持有者应该对IRL可访问的IRL支持的扩展的预期含义进行人类可读的描述。
 
-__Note:__ A Statement defined entirely by its extensions becomes meaningless as no other system can make sense of it. 
+__Note:__ 完全由其扩展定义的语句变得没有意义，因为没有其他系统能够理解它。
 
 <a name="lang-maps"/> 
 
-### <a name="4.2">4.2</a> Language Maps
+### <a name="4.2">4.2</a> Language Maps 语言映射
 
-##### <a name="4.2.s1"></a>Description
+##### <a name="4.2.s1"></a>Description 描述
 
-A language map is a dictionary where the key is a [RFC 5646 Language Tag](http://tools.ietf.org/html/rfc5646), and the 
-value is a string in the language specified in the tag. This map SHOULD be populated as fully as possible based on the 
-knowledge of the string in question in different languages. 
+Language map是键为 [RFC 5646 Language Tag](http://tools.ietf.org/html/rfc5646)语言标记字典中的词，且值为标记中指定的语言字符串的表达映射。这个映射应该根据不同语言中的知识尽可能完整的填充。
 
-The shortest valid language code for each language string is generally preferred. The 
-[ISO 639 language code](https://www.loc.gov/standards/iso639-2/php/code_list.php) plus an 
-[ISO 3166-1 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) allows for the designation of
-basic languages (e.g., `es` for Spanish) and regions (e.g.,
-`es-MX`, the dialect of Spanish spoken in Mexico). If only the ISO 639 language code is known for certain, 
-do not guess at the possible ISO 3166-1 country code. For example, if
-only the primary language is known (e.g., English) then use the top level
-language tag `en`, rather than `en-US`. If the specific regional variation is known, then use the full language code.
+通常优选每个语言字符串中最短的代码，[ISO 639 language code 语言代码](https://www.loc.gov/standards/iso639-2/php/code_list.php)加上[ISO 3166-1 country code 国家代码](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)允许指定基本语言（例如`es`用于西班牙语）和区域（例如，`es-MX`，西班牙语在墨西哥语的方言）。如果只有ISO 639语言代码是已知的，不要猜测可能的ISO 3166-1国家代码。例如，如果只知道主要语言（例如，英语），则使用顶级语言标记`en`，而不是`en-US`。如果已知特定区域变体，请使用完整的语言代码。
 
-__Note:__ For Chinese languages, the significant linguistic diversity represented by `zh` means that the ISO 639 language 
-code is generally insufficient.
 
-The content of strings within a language map is plain text. It is expected that any formatting code 
-such as HTML tags or markdown will not be rendered, but will be displayed as code when this string is 
-displayed to an end user. An important exception to this is if language map Object is used in an extension and 
-the owner of that extension IRI explicitly states that a particular form of code will be rendered.
+__Note:__ 对于中文，由zh表示的重要语言多样性意味着ISO 639语言代码通常不足
+
+语言映射中的字符串的内容是纯文本。预期任何格式化代码（例如HTML标记或markdown）都不会被呈现，但是当此字符串显示给最终用户时将显示为代码。一个重要的例外是如果在扩展中使用语言映射Object，并且该扩展的所有者IRI明确地声明将呈现特定形式的代码。
 
 <a name="iris"/>
 
-### <a name="4.3">4.3</a> IRIs
+### <a name="4.3">4.3</a> IRIs 
 
-Internationalized Resource Identifiers, or IRIs, are unique identifiers which could also be resolvable. Because 
-resolving is not a requirement, IRIs/URIs are used instead of IRLs/URLs. In order to allow the greatest flexibility 
-in the characters used in an identifier, IRIs are used instead of URIs as IRIs can contain some characters outside 
-of the ASCII character set. 
+国际化资源标识符或IRI是也是可解析的唯一标识符。因为不需要解析，所以使用IRI / URI而不是IRL / URL。为了允许在标识符中使用的字符的最大灵活性，使用IRI而不是URI，因为IRI可以包含ASCII字符集之外的一些字符。
 
-See [Metadata](#metadata). 
+参见[Metadata 元数据](#metadata). 
 
 <a name="uuids"/>
 
 ### <a name="4.4">4.4</a> UUIDs
 
-Universally Unique Identifiers, or UUIDs, are 128-bit values that are globally unique. Unlike IRIs, there is 
-no expectation of resolvability as UUIDs take on a completely different format.  UUIDs MUST be in the standard 
-string form.  It is recommended variant 2 in [RFC 4122](http://tools.ietf.org/html/rfc4122) is used.
+通用唯一标识符或UUID是全局唯一的128位值。与IRI不同，由于UUID采用完全不同的格式，因此没有预期的可解析性。 UUID必须是标准字符串形式。建议使用[RFC 4122](http://tools.ietf.org/html/rfc4122)中的变体2。
 
 <a name="timestamps"/>
 
-### <a name="4.5">4.5</a> ISO 8601 Timestamps
+### <a name="4.5">4.5</a> ISO 8601 Timestamps 时间戳
 
-Timestamps are a format type which represent a specific time. They are formatted according to ISO 8601's normal format. 
-Statements sent to an LRS can be expected to keep precision to at least milliseconds 
+时间戳是表示特定时间的格式类型。它们根据ISO 8601的正常格式进行格式化。发送到LRS的语句可以保持精度至少为毫秒
 
-###### <a name="4.5.s1"></a>Requirements
-* <a name="4.5.s1.b1"></a>A Timestamp MUST be formatted according to [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).
-* <a name="4.5.s1.b2"></a>A Timestamp SHOULD* be expressed using the format described in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), which is a profile of ISO 8601. 
-* <a name="4.5.s1.b3"></a>A Timestamp MUST preserve precision to at least milliseconds (3 decimal points beyond seconds).  
-* <a name="4.5.s1.b4"></a>A Timestamp SHOULD* include the time zone.
-* <a name="4.5.s1.b5"></a>If the Timestamp includes a time zone, the LRS MAY be return the Timestamp using a different 
-timezone to the one originally used in the Statement so long as the point in time referenced is not affected. 
-* <a name="4.5.s1.b6"></a>The LRS SHOULD* return the Timestamp in UTC timezone. 
-* <a name="4.5.s1.b7"></a>A Timestamp MAY be truncated or rounded to a precision of at least 3 decimal digits for seconds. 
-
+###### <a name="4.5.s1"></a>Requirements 要求
+* <a name="4.5.s1.b1"></a>时间戳必须根据[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)格式化.
+* <a name="4.5.s1.b2"></a>时间戳应该使用RFC 3339中描述的格式表示， [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt)是ISO 8601的配置文件
+* <a name="4.5.s1.b3"></a>时间戳必须保持精度至少毫秒（超过秒的3个小数点）
+* <a name="4.5.s1.b4"></a>时间戳应该包含时区•
+* <a name="4.5.s1.b5"></a>如果时间戳包括时区，则LRS可以使用不同的时区将时间戳返回到语句中最初使用的时区，只要所参考的时间点不受影响
+* <a name="4.5.s1.b6"></a>LRS 应当SHOULD *返回UTC时区中的时间戳。
+* <a name="4.5.s1.b7"></a>时间戳可以被截断或舍入到精度至少为三位十进制数字的秒。
 <a name="durations"/>
 
-### <a name="4.6">4.6</a> ISO 8601 Durations
+### <a name="4.6">4.6</a> ISO 8601 Durations 持续时间
 
-Durations are strings representing the amount of time something took.
+持续时间是表示某事花费的时间量的字符串
 
-###### <a name="4.6.s1"></a>Requirements
+###### <a name="4.6.s1"></a>Requirements 要求
 
-* <a name="4.6.s1.b1"></a>A Duration MUST be expressed using the format for Duration in ISO 8601:2004(E) section 4.4.3.2.
-The alternative format (in conformity with the format used for time points and described in ISO 8601:2004(E) 
-section 4.4.3.3) MUST NOT be used.
-* <a name="4.6.s1.b2"></a>Learning Record Providers SHOULD provide a maximum precision of 0.01 seconds. 
-* <a name="4.6.s1.b3"></a>Learning Record Providers MAY provide less precision, for example in the case of reading a 
-University Degree precision might be in months or years. 
-* <a name="4.6.s1.b4"></a>On receiving a Duration with more than 0.01 second precision, the LRS SHOULD* NOT reject the 
-request but MAY truncate the "duration" property to 0.01 second precision. 
-* <a name="4.6.s1.b5"></a>When comparing Durations, any precision beyond 0.01 second precision SHOULD* NOT be included 
-in the comparison.
+* <a name="4.6.s1.b1"></a>持续时间必须使用ISO 8601：2004（E）第4.4.3.2节中的持续时间格式表示。不得使用替代格式（与用于时间点的格式一致，并在ISO 8601：2004（E）第4.4.3.3节中描述）。
+* <a name="4.6.s1.b2"></a>学习记录提供者应该提供0.01秒的最大精度
+* <a name="4.6.s1.b3"></a>学习记录提供者可能提供较低的精度，例如在获得大学学位的情况下精度可能是几个月或几年。
+* <a name="4.6.s1.b4"></a>在接收到超过0.01秒精度的持续时间时，LRS应该不拒绝请求，但可以将“持续时间”属性截断为0.01秒精度。
+* <a name="4.6.s1.b5"></a>当比较持续时间时，超过0.01秒精度的任何精度应该不包括在比较中。
 
-###### <a name="4.6.s2"></a>Examples
+###### <a name="4.6.s2"></a>Examples 示例
 
-The table below provides some example ISO 8601 Durations. This list is not intended to be exhaustive. 
+下表提供了一些ISO 8601持续时间的示例。此列表并不旨在详尽无遗
 
 <table>
 	<tr><th>Example</th><th>Explanation</th></tr>
 	<tr id="4.6.s2.table1.row1">
 		<td>PT4H35M59.14S</td>
-		<td>Four hours, thirty five minutes and 59.14 seconds.</td>
+		<td>Four hours, thirty five minutes and 59.14 seconds.<br>四小时，三十五分钟和59.14秒</td>
 	</tr>
 	<tr id="4.6.s2.table1.row2">
 		<td>P16559.14S</td>
 		<td>The same time period as above represented in seconds. 
-		(Note: if the time period in question contained a leap second, this conversion would be inaccurate)</td>
+		(Note: if the time period in question contained a leap second, this conversion would be inaccurate)<br>与上述相同的时间段以秒为单位。 （注意：如果所涉及的时间段包含闰秒，则此转换将不准确）</td>
 	</tr>
 	<tr id="4.6.s2.table1.row3">
 		<td>P3Y1M29DT4H35M59.14S</td>
-		<td>A Duration also including years, months and days.</td>
+		<td>A Duration also including years, months and days.<br>包括年月日的持续时间</td>
 	</tr>
 	<tr id="4.6.s2.table1.row4">
 		<td>P3Y</td>
-		<td>Approximately three years e.g. completion of a qualification.</td>
+		<td>Approximately three years e.g. completion of a qualification.<br>大约三年完成资格</td>
 	</tr>
 	<tr id="4.6.s2.table1.row5">
 		<td>P4W</td>
-		<td>Four weeks. Note that weeks cannot be combined with other time periods. 'P4W1D' is not valid.</td>
+		<td>Four weeks. Note that weeks cannot be combined with other time periods. 'P4W1D' is not valid.<br>4周,请注意，星期不能与其他时间段组合。 例，'P4W1D'是无效的。</td>
 	</tr>
 </table>
 
-Durations are expected to be presented in the format in which they are recorded. For example if a Duration is tracked
-in seconds (or fractions of a second) there is no need to convert this to hours, minutes, and seconds. 
+推荐以记录它们的格式来呈现期间。例如，如果以秒（或几分之一秒）跟踪持续时间，则不需要将其转换为小时，分钟和秒。
 
 <a name="append2"/>
-## <a name="4.6.s3"></a>Appendices
+## <a name="4.6.s3"></a>Appendices 附录
 <a name="Appendix2A"/>  
  
-### <a name="A">Appendix A</a>: Example Statements
+### <a name="A">Appendix A</a>: Example Statements 示例语句
 
 Example of a simple Statement (line breaks are for display purposes only):  
 ```
@@ -2088,6 +1905,7 @@ Example of a simple Statement (line breaks are for display purposes only):
 }
 ```   
 Completion with Verb named "attempted" and Duration expressed in seconds (not converted to minutes and seconds):  
+加入了动词“参加”，并且持续时间用秒（没有转换为几分几秒）来表示的例子。
 ```
 {
 	"id":"7ccd3322-e1a5-411a-a67d-6a735c76f119",
@@ -2126,6 +1944,7 @@ Completion with Verb named "attempted" and Duration expressed in seconds (not co
 ```  
 A long example Statement showcasing most of the properties available. This example shows
 a Statement returned by an LRS including the "authority" and "stored" properties set by the LRS:  
+一个较为长的例子，几乎展示了所有可能的属性，例子展示了一个由LRS设置并返回的包含了“授权”和“储存”。
 ```
 {
     "id": "6690e6c9-3ef0-4ed3-8b37-7f3964730bee",
