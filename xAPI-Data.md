@@ -33,43 +33,43 @@
 	*	[Appendices](./xAPI-About.md#append1)  
 		*	[Appendix A: Revision History](./xAPI-About.md#Appendix1A)  
 		*	[Appendix B: cmi5 Example](./xAPI-About.md#Appendix1B)  
-*	Part Two:	[Experience API Data](./xAPI-Data.md#parttwo)  
-	*	1.0.	[Documents](./xAPI-Data.md#documents) 
-	*	2.0.	[Statements](./xAPI-Data.md#statements)  
-		*	2.1.	[Purpose](./xAPI-Data.md#statement-purpose)  
-	 	*	2.2.	[Formatting Requirements](./xAPI-Data.md#dataconstraints) 
-	 	*	2.3.	[Statement Lifecycle](./xAPI-Data.md#lifecycle) 
-		 	*	2.3.1.	[Statement Immutability](./xAPI-Data.md#statement-immutability-and-exceptions) 
-		 	*	2.3.2.	[Voiding](./xAPI-Data.md#voided) 
-   		*	2.4.	[Statement Properties](./xAPI-Data.md#statement-properties)  
-	        *	2.4.1.	[ID](./xAPI-Data.md#stmtid)  
-	        *	2.4.2.	[Actor](./xAPI-Data.md#actor)  
-	        *	2.4.3.	[Verb](./xAPI-Data.md#verb)  
-	        *	2.4.4.	[Object](./xAPI-Data.md#object)  
-	        *	2.4.5.	[Result](./xAPI-Data.md#result)  
-	        *	2.4.6.	[Context](./xAPI-Data.md#context)  
-	        *	2.4.7.	[Timestamp](./xAPI-Data.md#timestamp)  
-	        *	2.4.8.	[Stored](./xAPI-Data.md#stored)  
-	        *	2.4.9.	[Authority](./xAPI-Data.md#authority)  
-	        *	2.4.10.	[Version](./xAPI-Data.md#version)  
-	        *	2.4.11.	[Attachments](./xAPI-Data.md#attachments)  
-    	*	2.5.	[Retrieval of Statements](./xAPI-Data.md#retrieval)   
-    	*	2.6.	[Signed Statements](./xAPI-Data.md#signature)  
-	*	3.0.	[Metadata](./xAPI-Data.md#metadata)
-		*	3.1.	[IRI Requirements](./xAPI-Data.md#iri-requirements)  
-		*	3.2.	[Hosted Metadata](./xAPI-Data.md#miscmeta)  
-    *	4.0.	[Special Data Types and Rules](./xAPI-Data.md#special-data)  
-		*	4.1.	[Extensions](./xAPI-Data.md#miscext) 
-		*	4.2.	[Language Maps](./xAPI-Data.md#lang-maps)
-		*	4.3.	[IRIs](./xAPI-Data.md#iris)
-		*	4.4.	[UUIDs](./xAPI-Data.md#uuids)
-		*	4.5.	[ISO 8601 Timestamps](./xAPI-Data.md#timestamps)
-		*	4.6.	[ISO 8601 Durations](./xAPI-Data.md#durations)
-	*	[Appendices](./xAPI-Data.md#append2)  
-		*	[Appendix A: Example Statements](./xAPI-Data.md#Appendix2A)  
-		*	[Appendix B: Example statement objects of different types](./xAPI-Data.md#Appendix2B)  
-		*	[Appendix C: Example definitions for Activities of type "cmi.interaction"](./xAPI-Data.md#Appendix2C)  	
-		*	[Appendix D: Example Signed Statement](./xAPI-Data.md#Appendix2D)  
+*	Part Two:	[Experience API Data](./xAPI-Data.md#parttwo)  XAPI 数据
+	*	1.0.	[Documents](./xAPI-Data.md#documents) 文档
+	*	2.0.	[Statements](./xAPI-Data.md#statements)  语句
+		*	2.1.	[Purpose](./xAPI-Data.md#statement-purpose)  目的
+	 	*	2.2.	[Formatting Requirements](./xAPI-Data.md#dataconstraints) 格式要求
+	 	*	2.3.	[Statement Lifecycle](./xAPI-Data.md#lifecycle) 语句生态
+		 	*	2.3.1.	[Statement Immutability](./xAPI-Data.md#statement-immutability-and-exceptions) 语句不变性
+		 	*	2.3.2.	[Voiding](./xAPI-Data.md#voided) 无效化
+   		*	2.4.	[Statement Properties](./xAPI-Data.md#statement-properties)  语句的属性
+	        *	2.4.1.	[ID](./xAPI-Data.md#stmtid)  ID
+	        *	2.4.2.	[Actor](./xAPI-Data.md#actor)  执行者
+	        *	2.4.3.	[Verb](./xAPI-Data.md#verb)  动词
+	        *	2.4.4.	[Object](./xAPI-Data.md#object)  对象（宾语）
+	        *	2.4.5.	[Result](./xAPI-Data.md#result)  结果
+	        *	2.4.6.	[Context](./xAPI-Data.md#context)  内容
+	        *	2.4.7.	[Timestamp](./xAPI-Data.md#timestamp)  时间戳
+	        *	2.4.8.	[Stored](./xAPI-Data.md#stored)  储存（时间点）
+	        *	2.4.9.	[Authority](./xAPI-Data.md#authority)  授权
+	        *	2.4.10.	[Version](./xAPI-Data.md#version)  版本
+	        *	2.4.11.	[Attachments](./xAPI-Data.md#attachments)  附件
+    	*	2.5.	[Retrieval of Statements](./xAPI-Data.md#retrieval)   语句的检索
+    	*	2.6.	[Signed Statements](./xAPI-Data.md#signature)  语句的签名
+	*	3.0.	[Metadata](./xAPI-Data.md#metadata) 元数据
+		*	3.1.	[IRI Requirements](./xAPI-Data.md#iri-requirements)  对IRI的要求
+		*	3.2.	[Hosted Metadata](./xAPI-Data.md#miscmeta)  站点元数据
+    *	4.0.	[Special Data Types and Rules](./xAPI-Data.md#special-data)  特殊的数据和规则
+		*	4.1.	[Extensions](./xAPI-Data.md#miscext) 扩展
+		*	4.2.	[Language Maps](./xAPI-Data.md#lang-maps) 语言映射
+		*	4.3.	[IRIs](./xAPI-Data.md#iris) 国际化资源定位符 IRIs
+		*	4.4.	[UUIDs](./xAPI-Data.md#uuids) UUIDs 
+		*	4.5.	[ISO 8601 Timestamps](./xAPI-Data.md#timestamps) ISO 8601时间戳
+		*	4.6.	[ISO 8601 Durations](./xAPI-Data.md#durations) ISO 8601持续时间
+	*	[Appendices](./xAPI-Data.md#append2)  附录2
+		*	[Appendix A: Example Statements](./xAPI-Data.md#Appendix2A)  语句示例
+		*	[Appendix B: Example statement objects of different types](./xAPI-Data.md#Appendix2B)  语句对象（宾语）的不同种类示例
+		*	[Appendix C: Example definitions for Activities of type "cmi.interaction"](./xAPI-Data.md#Appendix2C)  	cmi交互示例
+		*	[Appendix D: Example Signed Statement](./xAPI-Data.md#Appendix2D)  语句签名示例
 *	Part Three:	[Data Processing, Validation, and Security](./xAPI-Communication.md#partthree)  
 	*	1.0.	[Requests](./xAPI-Communication.md#requests)
 		*	1.1.	[HEAD Request Implementation](./xAPI-Communication.md#httphead)  
