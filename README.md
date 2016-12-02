@@ -1,4 +1,4 @@
-# xAPI-Spec  xAPI-特性 
+# xAPI-Spec  xAPI-规范 
  
 This Github repository contains the xAPI Specification. xAPI is a learning
 technologies interoperability specification that describes communication
