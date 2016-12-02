@@ -1,38 +1,17 @@
-# Experience API
-## Advanced Distributed Learning (ADL) Co-Laboratories
-
->#### License
-
->"Copyright 2013 Advanced Distributed Learning (ADL) Initiative, U.S. Department of Defense
-
->Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except 
->in compliance with the License. You may obtain a copy of the License at
->http://www.apache.org/licenses/LICENSE-2.0
-
->Unless required by applicable law or agreed to in writing, software distributed under the License 
->is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express 
->or implied. See the License for the specific language governing permissions and limitations under 
->the License."
-
->This document was authored by members of the Experience API Working Group (see 
->list in [CONTRIBUTING.md](CONTRIBUTING.md#contributors)) in support of the Office of the Deputy Assistant Secretary of 
->Defense (Readiness) Advanced Distributed Learning (ADL) Initiative. Please 
->send all feedback and inquiries to helpdesk@adlnet.gov  
 
 ## Table of Contents
 *	Part One:	[About the Experience API](./xAPI-About.md#partone)  
-	*	1.0.	[Introduction](./xAPI-About.md#introduction-partone) 
-	*	2.0.	[How To Use This Document](./xAPI-About.md#readingguidelines)  
+	*	1.0.	[Introduction 介绍](./xAPI-About.md#introduction-partone) 
+	*	2.0.	[How To Use This Document 如何使用本文档](./xAPI-About.md#readingguidelines)  
 		*	2.1.	[MUST / SHOULD / MAY](./xAPI-About.md#def-must-should-may)  
-	 	*	2.2.	[Guidelines for Interpreting Descriptive Text and Tables](./xAPI-About.md#interpret-text-table)  
-	*	3.0.	[Serialization and JavaScript Object Notation](./xAPI-About.md#json)
-	*	4.0.	[Definitions](./xAPI-About.md#definitions) 
-	*	5.0.	[xAPI Components](./xAPI-About.md#xapi-components) 
-	*	6.0.	[Extending xAPI](./xAPI-About.md#extending-xapi) 
-	*	7.0.	[Profiles and Communities of Practice](./xAPI-About.md#COPs)  
-	*	[Appendices](./xAPI-About.md#append1)  
-		*	[Appendix A: Revision History](./xAPI-About.md#Appendix1A)  
-		*	[Appendix B: cmi5 Example](./xAPI-About.md#Appendix1B)  
+	 	*	2.2.	[Guidelines for Interpreting Descriptive Text and Tables 解释描述性文本和表的指南](./xAPI-About.md#interpret-text-table)  
+	*	3.0.	[Serialization and JavaScript Object Notation 数据序列化（格式化）和JavaScript 对象标记（JSON）](./xAPI-About.md#json)
+	*	4.0.	[Definitions 定义](./xAPI-About.md#definitions) 
+	*	5.0.	[xAPI Components 组件](./xAPI-About.md#xapi-components) 
+	*	6.0.	[Extending xAPI 扩展](./xAPI-About.md#extending-xapi) 
+	*	7.0.	[Profiles and Communities of Practice 预配置和xAPI社区](./xAPI-About.md#COPs)  
+	*	[Appendices 附录](./xAPI-About.md#append1)  
+		*	[Appendix B: cmi5 Example](./xAPI-About.md#Appendix1B) 
 *	Part Two:	[Experience API Data](./xAPI-Data.md#parttwo)  XAPI 数据
 	*	1.0.	[Documents](./xAPI-Data.md#documents) 文档
 	*	2.0.	[Statements](./xAPI-Data.md#statements)  语句
