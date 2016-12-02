@@ -21,17 +21,16 @@
 
 ## Table of Contents
 *	Part One:	[About the Experience API](./xAPI-About.md#partone)  
-	*	1.0.	[Introduction](./xAPI-About.md#introduction-partone) 
-	*	2.0.	[How To Use This Document](./xAPI-About.md#readingguidelines)  
+	*	1.0.	[Introduction 介绍](./xAPI-About.md#introduction-partone) 
+	*	2.0.	[How To Use This Document 如何使用本文档](./xAPI-About.md#readingguidelines)  
 		*	2.1.	[MUST / SHOULD / MAY](./xAPI-About.md#def-must-should-may)  
-	 	*	2.2.	[Guidelines for Interpreting Descriptive Text and Tables](./xAPI-About.md#interpret-text-table)  
-	*	3.0.	[Serialization and JavaScript Object Notation](./xAPI-About.md#json)
-	*	4.0.	[Definitions](./xAPI-About.md#definitions) 
-	*	5.0.	[xAPI Components](./xAPI-About.md#xapi-components) 
-	*	6.0.	[Extending xAPI](./xAPI-About.md#extending-xapi) 
-	*	7.0.	[Profiles and Communities of Practice](./xAPI-About.md#COPs)  
-	*	[Appendices](./xAPI-About.md#append1)  
-		*	[Appendix A: Revision History](./xAPI-About.md#Appendix1A)  
+	 	*	2.2.	[Guidelines for Interpreting Descriptive Text and Tables 解释描述性文本和表的指南](./xAPI-About.md#interpret-text-table)  
+	*	3.0.	[Serialization and JavaScript Object Notation 数据序列化（格式化）和JavaScript 对象标记（JSON）](./xAPI-About.md#json)
+	*	4.0.	[Definitions 定义](./xAPI-About.md#definitions) 
+	*	5.0.	[xAPI Components 组件](./xAPI-About.md#xapi-components) 
+	*	6.0.	[Extending xAPI 扩展](./xAPI-About.md#extending-xapi) 
+	*	7.0.	[Profiles and Communities of Practice 预配置和xAPI社区](./xAPI-About.md#COPs)  
+	*	[Appendices 附录](./xAPI-About.md#append1)  
 		*	[Appendix B: cmi5 Example](./xAPI-About.md#Appendix1B)  
 *	Part Two:	[Experience API Data](./xAPI-Data.md#parttwo)  
 	*	1.0.	[Documents](./xAPI-Data.md#documents) 
@@ -105,504 +104,431 @@
 #Part One: About the Experience API
 
 <a name="introduction-partone"></a>
-## 1.0 Introduction
+## 1.0 介绍
 
-The Experience API (xAPI) is a technical specification that aims to facilitate the documentation and communication of 
-learning experiences. It specifies a structure to describe learning experiences and defines how these descriptions can 
-be exchanged electronically.  
 
-The xAPI is an effort of the Advanced Distributed Learning (ADL) Initiative.  ADL was established in 1997 to 
-standardize and modernize training and education management and delivery in the US. Since that time, there has been a 
-growing realization of the need to track learning experiences of individuals beyond formal, structured computer-based training. 
-In assessing candidates' suitability for positions or their capability for performing various tasks, there is a need 
-to consider a wide range of formal and informal learning experiences, both on and offline.  That information, 
-more often than not is scattered across a wide variety of sources.
+xAPI 是一个技术规范，旨在促进学习体活动的文档化和交流。 它规定了一种描述学习活动的数据结构，并定义如何以电子方式交换这些描述数据。
 
-Out of this perceived need, the xAPI community and specification were born. xAPI assumes that:
-  * There is a need to be able to analyze information about learning experiences and their outcomes distributed across 
-  a wide variety of sources, platforms and technologies.
-  * Developing a commonly-accepted framework for gathering, storing and exchanging this information represents the 
-  best way of achieving this.
+<br>
 
-The goals of the xAPI are:
+xAPI 是由  Advanced Distributed Learning (ADL)起草的。ADL成立于1997年，旨在实现美国教育的培训，管理及交付的标准化和现代化。在评估某人对某个职位的适应性和其执行任务的能力过程中，对于该人的评价往往是需要广泛的考虑正式的教育背景（学位）和非正式的学习活动（Mook），而这些信息通常是分散在各个平台来源中。从那个时候起，越来越多人意识到跟踪个人学习活动及其经历的重要性。
 
-* To make it easier to understand and compare learning experiences and their outcomes recorded across a wide 
-variety of contexts, platforms and technologies.
-* To maximize interoperability of services which create, gather, store and process information about learning experiences.
-* To provide a guide to those who want to build applications that conform to and implement this specification.
-* To provide criteria against which conformance to this specification can be tested.
+<br>
 
-The document that follows sets out the xAPI specification which is designed to achieve these goals. 
+正是这种需求，催生了xAPI的社区和规范，xAPI的应用情况
+  * 客观的有需要对分散在分离的平台上的学习活动和历史信息的分析。
+  *为了实习这一目标，最佳的方式是开发一个广为接受的信息收集，储存和交换的框架。
+
+xAPI的目标:
+
+* 使得在各种不同的环境，平台和技术中，更加容易的来比较和获得学习活动，学习记录以及学习结果。
+* 最大限度地提高创建，收集，存储和处理学习体验信息的服务的互操作性。
+* 为希望构建符合并实现本规范的应用程序的用户提供指南。
+* 提供可以测试符合本规范的标准。
+
+本文档给出的规范都是设计来达成上面的目标的。
 <a name="readingguidelines"></a>
 
-## 2.0 How to Use This Document
+## 2.0 如何使用本文档
 
-This is a definitive document which describes how the Experience API is to be implemented.
-It is a technical document authored specifically for individuals and organizations implementing this 
-technology with the intent of such individuals developing interoperable tools, systems and services that 
-are independent of each other and interoperable with each other. 
+这是一个明确描述如何实施xAPI的文档，。 它是专门针对实施此技术的个人和组织编写的技术文档，其目的是开发可互操作的工具，系统和服务，这些工具，系统和服务彼此独立并且可以互相操作。 
 
-Whenever possible, the language and formatting used in this document is intended to be 
-_considerate_ of non-technical readers because various tools, systems and services 
-are based on the specification set described below. For this reason, sections that provide a 
-_high-level overview_ of a given facet of the Experience API are labeled **description** or 
-**rationale**. Items in this document labeled as **requirements**, **details** or **examples** are more technical.
+<br>
 
-This specification is split into three parts. Part one is this introduction. It offers some background, 
-high-level summaries and direction on how to read the rest of the specification. 
+在可能的情况下，本文档中使用的语言和格式旨在考虑非技术读者，对于各种工具，系统和服务的相应部分的描述， xAPI的文档的给定方面将高级概述的部分标记了出来，因此本文件中标记为**要求**，**细节**或**示例**的项目更具技术性。
 
-Part two of this specification defines a data model for various data objects that are used in this specification. 
-The most significant object within the xAPI data model is the "Statement" object. This specification defines the properties 
-of the Statement object (including "Actor", "Verb", "Object", "Result", and "Context") and the rules of syntax for the 
-values of those properties and how they are represented. This part helps to ensure that services implementing the 
-specification follow a consistent data structure.
+<br>
 
-Part three of this specification sets out the transfer methods that must be used when communicating 
-information about learning experiences between services that adhere to the specification. This includes the format 
-of requests and the expected responses. Note that communication in xAPI is not restricted to a "Learning Record Store" (LRS) 
-receiving data from "content". LRSs can communicate with services ranging from "Learning Record Providers" to 
-"Learning Record Consumers" to other LRSs. xAPI follows the guidelines of the REST software architecture style, and as such 
-data is transferred via HTTP requests and responses. Part three also defines security methods allowing for the trusted 
-exchange of information between the LRS and trusted "Clients".
+本规范分为三部分。 第一部分是这个介绍。 它提供了一些背景，高级摘要和如何阅读规范的其余部分。 
+
+<br>
+
+
+本规范的第二部分定义了本规范中使用的各种数据对象的数据模型。xAPI数据模型中最重要的对象是“Statement”对象。此规范定义了Statement对象（包括 “Actor”，“Verb”，“Object”，“Result”和“Context”）的属性以及这些属性的值及其表示方式的语法规则。这部分有助于确保实现规范的服务遵循一致的数据结构。
+
+<br>
+
+
+本规范的第三部分阐述了在遵守规范的服务之间传达学习经验的信息时必须使用的传输方法。 这包括请求的格式和预期的响应。 注意，xAPI中的通信不仅限“学习记录存储库”（LRS）从“内容”接收数据。 LRS还可以与“学习记录提供者”和“学习记录消费者”的服务或与其他LRS进行通信。 xAPI遵循REST软件架构风格的指导原则，因此数据通过HTTP请求和响应传输。 第三部分还定义如何了让LRS和可信“客户端”之间进行可信任的，安全的交换信息的方法。
 
 <a name="def-must-should-may"></a>
 ### 2.1 MUST / SHOULD / MAY 
-There are three levels of obligation with regards to conformance to the xAPI specification identified by the terms 
-MUST, SHOULD and MAY. A service or system that fails to implement a MUST (or a MUST NOT) requirement is non-conformant. 
-Failing to meet a SHOULD requirement is not a violation of conformity, but goes against the recommendations of the specification. 
-MAY indicates an option, to be decided by the developer with no consequences for conformity. Usage 
-of these terms outside of requirement language does not designate a requirement and is avoided whenever possible. 
-Complete definitions of MUST, SHOULD, MAY, MUST NOT and SHOULD NOT are found in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+关于标识的xAPI规范的遵守，有三个级别，MUST，SHOULD和MAY。 不满足MUST（或MUST NOT）的要求的服务或系统，是不符合规范要求的。不满足SHOULD要求的不违反规范性，但违反规范的建议。 MAY表示一个选项，由开发人员决定，没有一致性的后果。文档尽可能避免在限定语句之外的地方使用这些术语，文档中在限定语句之外的地方使用这些术语的，不表达指定要求的意义。 可以在[RFC 2119](https://www.ietf.org/rfc/rfc2119.txt)中找到MUST，SHOULD，MAY，MUST NOT和SHOULD NOT的完整定义。 
 
-The use of an asterisk* following SHOULD indicates a very strong recommendation. It is planned that these 
-recommendations will become MUST requirements in a future version. Not following these recommendations could 
-risk interoperability and and/or lead to various other issues depending on the specifics of the recommendation. 
-These recommendations cannot be MUST requirements within this version as these would be breaking changes. 
-The xAPI Working Group strongly encourages adopters to implement these requirements as though they were MUST 
-requirements, while continuing to support other adopters that might not do so.
+<br>
+
+在SHOULD之后使用星号*的标记表示非常强烈的建议。 计划在未来版本中这些建议将成为MUST要求。 不遵循这些建议可能会有互操作性风险和/或导致其他各种问题，具体取决于建议的具体情况。 这些建议在本版本中不是MUST要求，是因为将来有可能重定义或者更改。 xAPI工作组强烈建议使用者实施这些要求，就像它们是必须要求的，同时也支持可能不这样做的其他使用者。
+
+<br>
 
 <a name="interpret-text-table"></a>
-### 2.2 Guidelines for Interpreting Descriptive Text and Tables
-As a rule of thumb, if the guideline appears technical or seems to be a requirement, interpret it 
-as such. This is especially true of longer, more, detailed explanations and of tables, each of which would 
-be unintuitive and/or lengthy to dissect into a list of requirements.
+### 2.2 解释描述性文本和表的指南
+作为一个首要的法则，如果指南看起来是技术性的或是必须性的，则将其解释解析成列表一样的一系列要求。这可能有一点复杂，尤其是对于越长，越详细的解释和列表，越有可能不直观且冗长。
 
-Tables are used throughout this specification to define requirements for lists of properties, parameters, etc.
-The tables define which properties are required, recommended and optional. Generally, the notion of "optional" relates to 
-the service creating the object, while services receiving and interpreting the object need to be able to interpret all 
-properties of that object. Often, properties are optional because the data may not be relevant in every context; 
-if the data is relevant in a particular context, then it is expected the property will be populated.
+<br>
 
-If an optional property or parameter contains an object with properties that are recommended or required, then 
-these properties are only recommended/required if the property or parameter containing them is used.
+在本规范书中使用列表来定义属性，参数等的限制和描述。列表定义了哪些属性是必需的，推荐的和可选的。 通常，对于属性，参数等，“可选”的概念涉及创建对象的服务，而接收和解析对象的服务需要能够解析该对象的所有属性。 通常，属性是可选的，因为数据在一些上下文中可能不相关; 如果数据在特定上下文中是相关的，则期望使用该属性。
 
-Examples are provided throughout the specification and in appendices to illustrate implementation. The content of these 
-examples is fictional in order to illustrate the requirements of the specification and may not always 
-illustrate the best practice approach to tracking the particular learning experience used in the example. Examples 
-can be used to inform interpretation of requirements, but are not intended to take precedence over requirements. 
+<br>
 
-Where the specification does not include requirements relating to a particular facet of implementation, 
-that detail can be considered to be outside of the scope of this specification. It is up to the implementer 
-to determine a sensible approach. This specification tries to avoid vagueness and will usually give a rationale 
-even if there no requirement in a given area.
+如果可选属性或参数包含的对象拥有推荐的变量，并且这些变量被确实使用了，那么这些可选属性是被推荐来使用的。
+
+<br>
+
+在整个说明书和附录中提供了示例以说明如何实现。 这些示例的内容是虚构的，以便说明本规范书的要求，并且可能不总是示出跟踪示例中使用的特定学习经验的实践方法。 示例可用于说明需求的解释，但不意图优先于需求。整个说明书和附录中提供了示例以说明实现。
+
+<br>
+
+关于实施的特定方面的要求，凡本规范中不包括的，这个部分就被认为是超出范围的标准。由实施者来确定是较为妥当的。本规范试图避免模糊性，即使在某一领域没有说明，通常也会给出一个理由。
+
+<br>
 
 <a name="json"></a>
-## 3.0 Serialization and JavaScript Object Notation (JSON)
+## 3.0 数据序列化（格式化）和JavaScript 对象标记（JSON）
 
-Serialization is the process of translating data objects and structures into a format for storage or transmission, such that the 
-original data object can be recreated from the resulting serialization. In some cases it might be possible to serialize a piece 
-of data in more than one way. For example, a boolean property with a value corresponding to true might be represented 
-as `true` or `1` depending on the serialization used. 
+序列化是将数据对象和结构翻译成方便存储或传输的数据的过程，并且使得该原始数据对象可以从所翻译得到到的序列中重新解读出来。在一些情况下，可能有多种方式来序列化某段数据，例如一个为ture布尔属性，取决于方法，它的值可以被表达为`1`或者`true`。 
 
-xAPI follows the rules of JSON for serializations (so boolean values are represented as `true` or `false`). It might 
-also be possible to represent the objects defined in this specification using other serializations, such as XML. This is out 
-of scope of this specification and use of anything other than JSON to represent the objects defined in this specification 
-is not conformant. 
+<br>
 
-Even within the rules of JSON there are possible variations of how data can be serialized, especially in relation to data 
-about time. This is significant as a number of features of xAPI rely on systems being able to determine whether two 
-Statements are equivalent. See [Immutability and exceptions](./xAPI-Data.md#statement-immutability-and-exceptions) 
-for more details about the properties of the Statement affected by this. 
+xAPI遵循JSON数据化格式（所以布尔值表示为`true`或者`false`）.但是xAPI是支持其他数据序列化方法的，例如XML，但在这里超出了,本说明的讨论范围，所以不予讨论。
 
-JSON allows for objects to have properties that contain empty objects. This is not recommended within xAPI; if the Statement 
-is not intended to contain data about a property then it is expected that the property will not be used at all. 
-All required properties are required to contain values. 
+<br>
+
+尽管JSON本身对于数据格式的限制是可能变化的，特别是关系到时间的数据。这里作为xAPI的一大优点就是系统依然能分辨两个语句（Statement)是否相同。关于更多的对于语句这方面影响，查看不变性和异常。[Immutability and exceptions](./xAPI-Data.md#statement-immutability-and-exceptions)
+
+<br>
+
+JSON 允许对象的属性包含一个空的对象，而这在xAPI中是不推荐这样做的；如果一个语句中的某个属性不包含对象的话，那么这个属性就根本没有用，所有的属性都需要包含一个具体值。
+
+<br>
 
 
 <a name="definitions"></a>
-## 4.0 Definitions  
+## 4.0 Definitions 定义
 
-* [Activity](#def-activity)
-* [Activity Provider (AP)](#def-activity-provider)
-* [Actor](#def-actor)
-* [Application Programming Interface (API)](#def-api)
-* [Authentication](#def-authentication)
-* [Authorization](#def-authorization)
-* [Community of Practice](#def-community-of-practice)
-* [Document Profile Resource](#def-document-profile)
-* [Endpoint](#def-endpoint)
+* [Activity](#def-activity) 活动
+* [Activity Provider (AP)](#def-activity-provider) 活动提供方
+* [Actor](#def-actor) 执行者
+* [Application Programming Interface (API)](#def-api) 应用程序接口
+* [Authentication](#def-authentication) 认证
+* [Authorization](#def-authorization) 授权
+* [Community of Practice](#def-community-of-practice) xAPI实践社区
+* [Document Profile Resource](#def-document-profile) 配置文件源
+* [Endpoint](#def-endpoint) 端点
 * [Experience API (xAPI)](#def-experience-api)
-* [Immutable](#def-immutable)
-* [Internationalized Resource Identifier (IRI)](#def-iri)
-* [Internationalized Resource Locator (IRL)](#def-irl)
-* [Inverse Functional Identifier](#def-inverse-functional-identifier)
-* [Learning Experience](#def-learning-experience)
-* [Learning Management System (LMS)](#def-learning-management-system)
-* [Learning Record](#def-learning-record)
-* [Learning Record Consumer (LRC)](#def-learning-record-consumer)
-* [Learning Record Provider (LRP)](#def-learning-record-provider)
-* [Learning Record Store (LRS)](#def-learning-record-store)
-* [Metadata Consumer](#def-metadata-consumer)
-* [Metadata Provider](#def-metadata-provider)
-* [Persona](#def-persona)
-* [Profile](#def-profile)
-* [Registration](#def-registration)
-* [Representational State Transfer (REST)](#def-rest)
-* [Service](#def-service)
-* [Statement](#def-statement)
+* [Immutable](#def-immutable) 不变性
+* [Internationalized Resource Identifier (IRI)](#def-iri) 国际化资源标识符
+* [Internationalized Resource Locator (IRL)](#def-irl) 国际化资源定位符
+* [Inverse Functional Identifier](#def-inverse-functional-identifier) 反向功能标识符
+* [Learning Experience](#def-learning-experience) 学习经历活动
+* [Learning Management System (LMS)](#def-learning-management-system) 学习管理系统
+* [Learning Record](#def-learning-record) 学习记录
+* [Learning Record Consumer (LRC)](#def-learning-record-consumer) 学习记录客户
+* [Learning Record Provider (LRP)](#def-learning-record-provider) 学习记录供应商
+* [Learning Record Store (LRS)](#def-learning-record-store) 学习记录存储
+* [Metadata Consumer](#def-metadata-consumer) 元数据消费者
+* [Metadata Provider](#def-metadata-provider) 元数据提供者
+* [Persona](#def-persona) 身份
+* [Profile](#def-profile) 预配置
+* [Registration](#def-registration) 注册
+* [Representational State Transfer (REST)](#def-rest) 具象状态传输
+* [Service](#def-service) 服务
+* [Statement](#def-statement) 语句
 * [Tin Can API (TCAPI)](#def-tcapi)
-* [Verb](#def-verb)
-* [Vocabulary](#def-vocabulary)
+* [Verb](#def-verb) 行动
+* [Vocabulary](#def-vocabulary) 术语词汇集 
 
 <a name="def-activity" ></a>
 
-__Activity__: A type of Object making up the "this" in "I did this"; it is something 
-with which an Actor interacted. It can be a unit of instruction, experience, or performance that is 
-to be tracked in meaningful combination with a Verb. Interpretation of Activity is broad, meaning that 
-Activities can even be tangible objects such as a chair (real or virtual). In the Statement "Anna 
-tried a cake recipe", the recipe constitutes the Activity in terms of the xAPI Statement. Other 
-examples of Activities include a book, an e-learning course, a hike, or a meeting.
+__Activity 活动__: 一类组成“I Did This”中This的对象，表示一些学习活动，可以是一项与动词组合起来具有追中意义的指令，经历，或者行为。Activity的解释很广，意味着也有可能是有实际概念的物体，如椅子（真实的或者虚拟的），在“安娜尝试了某个蛋糕配方”这个语句中，配方作为Activity构成了xAPI的语句。Activity的其他例子例如一个电子课程，一次远足，或者一次例会等。
+
+<br>
 
 <a name="def-activity-provider" ></a>
 
-__Activity Provider (AP)__: Now referred to as a Learning Record Provider. This change differentiates that 
-the activity itself is not always the responsibility of software, rather just the tracking portion is. 
+__Activity Provider (AP)活动提供方__: 现在被称为学习记录提供方（Learning Record Provider）。这是为了区分某活动本身的软件提供者并不总是该条信息的提供者。
+
+<br>
 
 <a name="def-actor" ></a>
 
-__Actor__: An individual or group representation tracked using Statements performing an action within 
-an Activity.  Is the "I" in "I did this".
+__Actor 执行者__:一个个人或者一个群体，代表着被记录者。 在“I did this”中表示“I”；
+
+<br>
 
 <a name="def-api" ></a>
 
-__Application Programming Interface (API)__: A set of rules and standards created to allow access into 
-a software application or tool.  
+__Application Programming Interface (API) 应用程序接口__: 一组创建允许访问到软件应用程序或工具的规则和标准。
+
+<br>
 
 <a name="def-authentication" ></a>
 
-__Authentication__: The concept of verifying identity. Authentication allows interactions between two 
-"trusted" parties.
+__Authentication 认证__: 表示证明双方“信任”
+
+<br>
 
 <a name="def-authorization" ></a>
 
-__Authorization__: The affordance of permissions based on role; the process of making one party 
-"trusted" by another.
+__Authorization 授权__: 根据角色来给予一些操作权利。
+
+<br>
 
 <a name="def-client" ></a>
 
-__Client__: Refers to any entity that might interact through requests. Some examples could be a 
-Learning Record Provider, a Learning Record Consumer, a Learning Record Store (LRS), or a Learning 
-Management System (LMS).
+__Client 用户__: 指代任何有可能有需求的实体，例如一个学习记录提供方(earning Record Provider)，学习记录购买方(Learning Record Consumer)，一个学习记录库(Learning Record Store (LRS)），或者一个学习管理系统 (Learning Management System (LMS)).
+
+<br>
 
 <a name="def-community-of-practice" ></a>
 
-__Community of Practice (CoP)__: A group of practitioners connected by a common cause, role or purpose, which operates in a common 
-modality. CoPs are focused on implementing xAPI within a specific knowledge domain or use case. CoPs or independent developers, 
-can create domain-specific vocabularies, profiles, and recipes. These practices usually involve work around defining use cases 
-and curating the various vocabulary terms, synonyms, and other related metadata that might be preferred within a CoP. They can 
-also reuse existing vocabularies, profiles, and recipes already published by other CoPs or participants of the xAPI community.
+__Community of Practice (CoP) xAPI实践社区__: 一个关于某个特定用例的xAPI社区，旨在为这种特定用例建立vocabularies, profiles, and recipes.
+
+<br>
 
 <a name="def-document-profile" ></a>
 
-__Document Profile Resource__: A construct where information about the learner or activity is kept, typically in name/document pairs 
-that have meaning to an instructional system component. Not to be confused with [Profile](#def-profile).
+__Document Profile Resource 配置文件源，__: 一个保存了关于学习者或者活动信息的的构造，通常是对某个教学系统有用的一个文档，不要与[Profile配置](#def-profile)混淆。 
+
+<br>
 
 <a name="def-endpoint" ></a>
 
-__Endpoint__: An entry point in a service-oriented-architecture.  xAPI mirrors this approach with resources 
-by defining the IRI from which communication takes place as an endpoint.
+__Endpoint 端点__: 面向服务的架构中的入口点。 xAPI通过定义与其进行通信的IRI作为端点，将此方法与资源进行镜像。
+
+<br>
 
 <a name="def-experience-api" ></a>
 
-__Experience API (xAPI)__: The collection of rules articulated in this document which determines how learning 
-experiences are defined, formatted, and exchanged so that independent software programs can exchange and make 
-use of this information.
+__Experience API (xAPI)__: 本文档中阐述的规则集合，确定如何定义，格式化和交换学习体验，以便独立软件程序可以交换和使用此信息。
+
+<br>
 
 <a name ="def-immutable" ></a>
 
-__Immutable__:  Adjective used to describe things which cannot be changed. With some exceptions, Statements in the xAPI 
-are immutable. This ensures that when Statements are shared between LRSs, multiple copies of the Statement remain the same.
+__Immutable 不变性__:  一个形容词，用来描述不能改变的特性。 除了一些例外，xAPI中的语句是不可变的。 这确保了当LRS之间共享语句时，语句的多个副本保持不变。
+
+<br>
 
 <a name="def-iri" ></a>
 
-__Internationalized Resource Identifier  (IRI)__: A unique identifier which could be an IRL. Used to identify an object 
-such as a verb, activity or activity type. Unlike URIs, IRIs can contain some characters outside of the ASCII character 
-set in order to support international languages. 
+__Internationalized Resource Identifier 国际化资源标识符  (IRI)__: 可以是IRL的唯一标识符。 用于标识对象，如动词(Verb)，活动(Activity)或活动类型。 与URI不同，IRI可以包含ASCII字符集之外的一些字符，以支持国际语言。 
 
-IRIs always include a scheme. This is not a requirement of this standard, but part of the definition of IRIs, per 
-[RFC 3987](http://www.ietf.org/rfc/rfc3987.txt). What are sometimes called "relative IRIs" are not IRIs.
+<br>
+
+IRI总是包括一个方案。 这不是此标准的要求，而是IRI的定义的一部分，根据[RFC 3987](http://www.ietf.org/rfc/rfc3987.txt).有时称为“相对IRI”的不是IRI。
+
+<br>
+
 
 <a name="def-irl" ></a>
 
-__Internationalized Resource Locator (IRL)__:  In the context of this document, an IRL is an IRI that when translated 
-into a URI (per the IRI to URI rules), is a URL. 
+__Internationalized Resource Locator (IRL) 国际化资源定位符__:  在本文档的上下文中，IRL是一个IRI，当翻译为URI（根据IRI到URI规则）时，它是一个URL。 
+
+<br>
 
 <a name="def-inverse-functional-identifier" ></a>
 
-__Inverse Functional Identifier__: An identifier which is unique to a particular persona or Group.
+__Inverse Functional Identifier 反向功能标识符__: 对特定人员或群体的唯一标识符。
+
+<br>
 
 <a name="def-learning-experience" ></a>
 
-__Learning Experience__: An event associated with learning.  It is highly diverse as far as what it can be.  
-Examples include reading a book, taking an online course, going on a field trip, engaging in self-directed 
-research, or receiving a certificate for a completed course.
+__Learning Experience 学习经历(活动)__: 与学习相关的事件。 它是高度多样化的。例如，阅读一本书，参加在线课程，参加实地考察，参加自我指导的研究，或接收完成课程的证书。
+
+<br>
 
 <a name="def-learning-management-system" ></a>
 
-__Learning Management System (LMS)__: "A software package used to administer one or more courses to one or more learners. 
-An LMS is typically a web-based system that allows learners to authenticate themselves, register for courses, complete 
-courses and take assessments" (Learning Systems Architecture Lab definition). An LMS in this document is used as an 
-example of how a user is identified as "trusted" within a system and able to access its Learning Experiences.
+__Learning Management System 学习管理系统 (LMS)__: “针对一个或多个学习者，用于管理一个或多个课程的LMS，通常是一个基于网络的系统，允许学习者认证自己，注册课程，完成课程和进行评估” （学习系统架构实验室定义）。 对于本文档的LMS，把在系统内如何将用户识别为“受信任”并且能够访问其学习体验作为示例。
+
+<br>
 
 <a name="def-learning-record" ></a>
 
-__Learning Record__: An account of a learning experience that is formatted according to the rules of xAPI.  A Learning Record
-takes on many forms, including Statements, documents, and their parts.  This definition is intended to be all-inclusive.
+__Learning Record 学习记录__: 由xAPI规定的形式来表示学习活动的一个账户的数据。一个学习记录可以有多种形式，包括语句，文件，及其他部分。这些都可以称为学习记录。
+
+<br>
 
 <a name="def-learning-record-consumer" ></a>
 
-__Learning Record Consumer (LRC)__: An xAPI Client that accesses data from Learning Record Store(s) with the intent of processing 
-the data, including interpretation, analysis, translation, dissemination, and aggregation.
+__Learning Record Consumer 学习记录客户 (LRC)__: 作为xAPI的使用者，客户端，以应用学习记录储存库LRS中的数据为主要目的，包括解释，分析，翻译和传播等。
+
+<br>
 
 <a name="def-learning-record-provider" ></a>
 
-__Learning Record Provider (LRP)__: An xAPI Client that sends data to Learning Record Store(s).  Often, the Learning Record 
-Provider will create Learning Records while monitoring a learner as a part of a Learning Experience.
+__Learning Record Provider 学习记录供应商 (LRP)__:  同样作为xAPI的一个客户端，以创建学习记录并发送到学习记录储存库LRS为主要目的，通常为所被记录学习者学习的一些服务商。
+
+<br>
 
 <a name="def-learning-record-store" ></a>
 
-__Learning Record Store (LRS)__: A server (i.e. system capable of receiving and processing web requests) that is responsible 
-for receiving, storing, and providing access to Learning Records.
+__Learning Record Store 学习记录存储 (LRS)__: 一个服务器（即能够接收和处理Web请求的系统）负责接收，存储和提供访问学习记录。
+
+<br>
 
 <a name="def-metadata-consumer" ></a>
 
-__Metadata Consumer__: A person, organization, software program or other thing that seeks to determine the meaning represented
-by an IRI used within this specification and/or retrieves metadata about an IRI. An LRS might or might not be a metadata consumer. 
+__Metadata Consumer 元数据消费者__: 一个人，组织，或软件，旨在，查看或是获取由本规范中所定义的IRI所解析出的元数据或与其相关的东西。一个LRS可能是也可能不是一个元数据的消费者。
+
+<br>
 
 <a name="def-metadata-provider" ></a>
 
-__Metadata Provider__: A person, organization, software program or other thing that coins IRIs to be used within 
-this specification and/or hosts metadata about an IRI. 
+__Metadata Provider 元数据提供者__: 一个人，组织，或软件程序，以一定价格将由本规范中所定义的IRI所解析出的元数据作为服务的提供者。
+
+<br>
 
 <a name="def-persona" ></a>
 
-__Persona__: A set of one or more representations which defines an Actor uniquely.  Conceptually, this is like 
-having a "home email" and a "work email".  Both are the same person, but have different data, associations, etc.
+__Persona 身份__: 一组唯一定义了一个执行者的一个或多个表示。从概念上讲，这就像有一个“生活电子邮件”和“工作电子邮件”。两者虽然是同一个人，但有不同的数据，联系作用等。
+
+<br>
 
 <a name="def-profile" ></a>
 
-__Profile__: A specific set of rules and documentation for implementing xAPI in a particular context. Profiles generally provide a 
-particular vocabulary of terms, some created specifically for the profile, and some are referenced from other vocabularies. 
-Sometimes a profile might provide multiple vocabularies for different situations, and sometimes someone might curate a vocabulary 
-from multiple sources without creating a profile.  Not to be confused with [Document Profile Resource](#def-document-profile).
+__Profile 预配置__:一组简单描述如何实施xAPI的文档。预配置一般提供一些术语来解释特定词汇，一些是专门为预配置所创建的，有些是从其它词汇中引用过来的。有时，一个预配置可能针对不同情况提供多个解释，有时有人会解释来自多个来源的同一个词汇，而无需创建一个新的预配置。不要与文档配置资源[Document Profile Resource](#def-document-profile)相混淆。 
+
+<br>
 
 <a name="def-registration" ></a>
 
-__Registration__: An instance of an Actor experiencing a particular Activity.
+__Registration 注册__: 一个当事人去经历一个特定的活动的实例。
+
+<br>
 
 <a name="def-rest" ></a>
 
-__Representational State Transfer (REST)__: An architecture for designing networked web services.
-It relies on HTTP methods and uses current web best practices.
+__Representational State Transfer 具象状态传输 (REST)__: 用于设计网络Web服务的架构。它依赖于HTTP方法和使用当前最佳的网络规范。
+
+<br>
 
 <a name="def-service" ></a>
 
-__Service__: A software component responsible for one or more aspects of the distributed learning process. 
-An LMS typically combines many services to design a complete learning experience.
+__Service 服务__: 一个软件或者系统负责提供离散式学习的某个方面。一个典型的例子就是一个LMS集成了多个服务，从而实现管理完整的学习活动。
+
+<br>
 
 <a name="def-statement" ></a>
 
-__Statement__: A data sctructure showing evidence for any sort of experience or event which is to be tracked 
-in xAPI as a Learning Record.  A set of several Statements, each representing an event in time, might be used 
-to track complete details about a learning experience.  
+__Statement 语句__: 用于表达任何形式的学习活动或事件的语法结构。成组的有着相应时间的语句则用来描述某个学习活动的详细信息。 
+
+<br>
 
 <a name="def-tcapi"></a>
 
-__Tin Can API (TCAPI)__: The previous name of the API defined in this document, often used in 
-informal references to the Experience API.  
+__Tin Can API (TCAPI)__: xAPI的另外一个名字。
+
+<br>
 
 <a name="def-verb" ></a>
 
-__Verb__: Is the action being done by the Actor within the Activity within a Statement. 
-A Verb represents the "did" in "I did this".
+__Verb 行动__: 由当事人（学习者）所执行的的某个动作，在“I did this”语句结构中作为did。
+
+<br>
 
 <a name="def-vocabulary" ></a>
 
-__Vocabulary__: A list or collection of the terms that are used by a COP for labeling or categorizing information in a 
-particular domain. The use of a vocabulary ensures that everyone is using the same word to mean the same thing. For more 
-information on vocabularies, see the [xAPI Vocabulary Companion Specification](https://github.com/adlnet/companion-specification-for-xapi-vocabularies/blob/master/SUMMARY.md).
+__Vocabulary 术语词汇__:一个包含了特定领域术语的集合。旨在规范每个人都使用同样的词汇，从而方便理解和交流。请参阅xAPI词汇规范 [xAPI Vocabulary Companion Specification](https://github.com/adlnet/companion-specification-for-xapi-vocabularies/blob/master/SUMMARY.md)。
+
+<br>
 
 <a name="xapi-components" ></a>
 
-## 5.0 xAPI Components
+## 5.0 xAPI Components 组件
 
-This section explains and shows graphically how different pieces of xAPI can fit together.  
+这个部分图像化的解释和展示了xAPI的各个部分是如何应用到一起的。
 
-##### Tracking Experiences
+##### 追踪学习经历
 
-###### Figure 1: Data Flow in xAPI
+###### Figure 1: xAPI数据流
 ![Data Flow in xAPI](./xAPIDataFlow.jpg)
 
-Figure 1 shows the tracking of learning experiences. A learner has a learning experience. This experience could take place in an 
-online course, it could be on the job or it could be part of recreation. It really could be anything. This experience is tracked, 
-on the learner’s behalf, by a trusted Learning Record Provider (LRP). The Learning Record Provider can also be responsible for the 
-trusted relationship between the experience and the learner. This might even include launching content for the learner and 
-managing digital rights associated with the content.  
+图1给出了跟踪学习记录的过程，一个学习者在学习过程中会有学习活动，这可能是发生在一个慕课网站（在线网络教育）中，也有可能是工作中，更甚于在娱乐活动中。然后这个活动被受信任的学习记录提供商追踪，从而代表着学习者的经历。这可能是某个学习者开始去执行了某个内容，与内容的完成度等等。
 
-The Learning Record Provider creates Learning Records and sends them to one or more Learning Record Stores (LRSs). The LRS stores
-the Learning Records and makes them available to any authorized Client. A Learning Record Consumer (LRC) is a type of Client that accesses 
-Learning Records and makes use of them.
+<br>
 
-##### Activity Data and Metadata
+学习记录提供商创建学习记录然后发送到一个或者多个LRS中，然后这个LRS将这些数据保存下来，然后给予受信任的第三方访问权限，从而受信任的第三方(学习记录消费者)根据这些数据来管理，推送，执行合适的内容或者其他操作。
 
-###### Figure 2: xAPI Activity Data and Metadata
+<br>
+
+##### 活动数据和元数据
+
+###### Figure 2: xAPI活动数据和元数据
 ![xAPI Activity Data and Metadata](./xAPIMetadata.jpg)
 
-Understanding how a single Activity (as uniquely identified by its IRI) is defined and described is a key concept in xAPI. 
-Figure 2 shows this process. An Activity (as a part of a Statement) has metadata properties that may be populated within the 
-Statement itself. This is done in the Statement's Activity Definition. The id of each Activity is an IRI which also could have 
-metadata located at the resolution location of the IRI. Any metadata where the IRI resolves is under the control of the Metadata 
-Provider. The Metadata Provider is also responsible for making sure the IRI is permanent and resolves correctly.
+在xAPI中，理解如何来定义和描述一个活动（由一个唯一IRI标识）是一个非常关键的概念 图2展示了这个过程。一个活动（作为语句的一部分）有着相应的元数据，这些数据有可能是语句本身定义，这是由语句活动定义规范定义的。对于每一个活动的id，都是一个IRI，而在这个IRI的对应解析地址下也可能有元数据。任何IRI所解析的元数据都在元数据提供者的控制之下，而元数据提供者也呀负责确保IRI的长期存在和解析的正确性。
 
-Any metadata located at where the IRI resolves is the authoritative source of metadata, and could be used to populate the LRS's 
-canonical version of the Activity's metadata (LRS's Activity Definition) as a preference to what it receives from Statements. 
-A Metadata Consumer can access metadata via the IRI for the authoritative version or can query the Activities Resource for the 
-canonical version.
+<br>
 
-##### Agent and Persona Management
+任何位于由IRI所解析地址的元数据都是关于元数据的权威性资源。可以被用于作为LRS规范的对于相应活动的元数据的定义，和解析参考。一个元数据消费者可以通过IRI访问权威性版本的元数据，或者查询活动元数据的典范版本。
 
-###### Figure 3: xAPI Agent and Persona Management
+<br>
+
+##### 代理和身份管理
+
+###### Figure 3: xAPI代理和身份管理
 ![xAPI Activity Data and Metadata](./xAPIPersonas.jpg)
 
-xAPI grants the framework for allowing selective access to one's personal data. This is done through the management of what are 
-called personas. In xAPI, each persona represents the "I" in "I did this" and is logically the subject of the Statement. Each 
-Agent or Group in xAPI corresponds to a persona. A learner sending Learning Records to an LRS could have multiple personas (Agents) 
-associated with him or her. 
+xAPI 提供了允许选择性的访问某人的个人信息的框架。这是通过被称为“身份”的管理系统所实现的。在xAPI中，每一个身份代表着“I”在“I did this”语句中，作为逻辑上的主语。每一个代理或团体在xAPI中对应一种身份，某个学习者发送了一条学习记录到一个LRS可以是通过多重身份的。
 
-In Figure 3, a learner accesses multiple services. Some of these services are used at work, others at home.  Some are used for 
-social purposes and others are used for educational or professional puproses.  Thus, there are multiple personas functioning 
-collectively within these services.  Each of these services send data to the LRS. Afterwards, there are Statements from three 
-different personas of the same learner. 
+<br>
 
-The LRS can aggregate all of the information of each of the personas into one "Person" Object. This object can be retrieved from 
-The LRS via the [Agents Resource](./xAPI-Communication.md#agentsres). How the LRS knows that these 
-multiple personas belong to a single person is out of scope of this specification and there are several different approaches
-that an LRS can take. It's also possible that some LRSs will have no mechanism for associating personas. 
+在图3中，一个学习者访问多种服务，其中的一些是在工作中，其余的是在家里，一些是为了社交，另一些是为了教育或者私人原因。所以说这些服务的功能是基于不同身份的，每一个服务都会给LRS发送数据，之后，就会有以三种不同身份的三条记录存于LRS中，而它们属于同一个人
+
+<br>
+
+LRS能将对于多重身份的所有信息都整合到一个“人”对象中，而这个对象能通从LRS中通过[Agents Resource 代理资源](./xAPI-Communication.md#agentsres)而被解析出来，LRS怎么能知道这些多重身份属于某个人在这里不做讨论。 
 
 <a name="extending-xapi" ></a>
 
-## 6.0 Extending xAPI
+## 6.0 Extending xAPI xAPI扩展
 
-xAPI can be extended in a few ways. The most notable are Statement extensions, which allow great flexibility within Statements. 
-It is recommended that Communities of Practice agree on how to use extensions for their particular use cases and utilize 
-profiles whenever possible. Implementation details are covered in [4.1 Extensions](./xAPI-Data.md#miscext).
+xAPI 能在多方面进行扩展，最值得注意的是语句的扩展，对于语句有着巨大的灵活性。对于特定的用例和应用配置，推荐使用xAPI社区认可的扩展。实现详细信息请参考[4.1 Extensions](./xAPI-Data.md#miscext).
 
-The About Resource is another instance where xAPI supports extensions.  The LRS may find it useful to communicate features or 
-behaviors beyond this specification. The LRS can use extensions to the About Resource to facilitate this communication.
+<br>
 
-Finally, the set of resources implemented is not expected to be constrained by this document. Resources beyond 
-those listed in this specification can be implemented and co-exist with the resources defined in this specification.
+另外一个可扩展的例子是About信息，LRS的交互优势可能超过本申明所及。扩展LRS的说明信息可以对社区带来贡献。
+
+<br>
+
+最后，对于本xAPI资源的实施并不仅限于本文档所描述。超出本文档所列出的措施之外的可实施措施也是可行的。
 
 <a name="COPs" ></a>
 
 ## 7.0 Profiles, Vocabularies, and Communities of Practice
 
-xAPI strictly defines the structure of Statements, but is very flexible as to the contents of that structure. For example, the 
-specification requires that all Statements have a "verb" property, but does not restrict the values of that property; any Verb 
-can be used. This flexibility enables xAPI to be used in any context, including future use cases not envisaged by the 
-specification authors.
+xAPI 严格定了的语句的结构，但是以该结构为基础的内容却非常的灵活，例如，本规范要求所有的语句必须包含一个“verb”属性，但是并没有限制这个属性的值，任何“动作”都可以视同。这种灵活性给了xAPI足够的应用空间来适应未来的用例。
 
-It is intended that [Communities of Practice (CoPs)](#def-community-of-practice) will define Verbs, Activity types, 
-contextual relationships, extensions, etc. 
-to be used in their profiles by providing unique identifiers wherever applicable. The CoP will define these identifiers and 
-their metadata in a [Vocabulary](#def-vocabulary). A profile is a set of rules and vocabularies to implemented in addition to 
-xAPI for the particular use case being addressed. It is very important that such communities exist and share best practices. 
-For more information on publishing vocabularies, see the [Vocabulary Companion Specification](https://adl.gitbooks.io/companion-specification-for-xapi-vocabularies/content) and [Vocabulary Primer](https://adl.gitbooks.io/experience-xapi-vocabulary-primer/content/) documents.
+<br>
 
-It is recommended that a profile use a unique "category" within a Statement's context to refer to any Statement  
-which implements the profile.  An example profile is [cmi5](https://github.com/AICC/CMI-5_Spec_Current), 
-which is designed for the traditional single learner, single online learning use case.  An example cmi5 Statement can 
-be found in [Appendix B: cmi5 Example](#Appendix1B).
+xAPI社区[Communities of Practice (CoPs)](#def-community-of-practice)在他们的配置文件里定义Verb、Activity 类型，上下文关系，扩展等的意图是为了在可以应用的情况中提供一个唯一的标识。xAPI社区将这些标识和他们的元数据定义到了词汇集[Vocabulary](#def-vocabulary)中。一个配置文件是一系列为了满足特定用例而需要被实现的规则和词汇。它一个非常有利于社区的重要的实施方式，寻求更多有关于已发布词汇集，请阅览伴随词汇规范[Vocabulary Companion Specification](https://adl.gitbooks.io/companion-specification-for-xapi-vocabularies/content)文档和词汇入门[Vocabulary Primer](https://adl.gitbooks.io/experience-xapi-vocabulary-primer/content/)文档。
 
-CoPs are highly recommended to avoid duplication of effort, as creating too many ways to solve the same problem 
-will cause fragmentation in similar domains and can potentially hurt interoperability.  An example of a CoP for the medical 
-field is the [MedBiquitous Learning Experience Working Group](http://groups.medbiq.org/medbiq/display/XIG/Learning+Experience+Group+Home).
+<br>
+
+
+推荐对于一个配置情形使用一个唯一的“分类”，并且提供一个具体的语句实例作为参考。一个典范配置清醒是cmi5，一个设计给传统个人学习者的线上学习用例。你可以在附录B
+Cmi5 实例中查看。 [Appendix B: cmi5 Example](#Appendix1B).
+
+<br>
+
+多利用xAPI社区资源是非常推荐的，这样可以避免进行重复工作，就是说用不同的方式来解决同一个问题，这会带来在同类领域的碎片化，并且可能伤害互操作性。这里有一个关于医学领域的实例 [MedBiquitous Learning Experience Working Group](http://groups.medbiq.org/medbiq/display/XIG/Learning+Experience+Group+Home).
 
 
 <a name="append1"></a>
-## Appendices
+## 附录
 
-<a name="Appendix1A"></a>
-### Appendix A: Revision History
-###### 0.8 (Project Tin Can API Deliverable) to 0.9 (March 31, 2012)  
-  
-Rustici Software, who delivered the Project Tin Can API, made modifications to the 
-API prior to the April 2012 Kickoff Meeting. It was voted in this meeting to 
-move those changes into the current specification and revision to 0.9.
 
-###### 0.90 to 0.95 (August 31, 2012)  
-
-"Core" Verbs and Activity types were removed from the specification. References 
-to these verbs in results, context, interactions, and Activity Definitions were 
-also removed. It was recommended that implementers prefer community defined 
-verbs to creating their own verbs.
-- Verbs, Activity types, and extension keys are now URIs
-- Restructured and added language around some of the other implementation details and scope.
-- Changed from using a person-centric view of Agents to a persona-centric view.
-- Friend of a Friend (FOAF) Agent merging requirement was removed.
-- Agent Objects now have exactly 1 uniquely identifying property, instead of at least one.
-
-###### 0.95 to 1.0.0 (April 26, 2013) 
-Various refinements and clarifications including:
-- Adding Attachments
-- Activity metadata is now stored as JSON rather than XML
-- Changes to voiding Statements
-- Clarification and naming of the Document APIs (later renamed to Document Resources)
-- Changes to querying the Statement API
-- Signed Statements
-
-[0.95...1.0.0](https://github.com/adlnet/xAPI-Spec/compare/0.95-spec...1.0.0)
-
-###### 1.0.0 to 1.0.1 (October 1, 2013)
-Clarifications and additional examples including:
-- Fixed various typos
-- Added additional examples in the appendices
-
-[1.0.0...1.0.1](https://github.com/adlnet/xAPI-Spec/compare/1.0.0...1.0.1)
-
-###### 1.0.1 to 1.0.2 (October 1, 2014)
-- Added optional/required to tables
-- Added missing table heading on Interaction components
-- Change yes/no to required/optional in attachments
-- Clarified intent of 'moreInfo' property
-
-[1.0.1...1.0.2](https://github.com/adlnet/xAPI-Spec/compare/1.0.1...1.0.2)
-
-###### 1.0.2 to 1.0.3 (September 21, 2016)
-- Complete reorganization of the document into three parts
-- Many, many clarifications
-- Definitions slightly modified and greatly clarified
-- Removed back-references to SCORM
-- Additional explanatory text and diagrams
-- Rename Statement API and Document APIs to Statement Resource and Document Resources
-
-[1.0.2...1.0.3](https://github.com/adlnet/xAPI-Spec/compare/1.0.2...1.0.3)
 
 <a name="Appendix1B"></a>
 ### Appendix B: cmi5 Example 
 
 The following example illustrates a statement following the cmi5 Community of Practice. It demonstrates use of extensions 
 and "category" contextActivities.
+
+下面的例子展示了一个语句是如何按cmi5社区所规范的配置来构建的，还演示了扩展的运用和“分类”内容。
 
 ```
 {  
