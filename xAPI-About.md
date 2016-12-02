@@ -1,23 +1,3 @@
-# Experience API
-## Advanced Distributed Learning (ADL) Co-Laboratories
-
->#### License
-
->"Copyright 2013 Advanced Distributed Learning (ADL) Initiative, U.S. Department of Defense
-
->Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except 
->in compliance with the License. You may obtain a copy of the License at
->http://www.apache.org/licenses/LICENSE-2.0
-
->Unless required by applicable law or agreed to in writing, software distributed under the License 
->is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express 
->or implied. See the License for the specific language governing permissions and limitations under 
->the License."
-
->This document was authored by members of the Experience API Working Group (see 
->list in [CONTRIBUTING.md](CONTRIBUTING.md#contributors)) in support of the Office of the Deputy Assistant Secretary of 
->Defense (Readiness) Advanced Distributed Learning (ADL) Initiative. Please 
->send all feedback and inquiries to helpdesk@adlnet.gov  
 
 ## Table of Contents
 *	Part One:	[About the Experience API](./xAPI-About.md#partone)  
